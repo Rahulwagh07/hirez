@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+ /* for dark mode */
+/* 
+:root {
+    --color-bg: #000000;
+    --color-fg: #ffffff;
+  }
+  
+  @media (prefers-color-scheme: light) {
+    :root {
+      --color-bg: #ffffff;
+      --color-fg: #000000;
+    }
+  }
+  
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-fg);
+  } */
+  
