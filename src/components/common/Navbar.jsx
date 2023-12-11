@@ -17,7 +17,8 @@ function Navbar() {
     let notifications = 1;
 
   return (
-    <div className='flex items-center justify-center transition-all duration-300 section_bg py-4 box-shadow'>
+    //remove the static height  of 100px from here
+    <div className='flex items-center justify-center transition-all duration-300 section_bg py-4 box-shadow h-[100px]'>
         <nav className='flex justify-between max-w-maxScreen w-10/12'>
             <Link to={"/"} className='flex gap-4 '>
                 <img src={logo} className='w-12 h-12'/>
