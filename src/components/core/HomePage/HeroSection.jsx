@@ -5,7 +5,7 @@ import HeroSectionimg from "../../../assets/HeoSectionimg.jpg"
 function HeroSection() {
   return (
     <div className='w-10/12 flex mt-20 gap-8'>
-        <div className='flex flex-col gap-10
+        <div className=' bg-[#fff] flex flex-col gap-10
          w-6/12'>
             <h2 className='text-5xl text-blue-150'>Find the Perfect Content Creators</h2>
             <p className='text-lg'>Connect With skilled video editors, scripts writeres, thumbnail designers, and more.

@@ -27,4 +27,24 @@
 .color3{
   background-color: #7877E6;
 }
+.box-shadow{
+  box-shadow: rgba(157, 157, 157, 0.2) 0px 4px 10px;
+ 
+}
+.section_bg{
+  background-color: rgba(247, 248, 252, 1);
   
+}
+.border-brand{
+  border-color: rgb(102, 116, 204);
+  border-width: 1px;
+}
+
+.form-style {
+  @apply rounded-lg bg-white-25 p-3 text-[16px] leading-[24px] text-black shadow-white-50 placeholder:text-richblack-400 focus:outline-none;
+}
+@layer utilities {
+  .shadow-white-50 {
+    box-shadow: rgba(255, 255, 255, 0.5) 0px 1px 0px 0px;
+  }
+}

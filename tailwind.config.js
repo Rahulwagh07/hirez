@@ -133,6 +133,9 @@ module.exports = {
       indigo:{
         500:"#6674CC",
       },
+      bluegrey:{
+        50:"#F7F8FC",
+      },
     },
     extend: {
       maxWidth: {

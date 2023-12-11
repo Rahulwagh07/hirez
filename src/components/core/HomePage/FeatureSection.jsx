@@ -4,7 +4,7 @@ import { cardsData } from '../../../data/CardsData'
  
 function FeatureSection() {
   return (
-     <div className='w-10/12  mt-32 flex flex-col items-center gap-4'>
+     <div className='w-10/12  mt-32 flex flex-col items-center gap-4' id='feature'>
         <h2 className='text-blue-150 font-bold text-2xl'>WHY Hire-Studio?</h2>
         <p className='text-5xl font-bold'>
             Making Hiring Easier and <br className="mx-auto" /> more convenient for you.
