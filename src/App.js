@@ -4,13 +4,13 @@ import { useDispatch, useSelector } from "react-redux"
 import { Route, Routes, useNavigate } from "react-router-dom"
 
  import { ACCOUNT_TYPE } from "./utils/constants"
-
+import { getUserDetails } from "./services/operations/profileAPI"
  //components
 import Navbar from "./components/common/Navbar"
 import OpenRoute from "./components/core/Auth/OpenRoute"
+import MyProfile from "./components/core/Dashboard/MyProfile"
+import PrivateRoute from "./components/core/Auth/PrivateRoute"
  
-
-
 //Pages
 import Home from "./pages/Home"
 import Contact from "./pages/Contact"
@@ -20,9 +20,22 @@ import Signup from "./pages/Signup"
 import VerifyEmail from "./pages/VerifyEmail"
 import UpdatePassword from "./pages/UpdatePassword"
 import ForgotPassword from "./pages/ForgotPassword"
-
+import Dashboard from "./pages/Dashboard"
+ 
 
 function App() {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const { user } = useSelector((state) => state.profile)
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      const token = JSON.parse(localStorage.getItem("token"))
+      dispatch(getUserDetails(token, navigate))
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
 
   return (
     <div className="flex min-h-screen w-screen flex-col">
@@ -73,6 +86,20 @@ function App() {
             </OpenRoute>
           }
         />
+
+          {/* Private Route - for Only Logged in User */}
+        <Route 
+          element={
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
+               
+          }
+        />
+        
+         />
+        {/* Route for all users */}
+        <Route path="dashboard/my-profile" element={<MyProfile />} />
     </Routes>
 </div>
   );
