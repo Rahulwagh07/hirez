@@ -21,6 +21,7 @@ import VerifyEmail from "./pages/VerifyEmail"
 import UpdatePassword from "./pages/UpdatePassword"
 import ForgotPassword from "./pages/ForgotPassword"
 import Dashboard from "./pages/Dashboard"
+import NotFoundPage from "./pages/NotFoundPage"
  
 
 function App() {
@@ -95,11 +96,12 @@ function App() {
             </PrivateRoute>
                
           }
-        />
-        
-         />
-        {/* Route for all users */}
-        <Route path="dashboard/my-profile" element={<MyProfile />} />
+        >
+          {/* Route for all users */}
+          <Route path="dashboard/my-profile" element={<MyProfile/>} /> 
+        </Route>
+       
+        <Route path="*" element={<NotFoundPage/>} />
     </Routes>
 </div>
   );
