@@ -10,6 +10,9 @@ import Navbar from "./components/common/Navbar"
 import OpenRoute from "./components/core/Auth/OpenRoute"
 import MyProfile from "./components/core/Dashboard/MyProfile"
 import PrivateRoute from "./components/core/Auth/PrivateRoute"
+import Settings from "./components/core/Dashboard/Settings"
+import PostNewJob from "./components/core/Dashboard/PostNewJob"
+import PostedJob from "./components/core/Dashboard/PostedJob"
  
 //Pages
 import Home from "./pages/Home"
@@ -98,7 +101,17 @@ function App() {
           }
         >
           {/* Route for all users */}
-          <Route path="dashboard/my-profile" element={<MyProfile/>} /> 
+          <Route path="dashboard/my-profile" element={<MyProfile/>} />
+          <Route path="dashboard/Settings" element={<Settings/>} />
+
+           {/* Route only for Creator */}
+          {user?.accountType === ACCOUNT_TYPE.CREATOR && (
+            <>
+              <Route path="dashboard/post-newjob" element={<PostNewJob/>} />
+              <Route path="dashboard/posted-job" element={<PostedJob/>} />
+            </>
+          )}
+
         </Route>
        
         <Route path="*" element={<NotFoundPage/>} />

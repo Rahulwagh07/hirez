@@ -50,7 +50,7 @@ exports.getJobDetails = async (req, res) => {
 exports.createJob = async (req, res) => {
     try {
         // Extract job details from the request body
-        const { title, description, skillRequired, qualification, salary, status} = req.body;
+        const { title, description, skillRequired, qualification, location, salary, status} = req.body;
 
         // Get the creator's ID  
         const creatorID = req.user.id;
@@ -77,6 +77,7 @@ exports.createJob = async (req, res) => {
             description,
             skillRequired,
             qualification,
+            location,
             salary,
             status,
             creator: creatorID,
