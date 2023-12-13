@@ -8,24 +8,17 @@ export const sidebarLinks = [
   },
   {
     id: 2,
-    name: "Dashboard",
-    path: "/dashboard/instructor",
+    name: "Post new Job",
+    path: "/dashboard/post-newjob",
     type: ACCOUNT_TYPE.CREATOR,
     icon: "VscDashboard",
   },
   {
     id: 3,
-    name: "My Courses",
-    path: "/dashboard/my-courses",
+    name: "Posted Job",
+    path: "/dashboard/posted-job",
     type: ACCOUNT_TYPE.CREATOR,
     icon: "VscVm",
-  },
-  {
-    id: 4,
-    name: "Add Course",
-    path: "/dashboard/add-course",
-    type: ACCOUNT_TYPE.CREATOR,
-    icon: "VscAdd",
   },
   {
     id: 5,
