@@ -19,6 +19,8 @@ export const endpoints = {
     GET_ALL_APPLIEDJOBS_API: BASE_URL + "/job/getAllAppliedJobs",
     GET_JOB_DETAILS_API: BASE_URL + "/job/getJobDetails",
     CREATE_JOB_API: BASE_URL + "/job/createJob",
+    EDIT_JOB_API: BASE_URL + "/job/editJob",
+    DELETE_JOB_API : BASE_URL + "/job/deletJob",
     GET_ALL_APPLICANTS_FOR_JOB_API: BASE_URL + "/job/getAllApplicantsForJob",
     HIRE_JOBSEEKER_API: BASE_URL + "/job/hireJobSeeker",
     GET_ALL_JOBS_BY_CREATOR_API: BASE_URL + "/job/getAllJobsByCreator",
