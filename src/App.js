@@ -12,8 +12,9 @@ import MyProfile from "./components/core/Dashboard/MyProfile"
 import PrivateRoute from "./components/core/Auth/PrivateRoute"
 import Settings from "./components/core/Dashboard/Settings"
 import PostNewJob from "./components/core/Dashboard/PostNewJob"
-import PostedJob from "./components/core/Dashboard/PostedJob"
- 
+import MyJobs from "./components/core/Dashboard/MyJobs"
+import EditJob from "./components/core/Dashboard/EditJob"
+
 //Pages
 import Home from "./pages/Home"
 import Contact from "./pages/Contact"
@@ -26,6 +27,7 @@ import ForgotPassword from "./pages/ForgotPassword"
 import Dashboard from "./pages/Dashboard"
 import NotFoundPage from "./pages/NotFoundPage"
  
+  
 
 function App() {
   const dispatch = useDispatch()
@@ -108,7 +110,11 @@ function App() {
           {user?.accountType === ACCOUNT_TYPE.CREATOR && (
             <>
               <Route path="dashboard/post-newjob" element={<PostNewJob/>} />
-              <Route path="dashboard/posted-job" element={<PostedJob/>} />
+              <Route path="dashboard/posted-job" element={<MyJobs/>} />
+              <Route
+                path="dashboard/edit-job/:jobId"
+                element={<EditJob/>}
+              />
             </>
           )}
 

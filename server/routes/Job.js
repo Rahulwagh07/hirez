@@ -6,6 +6,8 @@ const {
     getAllAppliedJobs,
     getJobDetails,
     createJob,
+    editJob,
+    deleteJob,
     getAllApplicantsForJob,
     hireJobSeeker,
     getAllJobsByCreator,
@@ -15,12 +17,14 @@ const {
 
 // Routes for Jobs
 router.get("/getAppliedJobs", auth, getAllAppliedJobs);
-router.get("/getJobDetails", getJobDetails);
+router.get("/getJobDetails/:jobId", getJobDetails);
 router.post("/createJob", auth, createJob);
+router.post("/editJob", auth, editJob);
 router.get("/getAllApplicants", auth, getAllApplicantsForJob);
 router.put("/hireJobSeeker", auth,  hireJobSeeker);
-router.get("/getAllJob", auth,  getAllJobsByCreator);
+router.get("/getAllJobsByCreator", auth,  getAllJobsByCreator);
 router.post("/applyForJob", auth, applyForJob);
+router.delete("/deleteJob", deleteJob);
 
  
 module.exports = router

@@ -29,12 +29,10 @@ exports.getAllAppliedJobs = async (req, res) => {
 
 exports.getJobDetails = async (req, res) => {
     try {
-        
         const { jobId } = req.params;
-
         // Find the specific job based on the job ID
         const jobDetails = await Job.findById(jobId)
-            .populate('creator', 'firstName lastName email');  
+            .populate('creator', 'firstName lastName email').exec();  
 
         if (!jobDetails) {
             return res.status(404).json({ success: false, error: 'Job not found' });
@@ -107,6 +105,47 @@ exports.createJob = async (req, res) => {
     }
 };
 
+exports.editJob = async (req, res) => {
+    try {
+        const jobId = req.user.id;  
+        const { title, description, skillRequired, qualification, location, salary, status } = req.body;
+
+        // Validate job details
+        if (!title || !description || !skillRequired || !salary || !status) {
+            return res.status(400).json({ success: false, error: 'Title, description, skillRequired, salary are required fields' });
+        }
+
+        // Find the job by ID
+        const existingJob = await Job.findById(jobId);
+
+        if (!existingJob) {
+            return res.status(404).json({ success: false, error: 'Job not found' });
+        }
+
+        // Check if the user making the request is the creator of the job
+        if (existingJob.creator.toString() !== req.user.id) {
+            return res.status(403).json({ success: false, error: 'Unauthorized access' });
+        }
+
+        // Update the job fields
+        existingJob.title = title;
+        existingJob.description = description;
+        existingJob.skillRequired = skillRequired;
+        existingJob.qualification = qualification;
+        existingJob.location = location;
+        existingJob.salary = salary;
+        existingJob.status = status;
+
+        // Save the updated job
+        await existingJob.save();
+
+        res.status(200).json({ success: true, data: existingJob });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ success: false, error: 'Error in updating the job' });
+    }
+};
+
  
 exports.getAllApplicantsForJob = async (req, res) => {
     try {
@@ -164,6 +203,7 @@ exports.getAllJobsByCreator = async (req, res) => {
     try {
         // Get the creator's ID  
         const creatorID = req.user.id;
+        console.log("PRINTING CREATOR ID....", creatorID)
 
         if (!creatorID) {
             return res.status(401).json({ success: false, error: 'Unauthorized' });
@@ -221,3 +261,25 @@ exports.applyForJob = async (req, res) => {
         res.status(500).json({ success: false, error: 'Server Error' });
     }
 };
+
+
+exports.deleteJob = async (req, res) => {
+    try{
+        const { jobId } = req.body;
+
+        const job = await Job.findById(jobId)
+
+        if(!job){
+            return res.status(404).json({ message: "Job not found" })
+        }
+
+        //To do find more from where have to delete
+
+        await job.findByIdAndDelete(jobId)
+
+        return res.status(200).json({ success: true, message: "Job Deleted Successfullly", });
+    } catch(error) {
+        console.error(error)
+        return res.status(500).json({ success: false, message: "Server Error", error: error.message, });
+    }
+}
