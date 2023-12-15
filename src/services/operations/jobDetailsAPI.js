@@ -65,20 +65,26 @@ export const editJobDetails = async (data, token) => {
 export const getFullJobDetails = async (jobId, token) => {
     const toastId = toast.loading("Loading...")
     let result = null
-
     try{
-        const response = await apiConnector("GET", GET_JOB_DETAILS_API + `/${jobId}`, null, {
-            Authorization: `Bearer ${token}`,
-        });
+        const response = await apiConnector(
+            "POST",
+            GET_JOB_DETAILS_API,
+            {
+                jobId,
+            },
+            {
+                Authorization: `Bearer ${token}`,
+            }
+        )
 
-        if(!response.data.success){
+        if (!response.data.success) {
             throw new Error(response.data.message)
         }
-        result = response?.data.data
-
-    } catch(error) {
-        console.log("GET JOB details API error....", error)
+        result = response?.data?.data
+    } catch(error){
+        console.log("COURSE_FULL_DETAILS_API API ERROR............", error)
         result = error.response.data
+        toast.error(error.response.data.message);
     }
     toast.dismiss(toastId)
     return result

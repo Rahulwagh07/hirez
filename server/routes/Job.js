@@ -17,7 +17,7 @@ const {
 
 // Routes for Jobs
 router.get("/getAppliedJobs", auth, getAllAppliedJobs);
-router.get("/getJobDetails/:jobId", getJobDetails);
+router.post("/getJobDetails", auth, getJobDetails);
 router.post("/createJob", auth, createJob);
 router.post("/editJob", auth, editJob);
 router.get("/getAllApplicants", auth, getAllApplicantsForJob);
