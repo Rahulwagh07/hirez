@@ -2,6 +2,8 @@
 import JobCard from "./JobCard"
   
 export default function ShowJobs({ jobs, setJobs }) {
+  
+
     return (
             <div>
                 {jobs?.length === 0 ? (

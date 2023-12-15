@@ -5,51 +5,45 @@ import { setEditJob, setJob } from "../../../../slices/jobSlice";
 import JobInfo from "../PostNewJob/JobInfo";
 
 import { getFullJobDetails } from "../../../../services/operations/jobDetailsAPI";
-
+ 
 export default function EditJob() {
     const { jobId } = useParams()
     const { job } = useSelector((state) => state.job)
     const [loading, setLoading] = useState(false)
     const { token } = useSelector((state) => state.auth)
     const dispatch = useDispatch()
-
-    
+   console.log("REDUX JOB STATE", job)
+     
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                setLoading(true);
-                const result = await getFullJobDetails(jobId, token);
-                console.log("PRINTIGN JOB ID", jobId)
-
-                console.log("PRINTING JOBDETAILS REsult....", result)
+      const fetchData = async () => {
+        try {
+          setLoading(true);
+          const result = await getFullJobDetails(jobId, token);
+          console.log("PRINTN COURSEDETAILS result", result);
+          if (result?.data?.jobDetails) {
+            console.log("INSIDE IF");
+            dispatch(setEditJob(true));
+            dispatch(setJob(result?.jobDetails));
+          }
+        } catch (error) {
+          console.error('Error fetching job details:', error);
+        } finally {
+          setLoading(false);
+        }
+      };
     
-                if (result?.success) {
-                    // Check if the request was successful
-                    if (result.jobDetails) {
-                        dispatch(setEditJob(true));
-                        dispatch(setJob(result.jobDetails));
-                    } else {
-                        // Handle the case where jobDetails is not present
-                        console.error('Job details not found:', result.error);
-                    }
-                } 
-                setLoading(false);
-            } catch (error) {
-                console.error('Error fetching job details:', error);
-                setLoading(false);
-            }
-        };
+      fetchData(); // Invoke the fetchData function immediately
     
-        fetchData();
-        // Ensure to include dependencies if needed
-    }, []);
-
-    console.log("PRINTING JOB.....", job);
+      // Include dependencies in the array to ensure this effect runs only when these dependencies change
+    }, [dispatch, jobId, token]);
+    
+    
+     
     if(loading) {
         return (
             <div className="grid flex-1 place-items-center">
-                <div className="spinner"></div>
+                <div >Loading....</div>
             </div>
         )
     }
@@ -72,3 +66,5 @@ export default function EditJob() {
       )
     
 }
+
+ 

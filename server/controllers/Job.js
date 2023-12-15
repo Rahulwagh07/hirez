@@ -29,19 +29,36 @@ exports.getAllAppliedJobs = async (req, res) => {
 
 exports.getJobDetails = async (req, res) => {
     try {
-        const { jobId } = req.params;
+        const { jobId } = req.body;
         // Find the specific job based on the job ID
-        const jobDetails = await Job.findById(jobId)
-            .populate('creator', 'firstName lastName email').exec();  
-
+        const userId = req.user.id
+        const jobDetails = await Job.findOne({
+            _id: jobId,
+        })
+          .populate({
+            path: "creator",
+            populate: {
+                path: "additionalDetails",
+            }
+          })
+            .exec()
+        
         if (!jobDetails) {
-            return res.status(404).json({ success: false, error: 'Job not found' });
+            return res.status(400).json({
+                success: false,
+                message: `Could not find Job with id: ${jobId}`,
+            })
         }
 
-        res.status(200).json({ success: true, data: jobDetails });
+        return res.status(200).json({
+            success: true,
+            data: {
+                jobDetails,
+            }
+        })
     } catch (error) {
         console.error(error);
-        res.status(500).json({ success: false, error: 'Server Error' });
+        res.status(500).json({ success: false, error: error.message });
     }
 }
 

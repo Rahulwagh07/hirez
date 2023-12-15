@@ -17,6 +17,7 @@ const JobCard = ({ job, setJobs }) => {
     const [confirmationModal, setConfirmationModal] = useState(null);
     const navigate = useNavigate()
 
+     
     const handleJobDelete = async (jobId) => {
         setLoading(true);
         await deleteJob({ jobId: jobId }, token);
