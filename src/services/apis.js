@@ -25,6 +25,7 @@ export const endpoints = {
     HIRE_JOBSEEKER_API: BASE_URL + "/job/hireJobSeeker",
     GET_ALL_JOBS_BY_CREATOR_API: BASE_URL + "/job/getAllJobsByCreator",
     APPLY_FOR_JOB_API: BASE_URL +  "/job/applyForJob",
+    GET_ALL_OPEN_JOBS: BASE_URL + "/job/getAllJobs",
   }
 //Setting page endpoints
   export const settingsEndpoints = {

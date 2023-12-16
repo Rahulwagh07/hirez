@@ -5,16 +5,7 @@ import { Route, Routes, useNavigate } from "react-router-dom"
 
  import { ACCOUNT_TYPE } from "./utils/constants"
 import { getUserDetails } from "./services/operations/profileAPI"
- //components
-import Navbar from "./components/common/Navbar"
-import OpenRoute from "./components/core/Auth/OpenRoute"
-import MyProfile from "./components/core/Dashboard/MyProfile"
-import PrivateRoute from "./components/core/Auth/PrivateRoute"
-import Settings from "./components/core/Dashboard/Settings"
-import PostNewJob from "./components/core/Dashboard/PostNewJob"
-import MyJobs from "./components/core/Dashboard/MyJobs"
-import EditJob from "./components/core/Dashboard/EditJob"
-import AppliedJobs from "./components/core/Dashboard/AppliedJobs"
+ 
 
 //Pages
 import Home from "./pages/Home"
@@ -28,7 +19,18 @@ import ForgotPassword from "./pages/ForgotPassword"
 import Dashboard from "./pages/Dashboard"
 import NotFoundPage from "./pages/NotFoundPage"
  
-  
+ 
+ //components
+ import Navbar from "./components/common/Navbar"
+ import OpenRoute from "./components/core/Auth/OpenRoute"
+ import MyProfile from "./components/core/Dashboard/MyProfile"
+ import PrivateRoute from "./components/core/Auth/PrivateRoute"
+ import Settings from "./components/core/Dashboard/Settings"
+ import PostNewJob from "./components/core/Dashboard/PostNewJob"
+ import MyJobs from "./components/core/Dashboard/MyJobs"
+ import EditJob from "./components/core/Dashboard/EditJob"
+ import AppliedJobs from "./components/core/Dashboard/AppliedJobs"
+ import Searchbar from "./components/core/Dashboard/Searchbar"
 
 function App() {
   const dispatch = useDispatch()
@@ -124,6 +126,10 @@ function App() {
               <Route
                 path="dashboard/applied-jobs"
                 element={<AppliedJobs/>}
+              />
+              <Route 
+                path="dashboard/searchbar"
+                element={<Searchbar/>}
               />
             </>
           )}

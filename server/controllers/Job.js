@@ -12,7 +12,7 @@ exports.getAllAppliedJobs = async (req, res) => {
         const appliedJobs = await Applications.find({ applicant: userID })
             .populate({
                 path: 'job',  
-                select: 'title description skillRequired qualification salary status',
+                select: 'title description skillRequired category salary status',
                 populate: {
                     path: 'creator',
                     select: 'firstName lastName email', 
@@ -65,7 +65,7 @@ exports.getJobDetails = async (req, res) => {
 exports.createJob = async (req, res) => {
     try {
         // Extract job details from the request body
-        const { title, description, skillRequired, qualification, location, salary, status} = req.body;
+        const { title, description, skillRequired, category, location, salary, status} = req.body;
 
         // Get the creator's ID  
         const creatorID = req.user.id;
@@ -91,7 +91,7 @@ exports.createJob = async (req, res) => {
             title,
             description,
             skillRequired,
-            qualification,
+            category,
             location,
             salary,
             status,
@@ -125,7 +125,7 @@ exports.createJob = async (req, res) => {
 exports.editJob = async (req, res) => {
     try {
         const { jobId } = req.body  
-        const { title, description, skillRequired, qualification, location, salary, status } = req.body;
+        const { title, description, skillRequired, category, location, salary, status } = req.body;
 
         // Validate job details
         if (!title || !description || !skillRequired || !salary || !status) {
@@ -144,7 +144,7 @@ exports.editJob = async (req, res) => {
         existingJob.title = title;
         existingJob.description = description;
         existingJob.skillRequired = skillRequired;
-        existingJob.qualification = qualification;
+        existingJob.category = category;
         existingJob.location = location;
         existingJob.salary = salary;
         existingJob.status = status;
@@ -294,5 +294,58 @@ exports.deleteJob = async (req, res) => {
     } catch(error) {
         console.error(error)
         return res.status(500).json({ success: false, message: "Server Error", error: error.message, });
+    }
+}
+
+//controller for fetching all open Jobs
+exports.getAllJobs = async (req, res) => {
+    try {
+        let query = {
+            status: 'open',
+        };
+
+        
+        if (req.body.role) {
+            query.category = req.body.role;
+        }
+
+        if (req.body.location) {
+            query.location = req.body.location;
+        }
+
+        if (req.body.salary) {
+            const [minSalary, maxSalary] = req.body.salary.split('-').map(Number);
+            if (!isNaN(minSalary) && !isNaN(maxSalary)) {
+                query.salary = { $gte: minSalary, $lte: maxSalary };
+            } else {
+                console.error('Invalid salary format:', req.body.salary);
+            }
+        }
+
+        if (req.body.skills) {
+            query.skillRequired = { $all: req.body.skills };
+        }
+
+        // Apply search
+        if (req.body.search) {
+            query.$or = [
+                { title: { $regex: req.body.search, $options: 'i' } },
+                { description: { $regex: req.body.search, $options: 'i' } },
+            ];
+        }
+
+        const jobs = await Job.find(query);
+
+        res.status(201).json({ 
+            success: true, 
+            data: jobs 
+        });
+
+    } catch (error) {
+        console.log("Error Fetching jobs...", error);
+        res.status(500).json({ 
+            success: false, 
+            error: "Server error"
+        });
     }
 }

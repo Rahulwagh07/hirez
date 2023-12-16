@@ -29,8 +29,15 @@ export const sidebarLinks = [
   },
   {
     id: 6,
-    name: "Purchase History",
-    path: "/dashboard/purchase-history",
+    name: "Apply for Jobs",
+    path: "/dashboard/searchbar",
+    type: ACCOUNT_TYPE.JOBSEEKER,
+    icon: "VscHistory",
+  },
+  {
+    id: 7,
+    name: "Saved Jobs",
+    path: "/dashboard/saved-jobs",
     type: ACCOUNT_TYPE.JOBSEEKER,
     icon: "VscHistory",
   },
