@@ -118,8 +118,8 @@ function SearchJobs() {
       <div className="grid grid-cols-3 gap-4 mt-4">
         {/* Map through jobs and render JobCard component */}
         {jobs.map((job) => (
-            <button onClick={handleOnClick(job._id, job)}>
-                <JobCard key={job._id} job={job} setJobs={setJobs} state={state}/>
+            <button key={job._id} onClick={() => handleOnClick(job)}>
+                <JobCard job={job} setJobs={setJobs} state={state} />
             </button>
          ))}
 
