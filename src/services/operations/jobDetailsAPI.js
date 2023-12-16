@@ -44,7 +44,7 @@ export const editJobDetails = async (data, token) => {
     const toastId = toast.loading("Loading....")
 
     try{
-        const response = await apiConnector("POST", EDIT_JOB_API, { 
+        const response = await apiConnector("POST", EDIT_JOB_API, data, { 
            "Content-Type": "multipart/form-data",
             Authorization: `Bearer ${token}`,
         })

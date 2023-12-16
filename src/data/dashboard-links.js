@@ -22,8 +22,8 @@ export const sidebarLinks = [
   },
   {
     id: 5,
-    name: "Enrolled Courses",
-    path: "/dashboard/enrolled-courses",
+    name: "Applied Jobs",
+    path: "/dashboard/applied-jobs",
     type: ACCOUNT_TYPE.JOBSEEKER,
     icon: "VscMortarBoard",
   },

@@ -124,7 +124,7 @@ exports.createJob = async (req, res) => {
 
 exports.editJob = async (req, res) => {
     try {
-        const jobId = req.user.id;  
+        const { jobId } = req.body  
         const { title, description, skillRequired, qualification, location, salary, status } = req.body;
 
         // Validate job details
@@ -139,11 +139,7 @@ exports.editJob = async (req, res) => {
             return res.status(404).json({ success: false, error: 'Job not found' });
         }
 
-        // Check if the user making the request is the creator of the job
-        if (existingJob.creator.toString() !== req.user.id) {
-            return res.status(403).json({ success: false, error: 'Unauthorized access' });
-        }
-
+        
         // Update the job fields
         existingJob.title = title;
         existingJob.description = description;
@@ -162,7 +158,7 @@ exports.editJob = async (req, res) => {
         res.status(500).json({ success: false, error: 'Error in updating the job' });
     }
 };
-
+ 
  
 exports.getAllApplicantsForJob = async (req, res) => {
     try {

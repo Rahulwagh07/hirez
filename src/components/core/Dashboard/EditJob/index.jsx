@@ -8,20 +8,19 @@ import { getFullJobDetails } from "../../../../services/operations/jobDetailsAPI
  
 export default function EditJob() {
     const { jobId } = useParams()
-    const { job } = useSelector((state) => state.job)
+    const { job } = useSelector((state) => state.job) 
     const [loading, setLoading] = useState(false)
     const { token } = useSelector((state) => state.auth)
     const dispatch = useDispatch()
-   console.log("REDUX JOB STATE", job)
      
 
     useEffect(() => {
       const fetchData = async () => {
+        
         try {
           setLoading(true);
           const result = await getFullJobDetails(jobId, token);
-          console.log("PRINTN COURSEDETAILS result", result);
-          if (result?.data?.jobDetails) {
+          if (result?.jobDetails) {
             console.log("INSIDE IF");
             dispatch(setEditJob(true));
             dispatch(setJob(result?.jobDetails));
@@ -33,10 +32,8 @@ export default function EditJob() {
         }
       };
     
-      fetchData(); // Invoke the fetchData function immediately
-    
-      // Include dependencies in the array to ensure this effect runs only when these dependencies change
-    }, [dispatch, jobId, token]);
+      fetchData();  
+    }, []);
     
     
      
@@ -50,7 +47,7 @@ export default function EditJob() {
 
     return (
         <div>
-          <h1 className="mb-14 text-3xl font-medium text-richblack-5">
+          <h1 className="mb-14 text-3xl font-medium text-black">
             Edit job
           </h1>
           <div className="mx-auto max-w-[600px]">

@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const {auth} = require("../middlewares/auth")
+const {auth, isCreator} = require("../middlewares/auth")
 
 const {
     getAllAppliedJobs,
@@ -19,7 +19,7 @@ const {
 router.get("/getAppliedJobs", auth, getAllAppliedJobs);
 router.post("/getJobDetails", auth, getJobDetails);
 router.post("/createJob", auth, createJob);
-router.post("/editJob", auth, editJob);
+router.post("/editJob", auth, isCreator, editJob);
 router.get("/getAllApplicants", auth, getAllApplicantsForJob);
 router.put("/hireJobSeeker", auth,  hireJobSeeker);
 router.get("/getAllJobsByCreator", auth,  getAllJobsByCreator);
