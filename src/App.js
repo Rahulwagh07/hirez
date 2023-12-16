@@ -14,6 +14,7 @@ import Settings from "./components/core/Dashboard/Settings"
 import PostNewJob from "./components/core/Dashboard/PostNewJob"
 import MyJobs from "./components/core/Dashboard/MyJobs"
 import EditJob from "./components/core/Dashboard/EditJob"
+import AppliedJobs from "./components/core/Dashboard/AppliedJobs"
 
 //Pages
 import Home from "./pages/Home"
@@ -114,6 +115,15 @@ function App() {
               <Route
                 path="dashboard/edit-job/:jobId"
                 element={<EditJob/>}
+              />
+            </>
+          )}
+           {/* Route only for jobseekeres */}
+           {user?.accountType === ACCOUNT_TYPE.JOBSEEKER && (
+            <>
+              <Route
+                path="dashboard/applied-jobs"
+                element={<AppliedJobs/>}
               />
             </>
           )}

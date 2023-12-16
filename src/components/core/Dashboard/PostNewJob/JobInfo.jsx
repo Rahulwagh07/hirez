@@ -25,19 +25,20 @@ export default function JobInfo() {
     const dispatch = useDispatch()
     const { token } = useSelector((state) => state.auth)
     const [loading, setLoading] = useState(false)
-    const { job, editJob } = useSelector((state) => state.job)
     const navigate = useNavigate()
+    const { job, editJob } = useSelector((state) => state.job)
 
-    
-    if(editJob){
-        setValue("jobTitle", job.title)
-        setValue("jobDescription", job.description)
-        setValue("jobSkillRequired", job.skillRequired)
-        setValue("jobQualification", job.qualification)
-        setValue("jobLocation", job.location)
-        setValue("jobSalary", job.salary)
-        setValue("jobStatus", job.status)
-    }
+     useEffect(() => {
+        if(editJob){
+            setValue("jobTitle", job.title)
+            setValue("jobDescription", job.description)
+            setValue("jobSkillRequired", job.skillRequired)
+            setValue("jobQualification", job.qualification)
+            setValue("jobLocation", job.location)
+            setValue("jobSalary", job.salary)
+            setValue("jobStatus", job.status)
+        }
+     }, [])
 
     const isFormUpdated = () => {
         const currentValues = getValues()
@@ -270,7 +271,7 @@ export default function JobInfo() {
             <div className="flex justify-end gap-x-2">
                 {editJob && (
                 <button
-                    // onClick={() => dispatch(setStep(2))}
+                    onClick={() => navigate("/dashboard/posted-job")}
                     disabled={loading}
                     className={`flex cursor-pointer items-center gap-x-2 rounded-md bg-richblack-300 py-[8px] px-[20px] font-semibold text-richblack-900`}
                 >
@@ -278,6 +279,7 @@ export default function JobInfo() {
                 </button>
                 )}
                 <IconBtn
+                //onclick to do
                 disabled={loading}
                 text={!editJob ? "Post Job" : "Save Changes"}
                 >
