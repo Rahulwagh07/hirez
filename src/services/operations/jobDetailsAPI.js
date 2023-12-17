@@ -163,4 +163,73 @@ export const getAllJobs = async (searchParams, token) => {
     return result;
 };
 
+
+export const applyForJob = async (jobId, token) => {
+    let result = null;
+  
+    const toastId = toast.loading('Applying for job...');
+  
+    try {
+      const response = await apiConnector(
+        'POST',
+        APPLY_FOR_JOB_API,  
+        { jobId },
+        {
+          Authorization: `Bearer ${token}`,
+        }
+      );
+  
+      if (!response?.data?.success) {
+        throw new Error('Could Not Apply for Job');
+      }
+  
+      result = response?.data?.data;
+      toast.success('Applied for Job successfully');
+    } catch (error) {
+      console.log('Apply for Job API Error:', error);
+      toast.error(error.message);
+    }
+  
+    toast.dismiss(toastId);
+    return result;
+  };
  
+
+  export const getAppliedJobs = async (token) => {
+    const toastId = toast.loading("Loading..")
+    let result = null
+    try {
+
+       const response = await apiConnector('GET', GET_ALL_APPLIEDJOBS_API, null, {
+        Authorization: `Bearer ${token}`,
+      });
+  
+      if (!response?.data?.success) {
+        throw new Error('Failed to fetch applied jobs');
+      }
+      result = response?.data?.data;
+      console.log("getAPPLIED jobs API  response", result)
+    } catch (error) {
+      console.error('Get Applied Jobs API Error:', error);
+      toast.error(error.message)
+    }
+    toast.dismiss(toastId)
+    return result
+  };
+
+  export const getAllApplicantsForJob = async (jobId, token) => {
+    const toastId = toast.loading("Loading..");
+    let result = null;
+    try {
+      const response = await apiConnector('GET', `${GET_ALL_APPLICANTS_FOR_JOB_API}?jobId=${jobId}`, null, {
+        Authorization: `Bearer ${token}`
+      });
+      result = response.data;
+      console.log("GET ALL APPLICANTS FOR JOB API RESPONSE", result);
+    } catch (error) {
+      console.error('Get All Applicants API Error:', error);
+    }
+    toast.dismiss(toastId);
+    return result;
+  };
+  

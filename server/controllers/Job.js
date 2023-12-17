@@ -12,7 +12,7 @@ exports.getAllAppliedJobs = async (req, res) => {
         const appliedJobs = await Applications.find({ applicant: userID })
             .populate({
                 path: 'job',  
-                select: 'title description skillRequired category salary status',
+                select: 'title description salary status',
                 populate: {
                     path: 'creator',
                     select: 'firstName lastName email', 
@@ -162,19 +162,19 @@ exports.editJob = async (req, res) => {
  
 exports.getAllApplicantsForJob = async (req, res) => {
     try {
-       
-        const { jobId } = req.body;
-
-        // Find all applicants for the specific job & Exclude the Password
-        const applicantsForJob = await Applications.find({ job: jobId })
-            .populate('applicant', '-password');  
-
-        res.status(200).json({ success: true, data: applicantsForJob });
+      const { jobId } = req.query;
+  
+      // Find all applicants for the specific job & Exclude the Password
+      const applicantsForJob = await Applications.find({ job: jobId })
+        .populate('applicant', '-password');
+  
+      res.status(200).json({ success: true, data: applicantsForJob });
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ success: false, error: 'can not get teh all applicants' });
+      console.error(error);
+      res.status(500).json({ success: false, error: 'Can not get all applicants' });
     }
-};
+  };
+  
 
 
  
@@ -255,7 +255,9 @@ exports.applyForJob = async (req, res) => {
         // Check if the job seeker has already applied for this job
         const existingApplication = await Applications.findOne({ job: jobId, applicant: applicantId });
         if (existingApplication) {
+            console.log("You have already applied for this job")
             return res.status(400).json({ success: false, error: 'You have already applied for this job' });
+             
         }
 
         // Create a new application
