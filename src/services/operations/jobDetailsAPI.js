@@ -13,6 +13,7 @@ const {
     HIRE_JOBSEEKER_API,
     GET_ALL_JOBS_BY_CREATOR_API,
     APPLY_FOR_JOB_API,
+    GET_ALL_OPEN_JOBS,
 } = jobEndPoints
 
 export const addJobDetails = async (data, token) => {
@@ -131,3 +132,35 @@ export const getAllJobsByCreator = async (token) => {
     toast.dismiss(toastId)
     return result
 }
+
+
+export const getAllJobs = async (searchParams, token) => {
+    let result = [];
+
+    const toastId = toast.loading("Loading...");
+
+    try {
+        const response = await apiConnector("POST", GET_ALL_OPEN_JOBS,
+        {
+            searchParams: searchParams,
+        }, 
+        {
+            Authorization: `Bearer ${token}`,
+           
+        });
+
+        if (!response?.data?.success) {
+            throw new Error("Could Not Fetch Jobs");
+        }
+
+        result = response?.data?.data;
+    } catch (error) {
+        console.log("Get All Jobs API Error:", error);
+        toast.error(error.message);
+    }
+
+    toast.dismiss(toastId);
+    return result;
+};
+
+ 

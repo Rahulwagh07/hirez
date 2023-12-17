@@ -33,7 +33,7 @@ export default function JobInfo() {
             setValue("jobTitle", job.title)
             setValue("jobDescription", job.description)
             setValue("jobSkillRequired", job.skillRequired)
-            setValue("jobQualification", job.qualification)
+            setValue("jobcategory", job.category)
             setValue("jobLocation", job.location)
             setValue("jobSalary", job.salary)
             setValue("jobStatus", job.status)
@@ -47,7 +47,7 @@ export default function JobInfo() {
           currentValues.jobTitle !== job.title ||
           currentValues.jobDescription !== job.description ||
           currentValues.jobSkillRequired !== job.skillRequired||
-          currentValues.jobQualification !== job.qualification ||
+          currentValues.jobcategory !== job.category ||
           currentValues.jobLocation !== job.location ||
           currentValues.jobSalary !== job.salary ||
           currentValues.jobStatus !== job.status 
@@ -74,7 +74,7 @@ export default function JobInfo() {
                     formData.append("skillRequired", data.jobSkillRequired)
                 }
                 if(currentValues.jobTitle !== job.jobTitle){
-                    formData.append("qualification", data.jobQualification)
+                    formData.append("category", data.jobcategory)
                 }
                 if(currentValues.jobTitle !== job.jobTitle){
                     formData.append("location", data.jobLocation)
@@ -101,7 +101,7 @@ export default function JobInfo() {
         formData.append("title", data.jobTitle)
         formData.append("description", data.jobDescription)
         formData.append("skillRequired", data.jobSkillRequired)
-        formData.append("qualification", data.jobQualification)
+        formData.append("category", data.jobcategory)
         formData.append("location", data.jobLocation)
         formData.append("salary", data.jobSalary)
         formData.append("status", data.jobStatus)
@@ -172,26 +172,29 @@ export default function JobInfo() {
                 </span>
                 )}
             </div>
-            {/* qualification */}
+            {/* category */}
             <div className="flex flex-col space-y-2">
-                <label className="text-sm text-black" htmlFor="jobQualification">
-                    Qualification <sup className="text-pink-200">*</sup>
+                <label className="text-sm text-black" htmlFor="jobcategory">
+                    category <sup className="text-pink-200">*</sup>
                 </label>
                 <select
-                    id="jobQualification"
-                    {...register("jobQualification", { required: true })}
+                    id="jobcategory"
+                    {...register("jobcategory", { required: true })}
                     className="form-style w-full"
                 >
-                    <option value="">Select Qualification</option>
-                    <option value="10th">10th</option>
-                    <option value="12th">12th</option>
-                    <option value="any">Any</option>
-                    <option value="graduate">Graduate</option>
+                    <option value="">Select category</option>
+                    <option value="Video Editing">Video Editing</option>
+                    <option value="Content Creation and Writing">Content Creation and Writing</option>
+                    <option value="Creative Design">Creative Design</option>  
+                    <option value="Marketing and Promotion">Marketing and Promotion</option>
+                    <option value="SEO and Analytics"> SEO and Analytics</option>  
+                    <option value="Collaborations and Partnerships">Collaborations and Partnerships</option>
+                    <option value="Livestream Production">Livestream Production</option>
                     {/* Add more options as needed */}
                 </select>
-                {errors.jobQualification && (
+                {errors.jobcategory && (
                     <span className="ml-2 text-xs tracking-wide text-pink-200">
-                        Qualification is required
+                        category is required
                     </span>
                 )}
             </div>
@@ -230,10 +233,10 @@ export default function JobInfo() {
                         placeholder="Enter Salary Range (e.g., 50000-70000)"
                         {...register("jobSalary", {
                             required: true,
-                            // pattern: {
-                            //     value: /^[0-9]+-[0-9]+$/,
-                            //     message: "Enter a valid salary range format (e.g., 50000-70000)",
-                            // },
+                            pattern: {
+                                value: /^[0-9]+-[0-9]+$/,
+                                message: "Enter a valid salary range format (e.g., 50000-70000)",
+                            },
                         })}
                         className="form-style w-full !pl-12"
                     />
@@ -279,7 +282,7 @@ export default function JobInfo() {
                 </button>
                 )}
                 <IconBtn
-                //onclick to do
+                onClick={() => navigate("/dashboard/posted-job")}
                 disabled={loading}
                 text={!editJob ? "Post Job" : "Save Changes"}
                 >

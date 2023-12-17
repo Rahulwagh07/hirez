@@ -12,6 +12,7 @@ const {
     hireJobSeeker,
     getAllJobsByCreator,
     applyForJob,
+    getAllJobs,
 } = require("../controllers/Job")
 
 
@@ -25,6 +26,6 @@ router.put("/hireJobSeeker", auth,  hireJobSeeker);
 router.get("/getAllJobsByCreator", auth,  getAllJobsByCreator);
 router.post("/applyForJob", auth, applyForJob);
 router.delete("/deleteJob", deleteJob);
-
+router.post("/getAllJobs", auth, getAllJobs);
  
 module.exports = router
