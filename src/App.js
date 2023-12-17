@@ -31,6 +31,8 @@ import NotFoundPage from "./pages/NotFoundPage"
  import EditJob from "./components/core/Dashboard/EditJob"
  import AppliedJobs from "./components/core/Dashboard/AppliedJobs"
  import Searchbar from "./components/core/Dashboard/Searchbar"
+ import SavedJobs from "./components/core/Dashboard/SavedJobs"
+ import Applicants from "./components/core/Dashboard/CreatorJobs/Applicants"
 
 function App() {
   const dispatch = useDispatch()
@@ -114,6 +116,7 @@ function App() {
             <>
               <Route path="dashboard/post-newjob" element={<PostNewJob/>} />
               <Route path="dashboard/posted-job" element={<MyJobs/>} />
+              <Route path="dashboard/posted-job/:jobId" element={<Applicants/>} />
               <Route
                 path="dashboard/edit-job/:jobId"
                 element={<EditJob/>}
@@ -131,6 +134,10 @@ function App() {
                 path="dashboard/searchbar"
                 element={<Searchbar/>}
               />
+              <Route
+                path="dashboard/saved-jobs"
+                element={<SavedJobs/>}
+                />
             </>
           )}
 
