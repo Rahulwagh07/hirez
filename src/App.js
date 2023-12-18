@@ -20,6 +20,7 @@ import Dashboard from "./pages/Dashboard"
 import NotFoundPage from "./pages/NotFoundPage"
  
  
+ 
  //components
  import Navbar from "./components/common/Navbar"
  import OpenRoute from "./components/core/Auth/OpenRoute"
@@ -33,6 +34,10 @@ import NotFoundPage from "./pages/NotFoundPage"
  import Searchbar from "./components/core/Dashboard/Searchbar"
  import SavedJobs from "./components/core/Dashboard/SavedJobs"
  import Applicants from "./components/core/Dashboard/CreatorJobs/Applicants"
+import UpdateProfile from "./components/core/Dashboard/Settings/UpdateProfile"
+import Portfolio from "./components/core/Dashboard/Settings/Portfolio"
+import DeleteAccount from "./components/core/Dashboard/Settings/DeleteAccount"
+import ChangePassword from "./components/core/Dashboard/Settings/ChangePassword"
 
 function App() {
   const dispatch = useDispatch()
@@ -109,7 +114,12 @@ function App() {
         >
           {/* Route for all users */}
           <Route path="dashboard/my-profile" element={<MyProfile/>} />
-          <Route path="dashboard/Settings" element={<Settings/>} />
+          <Route path="dashboard/Settings" element={<Settings />}/>
+          <Route path="dashboard/Settings/update-profile" element={<UpdateProfile />} />
+          <Route path="dashboard/Settings/change-password" element={<ChangePassword/>} />
+          <Route path="dashboard/Settings/delete-account" element={<DeleteAccount />} />
+ 
+
 
            {/* Route only for Creator */}
           {user?.accountType === ACCOUNT_TYPE.CREATOR && (
@@ -137,6 +147,10 @@ function App() {
               <Route
                 path="dashboard/saved-jobs"
                 element={<SavedJobs/>}
+                />
+              <Route 
+                path="dashboard/Settings/update-portfolio" 
+                element={<Portfolio />} 
                 />
             </>
           )}

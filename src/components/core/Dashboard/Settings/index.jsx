@@ -1,9 +1,16 @@
-import React from 'react'
+import React from 'react';
+import SettingLinks from './SettingLinks';
+import { settingLinks } from '../../../../data/settings-links';
+ 
 
-function index() {
+const Settings = () => {
   return (
-    <div>settings</div>
-  )
-}
+    <div>
+      <h2>Settings</h2>
+      <SettingLinks links={settingLinks} />
+     
+    </div>
+  );
+};
 
-export default index
+export default Settings;
