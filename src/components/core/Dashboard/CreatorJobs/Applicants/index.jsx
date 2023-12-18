@@ -3,8 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { getAllApplicantsForJob } from '../../../../../services/operations/jobDetailsAPI';
-import ApplicantList from './ApplicantList'; // Import the ApplicantList component
-
+import ApplicantList from './ApplicantList';  
 export default function Applicants() {
   const { token } = useSelector((state) => state.auth);
   const [applicants, setApplicants] = useState([]);
