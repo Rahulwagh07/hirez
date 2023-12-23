@@ -34,3 +34,37 @@ export const endpoints = {
     CHANGE_PASSWORD_API: BASE_URL + "/auth/changepassword",
     DELETE_PROFILE_API: BASE_URL + "/profile/deleteProfile",
   }
+
+// Portfolio endpoints
+export const portfolioEndpoints = {
+  // Certifications Routes
+  ADD_CERTIFICATION_API: BASE_URL + "/portfolio/addCertification",
+  DELETE_CERTIFICATION_API: BASE_URL + "/portfolio/deleteCertification",
+
+  // Education Routes
+  ADD_EDUCATION_API: BASE_URL + "/portfolio/addEducation",
+  GET_ALL_EDUCATION_API: BASE_URL + "/portfolio/getAllEducation",
+  UPDATE_EDUCATION_API: BASE_URL + "/portfolio/updateEducation",
+  DELETE_EDUCATION_API: BASE_URL + "/portfolio/deleteEducation",
+
+  // Experience Routes
+  ADD_EXPERIENCE_API: BASE_URL + "/portfolio/addExperience",
+  GET_ALL_EXPERIENCE_API: BASE_URL + "/portfolio/getAllExperience",
+  UPDATE_EXPERIENCE_API: BASE_URL + "/portfolio/updateExperience",
+  DELETE_EXPERIENCE_API: BASE_URL + "/portfolio/deleteExperience",
+
+  // Media Routes
+  UPDATE_MEDIA_GALLERY_API: BASE_URL + "/portfolio/updateMediaGallery",
+  UPDATE_SOCIAL_MEDIA_LINKS_API: BASE_URL + "/portfolio/updateSocialMediaLinks",
+  ADD_CONTENT_SAMPLE_API: BASE_URL + "/portfolio/addContentSample",
+  UPDATE_CONTENT_SAMPLES_API: BASE_URL + "/portfolio/updateContentSamples",
+
+  // Project Routes
+  ADD_PROJECT_API: BASE_URL + "/portfolio/addProject",
+  GET_ALL_PROJECTS_API: BASE_URL + "/portfolio/getAllProjects",
+  UPDATE_PROJECTS_API: BASE_URL + "/portfolio/updateProjects",
+  DELETE_PROJECT_API: BASE_URL + "/portfolio/deleteProject",
+
+  // Resume Routes
+  UPDATE_RESUME_API: BASE_URL + "/portfolio/updateResume",
+};
