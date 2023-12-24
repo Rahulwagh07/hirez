@@ -6,12 +6,16 @@ const {auth} = require("../middlewares/auth")
 //Certifications Routes
 const {
     addCertification,
+    getAllCertifications,
+    updateCertification,
     deleteCertification,
 } = require("../controllers/portfolio/Certification")
 
 router.post("/addCertification", auth, addCertification)
+router.get("/getAllCertification", auth, getAllCertifications)
+router.put("/updateCertification", auth, updateCertification)
 router.delete("/deleteCertification", auth, deleteCertification)
-
+ 
 //Education Routes
 const {
     addEducation,
@@ -70,9 +74,13 @@ router.delete("/deleteProject", auth, deleteProject)
 //Resume Routes
 const {
     updateResume,
+    deleteResume,
+    getResume,
 } = require("../controllers/portfolio/Resume")
 
 router.put("/updateResume", auth, updateResume)
+router.delete("/deleteResume", auth, deleteResume)
+router.get("/getResume", auth, getResume)
 
 
 module.exports = router

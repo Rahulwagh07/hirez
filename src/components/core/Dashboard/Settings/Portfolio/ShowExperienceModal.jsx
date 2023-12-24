@@ -1,13 +1,12 @@
-// ShowEducationModal.js
 import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { addEducation, updateEducation } from '../../../../../services/operations/portfolioAPI';
+import { addExperience, updateExperience } from '../../../../../services/operations/portfolioAPI';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import CustomInput from './CustomInput';
 import { formatDate } from '../../../../../utils/FormatDate';  
 
-export default function ShowEducationModal({ editEducation, setIsOpen, education, educationFields }) {
+export default function ShowExperienceModal({ editExperience, setIsOpen, experience, experienceFields }) {
   const {
     register,
     handleSubmit,
@@ -19,20 +18,18 @@ export default function ShowEducationModal({ editEducation, setIsOpen, education
   const { token } = useSelector((state) => state.auth);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
- 
 
   useEffect(() => {
-    if (editEducation) {
-      educationFields.forEach((field) => {
+    if (editExperience) {
+      experienceFields.forEach((field) => {
         if (field.type === 'date') {
-          setValue(field.id, formatDate(education[field.id]));
+          setValue(field.id, formatDate(experience[field.id]));
         } else {
-          setValue(field.id, education[field.id]);
+          setValue(field.id, experience[field.id]);
         }
       });
     }
-  }, [editEducation, education, setValue, educationFields]);
-
+  }, [editExperience, experience, setValue, experienceFields]);
 
   const onCancel = () => {
     setIsOpen(false);
@@ -40,27 +37,27 @@ export default function ShowEducationModal({ editEducation, setIsOpen, education
 
   const onSubmit = async (data) => {
     const formData = new FormData();
-    educationFields.forEach((field) => {
+    experienceFields.forEach((field) => {
       formData.append(field.id, data[field.id]);
     });
 
-    if (editEducation) {
-      formData.append('educationId', education._id);
+    if (editExperience) {
+      formData.append('experienceId', experience._id);
     }
 
     setLoading(true);
 
     try {
-      const result = editEducation
-        ? await updateEducation(formData, token)
-        : await addEducation(formData, token);
+      const result = editExperience
+        ? await updateExperience(formData, token)
+        : await addExperience(formData, token);
 
       if (result) {
         onCancel();
         navigate('/dashboard/settings');
       }
     } catch (error) {
-      console.error('Error submitting education:', error);
+      console.error('Error submitting experience:', error);
     }
 
     setLoading(false);
@@ -72,7 +69,7 @@ export default function ShowEducationModal({ editEducation, setIsOpen, education
         onSubmit={handleSubmit(onSubmit)}
         className='space-y-8 rounded-md w-[500px] mx-auto border-[1px] border-richblack-700 section_bg'
       >
-        {educationFields.map((field) => (
+        {experienceFields.map((field) => (
           <CustomInput
             key={field.id}
             id={field.id}

@@ -1,38 +1,37 @@
-// ShowEducationModal.js
 import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { addEducation, updateEducation } from '../../../../../services/operations/portfolioAPI';
+import { addProject, updateProjects } from '../../../../../services/operations/portfolioAPI';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import CustomInput from './CustomInput';
 import { formatDate } from '../../../../../utils/FormatDate';  
 
-export default function ShowEducationModal({ editEducation, setIsOpen, education, educationFields }) {
+export default function ShowProjectModal({ editProject, setIsOpen, project, projectFields }) {
   const {
     register,
     handleSubmit,
     setValue,
-    getValues,
     formState: { errors },
   } = useForm();
 
   const { token } = useSelector((state) => state.auth);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
- 
 
   useEffect(() => {
-    if (editEducation) {
-      educationFields.forEach((field) => {
+    console.log('projectFields:', projectFields);
+  
+    if (editProject) {
+      projectFields.forEach((field) => {
         if (field.type === 'date') {
-          setValue(field.id, formatDate(education[field.id]));
+          setValue(field.id, formatDate(project[field.id]));
         } else {
-          setValue(field.id, education[field.id]);
+          setValue(field.id, project[field.id]);
         }
       });
     }
-  }, [editEducation, education, setValue, educationFields]);
-
+  }, [editProject, project, setValue, projectFields]);
+  
 
   const onCancel = () => {
     setIsOpen(false);
@@ -40,27 +39,27 @@ export default function ShowEducationModal({ editEducation, setIsOpen, education
 
   const onSubmit = async (data) => {
     const formData = new FormData();
-    educationFields.forEach((field) => {
+    projectFields.forEach((field) => {
       formData.append(field.id, data[field.id]);
     });
 
-    if (editEducation) {
-      formData.append('educationId', education._id);
+    if (editProject) {
+      formData.append('projectId', project._id);
     }
 
     setLoading(true);
 
     try {
-      const result = editEducation
-        ? await updateEducation(formData, token)
-        : await addEducation(formData, token);
+      const result = editProject
+        ? await updateProjects(formData, token)
+        : await addProject(formData, token);
 
       if (result) {
         onCancel();
         navigate('/dashboard/settings');
       }
     } catch (error) {
-      console.error('Error submitting education:', error);
+      console.error('Error submitting project:', error);
     }
 
     setLoading(false);
@@ -72,7 +71,7 @@ export default function ShowEducationModal({ editEducation, setIsOpen, education
         onSubmit={handleSubmit(onSubmit)}
         className='space-y-8 rounded-md w-[500px] mx-auto border-[1px] border-richblack-700 section_bg'
       >
-        {educationFields.map((field) => (
+        {projectFields.map((field) => (
           <CustomInput
             key={field.id}
             id={field.id}

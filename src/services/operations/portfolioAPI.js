@@ -1,9 +1,12 @@
 import {toast} from "react-hot-toast"
 import { apiConnector } from "../apiConnector"
 import { portfolioEndpoints } from "../apis"
+import { RiNurseFill } from "react-icons/ri";
 
 const  {
   ADD_CERTIFICATION_API,
+  GET_ALL_CERTIFICATION_API,
+  UPDATE_CERTIFICATION_API,
   DELETE_CERTIFICATION_API,
   ADD_EDUCATION_API,
   GET_ALL_EDUCATION_API,
@@ -22,6 +25,8 @@ const  {
   UPDATE_PROJECTS_API,
   DELETE_PROJECT_API,
   UPDATE_RESUME_API,
+  DELETE_RESUME_API,
+  GET_RESUME_API,
 } = portfolioEndpoints
 
 export const addCertification = async (data, token) => {
@@ -47,6 +52,54 @@ export const addCertification = async (data, token) => {
       toast.dismiss(toastId);
     }
   };
+
+  export const getAllCertifications = async (token) => {
+    const toastId = toast.loading("Fetching Certifications...");
+  
+    try {
+      const response = await apiConnector("GET", GET_ALL_CERTIFICATION_API, null, {
+        Authorization: `Bearer ${token}`,
+      });
+  
+      if (!response?.data?.success) {
+        throw new Error("Failed to fetch Certifications");
+      }
+  
+      return response.data.data;
+    } catch (error) {
+      console.error("getAllCertification error:", error.message);
+      toast.error("Failed to fetch Certification");
+      throw error;
+    } finally {
+      toast.dismiss(toastId);
+    }
+  };
+  
+
+  export const updateCertification = async (data, token) => {
+    const toastId = toast.loading("Updating Certification...");
+  
+    try {
+      const response = await apiConnector("PUT", UPDATE_CERTIFICATION_API, data, {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      });
+  
+      if (!response?.data?.success) {
+        throw new Error("Certification not updated successfully");
+      }
+  
+      toast.success("Certification updated successfully");
+      return response.data.data;
+    } catch (error) {
+      console.error("updateCertification error:", error.message);
+      toast.error("Failed to update Certification");
+      throw error;
+    } finally {
+      toast.dismiss(toastId);
+    }
+  };
+  
   
   export const deleteCertification = async (certificationId, token) => {
     const toastId = toast.loading("Deleting Certification...");
@@ -434,10 +487,7 @@ export const addCertification = async (data, token) => {
     const toastId = toast.loading("Updating Resume...");
   
     try {
-      const formData = new FormData();
-      formData.append("resume", resumeFile);
-  
-      const response = await apiConnector("PUT", UPDATE_RESUME_API, formData, {
+      const response = await apiConnector("PUT", UPDATE_RESUME_API, resumeFile, {
         Authorization: `Bearer ${token}`,
       });
   
@@ -454,4 +504,41 @@ export const addCertification = async (data, token) => {
     } finally {
       toast.dismiss(toastId);
     }
+  };
+  
+
+  export const deleteResume = async(token) => {
+    const toastId = toast.loading("deleting resume..")
+
+    try{
+      await apiConnector("DELETE", DELETE_RESUME_API, RiNurseFill, {
+        Authorization: `Bearer ${token}`,
+      });
+      console.log("  RESUME deleted")
+      
+    } catch(error){
+      console.error("Delet Resume error:", error.message);
+      toast.error("Failed to Delete Resume");
+      throw error;
+    }
+    finally {
+      toast.dismiss(toastId);
+    }
+  }
+
+  export const getResume = async (token) => {
+    try {
+      const response = await apiConnector("GET", GET_RESUME_API, null, {
+        Authorization: `Bearer ${token}`,
+      });
+  
+      if (!response?.data?.success) {
+        throw new Error("Resume is Not uploaded Yet");
+      }
+      console.log("getResume response", response)
+      return response;
+    } catch (error) {
+      console.error("get Resume  error:", error.message);
+      throw error;
+    } 
   };
