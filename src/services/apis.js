@@ -39,7 +39,10 @@ export const endpoints = {
 export const portfolioEndpoints = {
   // Certifications Routes
   ADD_CERTIFICATION_API: BASE_URL + "/portfolio/addCertification",
+  GET_ALL_CERTIFICATION_API : BASE_URL + "/portfolio/getAllCertification",
+  UPDATE_CERTIFICATION_API: BASE_URL + "/portfolio/updateCertification",
   DELETE_CERTIFICATION_API: BASE_URL + "/portfolio/deleteCertification",
+
 
   // Education Routes
   ADD_EDUCATION_API: BASE_URL + "/portfolio/addEducation",
@@ -67,4 +70,6 @@ export const portfolioEndpoints = {
 
   // Resume Routes
   UPDATE_RESUME_API: BASE_URL + "/portfolio/updateResume",
+  DELETE_RESUME_API: BASE_URL + "/portfolio/deleteResume",
+  GET_RESUME_API: BASE_URL + "/portfolio/getResume",
 };

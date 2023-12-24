@@ -25,14 +25,12 @@ export const addJobDetails = async (data, token) => {
             "Content-Type": "multipart/form-data",
             Authorization: `Bearer ${token}`,
         })
-        console.log("Crete Job API response...", response)
         if(!response?.data?.success){
             throw new Error("Job Details not added Successffully")
         }
         toast.success("Course Details added successfully")
         result = response?.data?.data
     } catch (error){
-        console.log("create job api error.....", error)
         toast.error(error.message)
     }
     toast.dismiss(toastId)
@@ -49,14 +47,12 @@ export const editJobDetails = async (data, token) => {
            "Content-Type": "multipart/form-data",
             Authorization: `Bearer ${token}`,
         })
-        console.log("EDIT JOB API RESPONSE", response)
         if(!response?.data?.success) {
             throw new Error("Could not update Job details")
         }
         toast.success("Job Details Updated Successfully")
         result = response?.data?.data
     } catch (error){
-        console.log("Edit Job API error...", error)
         toast.error(error.message)
     }
     toast.dismiss(toastId)
@@ -83,7 +79,6 @@ export const getFullJobDetails = async (jobId, token) => {
         }
         result = response?.data?.data
     } catch(error){
-        console.log("COURSE_FULL_DETAILS_API API ERROR............", error)
         result = error.response.data
         toast.error(error.response.data.message);
     }
@@ -99,13 +94,11 @@ export const  deleteJob = async (data, token) => {
             Authorization: `Bearer ${token}`,
         })
 
-        console.log("Delete JOb API response...", response)
         if(!response?.data?.success) {
             throw new Error("JOb is not Deleted")
         }
         toast.success("Job Deleted")
     }  catch(error){
-        console.log("DELTE JOB API ERROR", error)
         toast.error(error.message)
     }
     toast.dismiss(toastId)
@@ -126,7 +119,6 @@ export const getAllJobsByCreator = async (token) => {
         }
         result = response?.data?.data
     } catch (error){
-        console.log("Creator  jobs API ERROR...", error)
         toast.error(error.message)
     }
     toast.dismiss(toastId)
@@ -155,7 +147,6 @@ export const getAllJobs = async (searchParams, token) => {
 
         result = response?.data?.data;
     } catch (error) {
-        console.log("Get All Jobs API Error:", error);
         toast.error(error.message);
     }
 
@@ -186,7 +177,6 @@ export const applyForJob = async (jobId, token) => {
       result = response?.data?.data;
       toast.success('Applied for Job successfully');
     } catch (error) {
-      console.log('Apply for Job API Error:', error);
       toast.error(error.message);
     }
   

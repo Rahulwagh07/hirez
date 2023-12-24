@@ -73,12 +73,13 @@ const portfolioSchema = new mongoose.Schema({
   socialMediaLinks: {
     linkedin: String,
     twitter: String,
-    instagram: String,
-     
+    instagram: String,  
   },
   resume: {
     type: {
       url: String,
+      name: String,
+      extension: String,
     },
   },
   contentCreationTools: [String],
