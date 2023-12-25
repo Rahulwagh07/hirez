@@ -3,8 +3,9 @@ import { useDispatch , useSelector} from 'react-redux'
 import { addToSavedJob } from '../../../slices/saveJobSlice';
 import { applyForJob } from '../../../services/operations/jobDetailsAPI';
 import { useNavigate } from "react-router-dom"
- 
-function JobDetailsModal({job}) {
+import { RxCross2 } from "react-icons/rx";
+
+function JobDetailsModal({job, setIsModalOpen}) {
 
   const dispatch = useDispatch()
   const { token } = useSelector((state) => state.auth)
@@ -13,8 +14,13 @@ function JobDetailsModal({job}) {
   const navigate = useNavigate()
 
   const handleOnClickSave = () => {
-    dispatch(addToSavedJob(job))
+    dispatch(addToSavedJob(job));
+    handleCloseModal();
+
   }
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
 
   const handleOnClickApply = async () => {
     try {
@@ -30,11 +36,13 @@ function JobDetailsModal({job}) {
       // Handle any errors that occurred during the application
       console.error('Error applying for job:', error.message);
     }
+    handleCloseModal();
   };
   
   return (
     <div className="fixed inset-0 z-[1000] !mt-0 grid place-items-center overflow-auto bg-white bg-opacity-10 backdrop-blur-sm">
-      <div className="w-11/12 max-w-[350px] rounded-lg border border-richblue-200 section_bg p-6">
+      <div className="w-11/12 max-w-[350px] relative rounded-lg border border-richblue-200 section_bg p-6">
+          <RxCross2 size={24} onClick={handleCloseModal} className='absolute top-4 right-4 cursor-pointer'/>
           <div className='flex flex-col justify-center items-center gap-4'>
               <p>{title}</p>
             <div className='flex'>

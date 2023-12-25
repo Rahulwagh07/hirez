@@ -157,9 +157,6 @@ export const getAllJobs = async (searchParams, token) => {
 
 export const applyForJob = async (jobId, token) => {
     let result = null;
-  
-    const toastId = toast.loading('Applying for job...');
-  
     try {
       const response = await apiConnector(
         'POST',
@@ -169,19 +166,22 @@ export const applyForJob = async (jobId, token) => {
           Authorization: `Bearer ${token}`,
         }
       );
-  
+
       if (!response?.data?.success) {
-        throw new Error('Could Not Apply for Job');
+        throw new Error("Could Not Apply the Job successfully");
       }
   
       result = response?.data?.data;
       toast.success('Applied for Job successfully');
     } catch (error) {
-      toast.error(error.message);
+        if (error.response.data.isApplied) {
+            toast.success("Already Applied For Job");
+            return;
+        }
+        console.error(error);
+        toast.error("Failed To Apply... Try again");
     }
-  
-    toast.dismiss(toastId);
-    return result;
+    return;
   };
  
 

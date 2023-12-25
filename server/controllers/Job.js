@@ -117,7 +117,6 @@ exports.createJob = async (req, res) => {
 
         res.status(201).json({ success: true, data: newJob });
     } catch (error) {
-        console.log(error);
         res.status(500).json({ success: false, error: 'Error in creating a job' });
     }
 };
@@ -154,7 +153,6 @@ exports.editJob = async (req, res) => {
 
         res.status(200).json({ success: true, data: existingJob });
     } catch (error) {
-        console.log(error);
         res.status(500).json({ success: false, error: 'Error in updating the job' });
     }
 };
@@ -216,7 +214,6 @@ exports.getAllJobsByCreator = async (req, res) => {
     try {
         // Get the creator's ID  
         const creatorID = req.user.id;
-        console.log("PRINTING CREATOR ID....", creatorID)
 
         if (!creatorID) {
             return res.status(401).json({ success: false, error: 'Unauthorized' });
@@ -244,7 +241,6 @@ exports.applyForJob = async (req, res) => {
 
         // Get the job seeker's ID  
         const applicantId = req.user.id;
-        console.log("applicantsID", applicantId);
 
         // Check if the job exists
         const job = await Job.findById(jobId);
@@ -255,8 +251,7 @@ exports.applyForJob = async (req, res) => {
         // Check if the job seeker has already applied for this job
         const existingApplication = await Applications.findOne({ job: jobId, applicant: applicantId });
         if (existingApplication) {
-            console.log("You have already applied for this job")
-            return res.status(400).json({ success: false, error: 'You have already applied for this job' });
+            return res.status(400).json({ success: true, isApplied:true,  error: 'You have already applied for this job' });
              
         }
 
@@ -344,7 +339,6 @@ exports.getAllJobs = async (req, res) => {
         });
 
     } catch (error) {
-        console.log("Error Fetching jobs...", error);
         res.status(500).json({ 
             success: false, 
             error: "Server error"

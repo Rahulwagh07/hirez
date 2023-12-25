@@ -90,9 +90,13 @@ export default function JobInfo() {
                 setLoading(false)
                 if(result){
                     dispatch(setJob(result))
+                    dispatch(setEditJob(false))
+                    navigate("/dashboard/posted-job")
+                     
                 }
             } else {
                 toast.error("No changes made in the form")
+                dispatch(setEditJob(false))
             }
             return
         }
@@ -110,7 +114,8 @@ export default function JobInfo() {
         const result = await addJobDetails(formData, token)
         if (result){
             dispatch(setJob(result))
-            navigate("/posted-job")
+            dispatch(setEditJob(false))
+            navigate("/dashboard/posted-job")
         }
         setLoading(false)
     }
@@ -274,7 +279,10 @@ export default function JobInfo() {
             <div className="flex justify-end gap-x-2">
                 {editJob && (
                 <button
-                    onClick={() => navigate("/dashboard/posted-job")}
+                   onClick={() => {
+                        navigate("/dashboard/posted-job");
+                        dispatch(setEditJob(false));
+                    }}
                     disabled={loading}
                     className={`flex cursor-pointer items-center gap-x-2 rounded-md bg-richblack-300 py-[8px] px-[20px] font-semibold text-richblack-900`}
                 >
