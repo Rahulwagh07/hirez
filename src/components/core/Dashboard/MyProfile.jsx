@@ -31,7 +31,7 @@ export default function MyProfile() {
         <IconBtn
           text="Edit"
           onclick={() => {
-            navigate("/dashboard/settings")
+            navigate("/dashboard/settings/update-profile")
           }}
         >
           <RiEditBoxLine />
@@ -43,7 +43,7 @@ export default function MyProfile() {
           <IconBtn
             text="Edit"
             onclick={() => {
-              navigate("/dashboard/settings")
+              navigate("/dashboard/settings/update-profile")
             }}
           >
             <RiEditBoxLine />
@@ -67,7 +67,7 @@ export default function MyProfile() {
           <IconBtn
             text="Edit"
             onclick={() => {
-              navigate("/dashboard/settings")
+              navigate("/dashboard/settings/update-profile")
             }}
           >
             <RiEditBoxLine />

@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { getAppliedJobs } from '../../../../services/operations/jobDetailsAPI';
 import AppliedJobCard from './AppliedJobCard';
 
 export default function AppliedJobs() {
-    const dispatch = useDispatch();
     const { token } = useSelector((state) => state.auth);
     const [appliedJobs, setAppliedJobs] = useState([]);
     const [loading, setLoading] = useState(false);

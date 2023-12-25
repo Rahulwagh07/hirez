@@ -5,12 +5,10 @@ import { getAllJobs } from '../../../../services/operations/jobDetailsAPI';
 import { setJob } from '../../../../slices/jobSlice';
 import JobCard from '../CreatorJobs/JobCard';
 import FilterCheckboxGroup  from "./FilterCheckboxGroup "
-import { useNavigate } from 'react-router-dom';
 import JobDetailsModal from '../JobDetailsModal';
 
 function SearchJobs() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const { job, editJob } = useSelector((state) => state.job);
   const { token } = useSelector((state) => state.auth);
   const [searchParams, setSearchParams] = useState({
@@ -23,7 +21,7 @@ function SearchJobs() {
 
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
-  const state = true;
+  const [isSearchingJob, setIsSearchingJob] = useState(false)
   const [selectedJob, setSelectedJob] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
    
@@ -32,18 +30,10 @@ function SearchJobs() {
     setIsModalOpen(true);
   }
 
-  const handleCloseModal = () => {
-    setSelectedJob(null);
-    setIsModalOpen(false);
-  };
- 
-
   const handleCheckboxChange = (filterName, value) => {
     setSearchParams({ ...searchParams, [filterName]: value });
   };
   
-
-   
   useEffect(() => {
     const fetchJobs = async () => {
       try {
@@ -60,6 +50,7 @@ function SearchJobs() {
 
         dispatch(setJob(finalResults));
         setJobs(finalResults);
+        setIsSearchingJob(true);
       } catch (error) {
         console.error('Error in fetching jobs', error);
       } finally {
@@ -119,13 +110,13 @@ function SearchJobs() {
         {/* Map through jobs and render JobCard component */}
         {jobs.map((job) => (
             <button key={job._id} onClick={() => handleOnClick(job)}>
-                <JobCard job={job} setJobs={setJobs} state={state} />
+                <JobCard job={job} setJobs={setJobs} isSearchingJob={setIsSearchingJob} />
             </button>
          ))}
 
         {
             isModalOpen && (
-                <JobDetailsModal job={selectedJob} onClose={handleCloseModal} />
+                <JobDetailsModal job={selectedJob} setIsModalOpen={setIsModalOpen}/>
         )}
          
       </div>
