@@ -47,16 +47,23 @@ router.delete("/deleteExperience", auth, deleteExperience)
 //Media Routes
 const {
     updateMediaGallery,
-    updateSocialMediaLinks,
+    addSocialMediaProfile,
+    updateSocialMediaProfile,
+    deleteSocialMediaProfile,
     addContentSample,
     updateContentSamples,
+    deleteContentSample,
+    getMedia,
 } = require("../controllers/portfolio/Media")
 
 router.put("/updateMediaGallery", auth, updateMediaGallery)
-router.put("/updateSocialMediaLinks", auth, updateSocialMediaLinks)
+router.put("/updateSocialMediaProfile", auth, updateSocialMediaProfile)
+router.post("/addSocialMediaProfile", auth, addSocialMediaProfile)
 router.post("/addContentSample", auth, addContentSample)
-router.put("/updateContentSamples", auth, updateContentSamples)  // TO DO change this contoller to delete content sample
-
+router.put("/updateContentSamples", auth, updateContentSamples)   
+router.get("/getMedia", auth, getMedia)
+router.delete("/deleteContentSample", auth, deleteContentSample)
+router.delete("/deleteSocailMediaProfile", auth, deleteSocialMediaProfile)
 
 //Project Routes
 const {
