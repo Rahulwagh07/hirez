@@ -10,6 +10,7 @@ export default function Applicants() {
   const [totalApplicants, setTotalApplicants] = useState(0);
   const { jobId } = useParams();
 
+
   useEffect(() => {
     const fetchApplicants = async () => {
       try {

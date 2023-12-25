@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 
 import { updateProfile } from "../../../../services/operations/SettingsAPI"
 import IconBtn from "../../../common/IconBtn"
+import UpdateProfilePicture from "./UpdateProfilePicture"
 
 const genders = ["Male", "Female", "Non-Binary", "Prefer not to say", "Other"]
 
@@ -28,7 +29,8 @@ export default function UpdateProfile() {
     }
   }
   return (
-    <>
+    <div>
+      <UpdateProfilePicture/>
       <form onSubmit={handleSubmit(submitProfileForm)}>
         {/* Profile Information */}
         <div className="my-10 flex flex-col gap-y-6 rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-8 px-12">
@@ -195,6 +197,6 @@ export default function UpdateProfile() {
           <IconBtn type="submit" text="Save" />
         </div>
       </form>
-    </>
+    </div>
   )
 }
