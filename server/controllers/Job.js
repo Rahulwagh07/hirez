@@ -162,9 +162,15 @@ exports.getAllApplicantsForJob = async (req, res) => {
     try {
       const { jobId } = req.query;
   
-      // Find all applicants for the specific job & Exclude the Password
       const applicantsForJob = await Applications.find({ job: jobId })
-        .populate('applicant', '-password');
+    .populate({
+        path: 'applicant',
+        select: '-password', // Exclude password from user details
+        populate: {
+            path: 'additionalDetails',  
+            model: 'Profile',  
+        },
+    });
   
       res.status(200).json({ success: true, data: applicantsForJob });
     } catch (error) {
@@ -174,8 +180,6 @@ exports.getAllApplicantsForJob = async (req, res) => {
   };
   
 
-
- 
 
 exports.hireJobSeeker = async (req, res) => {
     try {

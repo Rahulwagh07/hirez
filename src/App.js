@@ -18,6 +18,7 @@ import UpdatePassword from "./pages/UpdatePassword"
 import ForgotPassword from "./pages/ForgotPassword"
 import Dashboard from "./pages/Dashboard"
 import NotFoundPage from "./pages/NotFoundPage"
+import Profile from "./pages/Profile"
  
  
  
@@ -118,7 +119,7 @@ function App() {
           <Route path="dashboard/Settings/update-profile" element={<UpdateProfile />} />
           <Route path="dashboard/Settings/change-password" element={<ChangePassword/>} />
           <Route path="dashboard/Settings/delete-account" element={<DeleteAccount />} />
- 
+          
 
 
            {/* Route only for Creator */}
@@ -131,6 +132,7 @@ function App() {
                 path="dashboard/edit-job/:jobId"
                 element={<EditJob/>}
               />
+              <Route path="dashboard/posted-job/:jobId/applicant-portfolio" element={<Profile/>}/>
             </>
           )}
            {/* Route only for jobseekeres */}
@@ -156,7 +158,7 @@ function App() {
           )}
 
         </Route>
-       
+
         <Route path="*" element={<NotFoundPage/>} />
     </Routes>
 </div>
