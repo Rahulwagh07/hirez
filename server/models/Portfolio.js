@@ -61,20 +61,27 @@ const portfolioSchema = new mongoose.Schema({
         type: String,
         required: true,
       },
-      type: {
+      description: {
         type: String,
-        enum: ["Article", "Blog Post", "Video", "Graphic", "Other"],
         required: true,
       },
       link: String,
     },
+  ], 
+
+  socialMediaProfiles: [
+    {
+      profileName: {
+        type: String,
+        required: true,
+      },
+      url: {
+        type: String,
+        required: true,
+      },
+    },
   ],
-  mediaGallery: [String],  
-  socialMediaLinks: {
-    linkedin: String,
-    twitter: String,
-    instagram: String,  
-  },
+
   resume: {
     type: {
       url: String,
@@ -82,6 +89,7 @@ const portfolioSchema = new mongoose.Schema({
       extension: String,
     },
   },
+
   contentCreationTools: [String],
 });
 

@@ -58,9 +58,16 @@ export const portfolioEndpoints = {
 
   // Media Routes
   UPDATE_MEDIA_GALLERY_API: BASE_URL + "/portfolio/updateMediaGallery",
-  UPDATE_SOCIAL_MEDIA_LINKS_API: BASE_URL + "/portfolio/updateSocialMediaLinks",
   ADD_CONTENT_SAMPLE_API: BASE_URL + "/portfolio/addContentSample",
   UPDATE_CONTENT_SAMPLES_API: BASE_URL + "/portfolio/updateContentSamples",
+  DELETE_CONTENT_SAMPLE_API: BASE_URL + "/portfolio/deleteContentSample",
+
+  ADD_SOCIAL_MEDIA_PROFILE_API: BASE_URL + "/portfolio/addSocialMediaProfile",
+  UPDATE_SOCIAL_MEDIA_PROFILE_API: BASE_URL + "/portfolio/updateSocialMediaProfile",
+  DELETE_SOCIAL_MEDIA_PROFILE_API: BASE_URL + "/portfolio/deleteSocailMediaProfile",
+  
+  GET_MEDIA_API: BASE_URL + "/portfolio/getMedia",
+
 
   // Project Routes
   ADD_PROJECT_API: BASE_URL + "/portfolio/addProject",

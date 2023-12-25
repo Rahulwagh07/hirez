@@ -17,9 +17,13 @@ const  {
   UPDATE_EXPERIENCE_API,
   DELETE_EXPERIENCE_API,
   UPDATE_MEDIA_GALLERY_API,
-  UPDATE_SOCIAL_MEDIA_LINKS_API,
+  ADD_SOCIAL_MEDIA_PROFILE_API,
+  UPDATE_SOCIAL_MEDIA_PROFILE_API,
+  DELETE_SOCIAL_MEDIA_PROFILE_API,
   ADD_CONTENT_SAMPLE_API,
   UPDATE_CONTENT_SAMPLES_API,
+  DELETE_CONTENT_SAMPLE_API,
+  GET_MEDIA_API,
   ADD_PROJECT_API,
   GET_ALL_PROJECTS_API,
   UPDATE_PROJECTS_API,
@@ -339,30 +343,7 @@ export const addCertification = async (data, token) => {
     }
   };
 
-  export const updateSocialMediaLinks = async (socialMediaLinks, token) => {
-    const toastId = toast.loading("Updating Social Media Links...");
   
-    try {
-      const response = await apiConnector("PUT", UPDATE_SOCIAL_MEDIA_LINKS_API, { ...socialMediaLinks }, {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      });
-  
-      if (!response?.data?.success) {
-        throw new Error("Social Media Links not updated successfully");
-      }
-  
-      toast.success("Social Media Links updated successfully");
-      return response.data.data;
-    } catch (error) {
-      console.error("updateSocialMediaLinks error:", error.message);
-      toast.error("Failed to update Social Media Links");
-      throw error;
-    } finally {
-      toast.dismiss(toastId);
-    }
-  };
-
   
   export const addContentSample = async (data, token) => {
     const toastId = toast.loading("Adding Content Sample...");
@@ -387,8 +368,152 @@ export const addCertification = async (data, token) => {
       toast.dismiss(toastId);
     }
   };
+  export const updateContentSample = async (data, token) => {
+    const toastId = toast.loading("Adding Content Sample...");
   
+    try {
+      const response = await apiConnector("PUT", UPDATE_CONTENT_SAMPLES_API, data, {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      });
+  
+      if (!response?.data?.success) {
+        throw new Error("Can Not Updaeted successfully");
+      }
+  
+      toast.success("Content Sample Updated successfully");
+      return response.data.data;
+    } catch (error) {
+      console.error("updateContent Sample error:", error.message);
+      toast.error("Failed to Update Content Sample");
+      throw error;
+    } finally {
+      toast.dismiss(toastId);
+    }
+  };
 
+  export const getMedia = async (token) => {
+    const toastId = toast.loading("Getting Media...");
+    try{
+      const response = await apiConnector("GET", GET_MEDIA_API, null, {
+        Authorization: `Bearer ${token}`,
+      });
+    
+      if (!response?.data?.success) {
+        throw new Error("Project not added successfully");
+      }
+      return response?.data?.data;
+    } catch(error){
+      console.error("addProject error:", error.message);
+    } finally {
+      toast.dismiss(toastId);
+    }
+  }
+
+  export const addSocialMediaProfile = async (data, token) => {
+    const toastId = toast.loading("Adding Social Media Profile...");
+  
+    try {
+      const response = await apiConnector("POST", ADD_SOCIAL_MEDIA_PROFILE_API,  data, {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      });
+  
+      if (!response?.data?.success) {
+        throw new Error("Social Media Profile not added successfully");
+      }
+      toast.success("Social Media Profile added successfully");
+      return response.data.data;
+    } catch (error) {
+      console.error("updateSocialMediaLinks error:", error.message);
+      toast.error("Failed to add Social Media Profile");
+      throw error;
+    } finally {
+      toast.dismiss(toastId);
+    }
+  };
+  
+  export const updateSocialMediaProfile = async (data, token) => {
+    const toastId = toast.loading("Updating Social Media Profile...");
+  
+    try {
+      const response = await apiConnector("PUT", UPDATE_SOCIAL_MEDIA_PROFILE_API,  data, {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      });
+  
+      if (!response?.data?.success) {
+        throw new Error("Social Media Profile not updated successfully");
+      }
+      toast.success("Social Media Profile updated successfully");
+      return response.data.data;
+    } catch (error) {
+      console.error("updateSocialMediaLinks error:", error.message);
+      toast.error("Failed to update Social Media Profile");
+      throw error;
+    } finally {
+      toast.dismiss(toastId);
+    }
+  };
+
+  export const deleteSocialMediaProfile = async (profileId, token) => {
+    const toastId = toast.loading("Deleting Social Media Link...");
+
+    try {
+      const response = await apiConnector(
+        "DELETE",
+        DELETE_SOCIAL_MEDIA_PROFILE_API,
+        { profileId },
+        {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        }
+      );
+  
+      if (!response?.data?.success) {
+        throw new Error("Social Media Profile not deleted successfully");
+      }
+  
+      toast.success(`Social Media Profile  deleted successfully`);
+      return response.data.data;
+    } catch (error) {
+      console.error("deleteSocialMedia error:", error.message);
+      toast.error("Failed to delete Social Media Profile");
+      throw error;
+    } finally {
+      toast.dismiss(toastId);
+    }
+  };
+  
+  export const deleteContentSample = async (contentSampleId, token) => {
+    const toastId = toast.loading("Deleting Content Sample...");
+  
+    try {
+      const response = await apiConnector(
+        "DELETE",
+        DELETE_CONTENT_SAMPLE_API,
+        { contentSampleId },
+        {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        }
+      );
+  
+      if (!response?.data?.success) {
+        throw new Error("Content Sample not deleted successfully");
+      }
+  
+      toast.success("Content Sample deleted successfully");
+      return response.data.data;
+    } catch (error) {
+      console.error("deleteContentSample error:", error.message);
+      toast.error("Failed to delete Content Sample");
+      throw error;
+    } finally {
+      toast.dismiss(toastId);
+    }
+  };
+  
   export const addProject = async (projectData, token) => {
     const toastId = toast.loading("Adding Project...");
   

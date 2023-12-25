@@ -30,3 +30,6 @@ const CustomInput = ({ id, label, type, placeholder, register, error }) => {
 };
 
 export default CustomInput;
+
+
+ 

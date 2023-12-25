@@ -4,6 +4,8 @@ import Experience from './Experience'
 import Certification from './Certification'
 import Project from './Project'
 import Resume from './Resume'
+import ContentSample from "./ContentSample"
+import Social from './Social'
  
 function Portfolio() {
   return (
@@ -14,6 +16,8 @@ function Portfolio() {
       <Certification/>
       <Project/>
       <Resume/>
+      <ContentSample/>
+      <Social/>
       
     </div>
   )
