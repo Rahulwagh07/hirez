@@ -2,6 +2,7 @@ const Profile = require("../models/Profile");
 const User = require("../models/User");
 const { uploadImageToCloudinary } = require("../utils/imageUploader");
 const mongoose = require("mongoose");
+const Portfolio = require("../models/Portfolio")
 
 
 exports.updateProfile = async (req, res) => {
@@ -161,6 +162,41 @@ exports.deleteAccount = async (req, res) => {
       .json({ success: false, message: "User Cannot be deleted successfully" })
   }
 }
+
+exports.getApplicantProfile = async (req, res) => {
+  try {
+    const { applicantId } = req.params;
+ 
+    const portfolio = await Portfolio.findOne({ user: applicantId });
+
+    if (!portfolio) {
+      console.log('Portfolio not found for applicantId:', applicantId);
+      return res.status(404).json({ error: 'Portfolio not found' });
+    }
+
+    const user = await User.findById(applicantId)
+    .select('-password -token')
+    .populate('additionalDetails');
+
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    const response = {
+      portfolio,
+      user,
+    };
+
+    res.status(200).json({
+      success: true,
+      message: "User details fetched successfly",
+      data: response,
+    })
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
 
 
  

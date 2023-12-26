@@ -13,6 +13,7 @@ export const endpoints = {
   //job endpoints
   export const profileEndpoints = {
     GET_USER_DETAILS_API: BASE_URL + "/profile/getUserDetails",
+    GET_APPLICANT_DETAIL_API: BASE_URL + "/profile/getApplicantProfile",
   }
 
   export const jobEndPoints = {
