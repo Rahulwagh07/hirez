@@ -639,7 +639,6 @@ export const addCertification = async (data, token) => {
       await apiConnector("DELETE", DELETE_RESUME_API, RiNurseFill, {
         Authorization: `Bearer ${token}`,
       });
-      console.log("  RESUME deleted")
       
     } catch(error){
       console.error("Delet Resume error:", error.message);
@@ -660,7 +659,6 @@ export const addCertification = async (data, token) => {
       if (!response?.data?.success) {
         throw new Error("Resume is Not uploaded Yet");
       }
-      console.log("getResume response", response)
       return response;
     } catch (error) {
       console.error("get Resume  error:", error.message);
