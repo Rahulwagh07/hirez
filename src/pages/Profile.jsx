@@ -8,9 +8,10 @@ import UserProfileCard from '../components/core/ProfilePage/UserProfileCard';
 import ExperienceProjectCard from '../components/core/ProfilePage/ExperienceProjectCard';
 import ResumeCard from '../components/core/ProfilePage/ResumeCard';
 import SocialMediaProfiles from '../components/core/ProfilePage/SocialMediaProfiles';
+import HireSection from '../components/core/ProfilePage/HireSection';
 
 function Profile() {
-  const { applicantId } = useParams();
+  const { applicantId, jobId } = useParams();
   const { token } = useSelector((state) => state.auth);
   const [user, setuser] = useState(null);
   const [portfolio, setPortfolio] = useState(null);
@@ -25,8 +26,6 @@ function Profile() {
       const response = await getApplicantProfile(applicantId, token);
       setuser(response.user);
       setPortfolio(response.portfolio);
-      console.log(response.user)
-      console.log(response.portfolio)
     } catch (error) {
       console.error('Error fetching applicant detail:', error);
        
@@ -41,6 +40,8 @@ function Profile() {
           <div className='flex items-center justify-center'>Loading...</div>
         ) : (
           <div className='flex flex-col gap-6'>
+            <HireSection/>
+           
             <UserProfileCard  user={user}/>
 
             {/* Social Media Profiles */}
@@ -102,6 +103,22 @@ function Profile() {
                 ))}
               </div>
 
+            </div>
+
+             {/* Certifications */}
+             <div className='bg-white shadow-lg p-8 flex flex-col gap-2'>
+              <h3>Certificates</h3>
+              <div className=''>
+                {portfolio.certifications.map((certificate) => (
+                  <ExperienceProjectCard 
+                    key={certificate._id}  
+                    title={certificate.title}
+                    company={certificate.issuingOrganization}
+                    startDate={certificate.issueDate}
+                    link={certificate.url}
+                  />
+                ))}
+              </div>
             </div>
 
            {/* ResumeSection */}

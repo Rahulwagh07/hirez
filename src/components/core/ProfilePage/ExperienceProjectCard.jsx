@@ -54,7 +54,7 @@ const ExperienceProjectCard = ({ title, fieldOfStudy, company, location, startDa
       {link && (
         <a href={link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
         <FaLink className="mr-2" />
-          View Project
+          View  
         </a>
       )}
     </div>

@@ -14,6 +14,8 @@ const {
     GET_ALL_JOBS_BY_CREATOR_API,
     APPLY_FOR_JOB_API,
     GET_ALL_OPEN_JOBS,
+    CHANGE_APPLICATION_STATUS_API,
+    GET_APPLICATION_STATUS_API,
 } = jobEndPoints
 
 export const addJobDetails = async (data, token) => {
@@ -198,7 +200,6 @@ export const applyForJob = async (jobId, token) => {
         throw new Error('Failed to fetch applied jobs');
       }
       result = response?.data?.data;
-      console.log("getAPPLIED jobs API  response", result)
     } catch (error) {
       console.error('Get Applied Jobs API Error:', error);
       toast.error(error.message)
@@ -215,11 +216,59 @@ export const applyForJob = async (jobId, token) => {
         Authorization: `Bearer ${token}`
       });
       result = response.data;
-      console.log("GET ALL APPLICANTS FOR JOB API RESPONSE", result);
     } catch (error) {
       console.error('Get All Applicants API Error:', error);
     }
     toast.dismiss(toastId);
     return result;
   };
+
+  export const changeApplicationStatus = async (applicationId, token) => {
+    try {
+        const response = await apiConnector(
+            'PUT',
+            CHANGE_APPLICATION_STATUS_API,
+            { applicationId },
+            {
+                Authorization: `Bearer ${token}`,
+            }
+        );
+
+    } catch (error) {
+        console.error('Change Application status API Error:', error);
+    }
+};
+
+export const getApplicationStatus = async (jobId, applicantId, token) => {
+    let result;
+    try{
+        const response = await apiConnector('GET',  GET_APPLICATION_STATUS_API, {jobId, applicantId}, {
+            Authorization: `Bearer ${token}`
+          });
+
+
+          if(!response?.data?.success){
+            result = response.data;
+          }
+    } catch(error){
+        console.error(error);
+    }
+    return result;
+}
+
+export const hireJobSeeker =  async (jobId, applicantId, token) => {
+    let result;
+    try{
+        const response = await apiConnector('PUT',  HIRE_JOBSEEKER_API, {jobId, applicantId}, {
+            Authorization: `Bearer ${token}`
+          });
+
+        if(response?.data?.success){
+            result = response
+        }
+    } catch(error){
+        console.error("Hire Jobseeker API Error", error)
+    }
+    return result;
+}
   

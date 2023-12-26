@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { changeApplicationStatus } from '../../../../../services/operations/jobDetailsAPI';
  
 
 const ApplicantList = ({ applicantions }) => {
@@ -8,8 +9,9 @@ const ApplicantList = ({ applicantions }) => {
   const { token } = useSelector((state) => state.auth)
    
   const navigate = useNavigate()
-  const handleOnClick = (ApplicationID, applicantId) => {
-   // const result = changeApplicationStatus(ApplicationID, token)     //To do
+
+  const handleOnClick = (applicationId, applicantId) => {
+   changeApplicationStatus(applicationId, token)   
    navigate(`applicant-portfolio/${applicantId}`); //Goint to the route /dashboard/posted-job/:jobId/applicant-portfolio/:applicantId
   }
  
@@ -21,8 +23,8 @@ const ApplicantList = ({ applicantions }) => {
            className='flex flex-col gap-4 section_bg p-5 box-shadow'>
             <p>Name: <span>{`${applicantion.applicant.firstName} ${applicantion.applicant.lastName}`} </span></p>  
             <p>Email: <span>{applicantion.applicant.email}</span></p> 
-           {/* <p>{applicant.applicant._id}</p>   userID */}
             <p>Status: <span>{applicantion.status}</span></p>  
+            <p>{applicantion._id}</p>
             <button onClick={() => handleOnClick(applicantion._id, applicantion.applicant._id)} className='bg-blue-150'>
                 View profile
             </button>

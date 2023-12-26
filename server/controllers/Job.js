@@ -185,6 +185,7 @@ exports.hireJobSeeker = async (req, res) => {
     try {
         // Get the job and applicant IDs  
         const { jobId, applicantId } = req.body;
+       
 
         // Update the application status to hired
         const updatedApplication = await Applications.findOneAndUpdate(
@@ -198,10 +199,10 @@ exports.hireJobSeeker = async (req, res) => {
         }
 
         // Notify the job seeker about the hire  
-        const jobSeeker = await User.findById(applicantId);
-        if (jobSeeker) {
-             //to do -> send mail
-        }
+        // const jobSeeker = await User.findById(applicantId);
+        // if (jobSeeker) {
+        //      //to do -> send mail
+        // }
 
         res.status(200).json({ success: true, data: updatedApplication });
     } catch (error) {
@@ -349,3 +350,47 @@ exports.getAllJobs = async (req, res) => {
         });
     }
 }
+
+
+exports.changeApplicationStatus = async (req, res) => {
+    try {
+        const { applicationId } = req.body;
+
+        const result = await Applications.findByIdAndUpdate(
+            { _id: applicationId },
+            { $set: { status: "Reviewed" } },
+            { new: true }
+        );
+
+        if (!result) {
+            throw new Error("Application Status is not Changed");
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "Application Status Changed Successfully",
+            data: result,
+        });
+    } catch (error) {
+        console.error("Change Application Status error", error);
+    }
+};;
+
+
+exports.getApplicationStatus = async (req, res) => {
+    try { 
+        const { jobId, applicantId } = req.body;
+        //Find the Application
+        const application = await Applications.findOne(
+            { job: jobId, applicant: applicantId }, 
+        );
+
+        if (!application) {
+            return res.status(404).json({ success: false, error: 'Application not found' });
+        }
+        res.status(200).json({ success: true, data: application.status});
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ success: false, error: 'Server Error' });
+    }
+};
