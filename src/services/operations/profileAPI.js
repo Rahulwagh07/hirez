@@ -8,6 +8,7 @@ import { logout } from "./authAPI"
 
 const {
     GET_USER_DETAILS_API,
+    GET_APPLICANT_DETAIL_API,
   } = profileEndpoints
 
 export function getUserDetails(token, navigate) {
@@ -33,3 +34,25 @@ export function getUserDetails(token, navigate) {
       dispatch(setLoading(false))
     }
   }
+
+  export const getApplicantProfile = async(applicantId, token) => {
+    const toastId = toast.loading("Loading");
+  
+    try {
+      const response = await apiConnector("GET", `${GET_APPLICANT_DETAIL_API}/${applicantId}`, null, {
+        Authorization: `Bearer ${token}`,
+      });
+      
+      if (!response?.data?.success) {
+        throw new Error("Failed to get applicant details");
+      }
+  
+      return response.data.data;
+    } catch (error) {
+      console.error("get Applicant details error:", error.message);
+      toast.error("Failed to get Applicant details");
+      throw error;
+    } finally {
+      toast.dismiss(toastId);
+    }
+  };

@@ -132,7 +132,7 @@ function App() {
                 path="dashboard/edit-job/:jobId"
                 element={<EditJob/>}
               />
-              <Route path="dashboard/posted-job/:jobId/applicant-portfolio" element={<Profile/>}/>
+              <Route path="dashboard/posted-job/:jobId/applicant-portfolio/:applicantId" element={<Profile/>}/>
             </>
           )}
            {/* Route only for jobseekeres */}
