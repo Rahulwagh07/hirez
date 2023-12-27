@@ -8,7 +8,7 @@ import ScrollButton from '../components/core/HomePage/ScrollButton'
 function Home() {
   return (
      <div className='flex flex-col'>
-        <div className='mx-auto flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8' >
+        <div className='mx-auto  flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8' >
          <HeroSection/>
          <ScrollButton/>
          <FeatureSection/>

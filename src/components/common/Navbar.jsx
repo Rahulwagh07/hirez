@@ -16,7 +16,7 @@ function Navbar() {
 
   return (
     
-    <div className='flex items-center  justify-center transition-all duration-300 section_bg py-4 box-shadow'>
+    <div className='flex items-center justify-center transition-all duration-300 section_bg py-4 box-shadow'>
         <nav className='flex justify-between max-w-maxScreen w-10/12 lg:text-lg'>
             <Link to={"/"} className='flex gap-4 '>
                 <img src={logo} className='w-12 h-12'/>

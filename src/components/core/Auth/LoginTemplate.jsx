@@ -4,7 +4,7 @@ import LoginForm from './LoginForm';
 
 const LoginTemplate = () => {
   return (
-    <div className='bg-white-25 flex flex-col mx-auto justify-center items-center p-8 h-[400px] w-[528px]'>
+    <div className='section_bg box-shadow flex flex-col mx-auto justify-center items-center p-20'>
         <p className="font-bold">Welcome Back!</p>
         <LoginForm/>
     </div>
