@@ -137,6 +137,17 @@ module.exports = {
         50:"#F7F8FC",
       },
     },
+    screens: {
+      'sm': {'max': '550px'},
+      // => @media (min-width: 640px) { ... }
+
+      'md': {'min' : '551px', 'max': '1023px'},
+      // => @media (min-width: 768px) { ... }
+
+      'lg': {'min' : '1024px'},
+      // => @media (min-width: 1024px) { ... }
+ 
+    },
     extend: {
       maxWidth: {
         maxContent: "1260px",

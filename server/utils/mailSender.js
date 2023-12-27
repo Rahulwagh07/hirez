@@ -11,7 +11,7 @@ const mailSender = async (email, title, body) => {
         })
 
         let info = await transporter.sendMail({
-            from: 'Hire Studio || by Rahul Wagh',
+            from: 'HireUp || by Rahul Wagh',
             to:`${email}`,
             subject:`${title}`,
             html: `${body}`,

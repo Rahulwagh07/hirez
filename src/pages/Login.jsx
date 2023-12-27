@@ -16,7 +16,7 @@ function Login() {
         {
         !showLoginTemplate && 
             <div className=' section_bg  box-shadow flex flex-col mx-auto justify-center items-center p-8  h-[300px] w-[528px]'>
-                <h3 className='text-lg font-semibold mb-4 flex flex-start'>Log in to Hire Studio</h3>
+                <h3 className='text-lg font-semibold mb-4 flex flex-start'>Log in to Hire St</h3>
 
                 {/* Google Login */}
                 <GoogleSignin/>
