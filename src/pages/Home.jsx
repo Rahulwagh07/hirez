@@ -9,11 +9,10 @@ function Home() {
   return (
      <div className='flex flex-col'>
         <div className='mx-auto flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8' >
-        {/* section 1 Herosection */}
-        <HeroSection/>
-        <ScrollButton/>
-        <FeatureSection/>
-        <ReviewSection/>
+         <HeroSection/>
+         <ScrollButton/>
+         <FeatureSection/>
+         <ReviewSection/>
         </div>
         <Footer/>
      </div>
