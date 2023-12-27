@@ -8,6 +8,7 @@ import Tab from '../../common/Tab';
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"
 import { setSignupData } from '../../../slices/authSlice';
 import { sendOtp } from '../../../services/operations/authAPI';
+ 
 
 function SignupForm() {
     const navigate = useNavigate();
@@ -62,7 +63,7 @@ function SignupForm() {
         password: "",
         confirmPassword: "",
         })
-        setAccountType(ACCOUNT_TYPE.STUDENT)
+        setAccountType(ACCOUNT_TYPE.JOBSEEKER)
     }
 
      // data to pass to Tab component
@@ -80,13 +81,13 @@ function SignupForm() {
     ]
 
   return (
-    <div className='w-[350px] flex flex-col items-center justify-center'>
-        <Tab tabData={tabData} field={accountType} setField={setAccountType} />
+    <div className='lg:w-[500px] flex flex-col items-center justify-center text-black'>
+        <Tab tabData={tabData} field={accountType} setField={setAccountType}/>
 
-        <form onSubmit={handleOnSubmit} className="flex w-full flex-col gap-y-4">
-        <div className="flex gap-x-4">
+        <form onSubmit={handleOnSubmit} className="flex w-full flex-col items-center justify-center gap-4 lg:w-[380px]">
+        <div className="flex items-center justify-center gap-4">
           <label>
-            <p className="mb-1 leading-[1.375rem] text-black">
+            <p className="mb-1">
               First Name <sup className="text-pink-200">*</sup>
             </p>
             <input
@@ -96,11 +97,11 @@ function SignupForm() {
               value={firstName}
               onChange={handleOnChange}
               placeholder="Enter first name"
-              className="form-style w-full"
+              className="h-[50px] rounded-md placeholder:ml-4  placeholder:absolute"
             />
           </label>
           <label>
-            <p className="mb-1 leading-[1.375rem] text-black">
+            <p className="mb-1">
               Last Name <sup className="text-pink-200">*</sup>
             </p>
             <input
@@ -110,12 +111,12 @@ function SignupForm() {
               value={lastName}
               onChange={handleOnChange}
               placeholder="Enter last name"
-              className="form-style w-full"
+              className="h-[50px] rounded-md  placeholder:ml-4  placeholder:absolute"
             />
           </label>
         </div>
-        <label className="w-full">
-          <p className="mb-1 leading-[1.375rem] text-black">
+        <label className="w-full mr-4 ml-4">
+          <p className="mb-1">
             Email Address <sup className="text-pink-200">*</sup>
           </p>
           <input
@@ -125,12 +126,12 @@ function SignupForm() {
             value={email}
             onChange={handleOnChange}
             placeholder="Enter email address"
-            className="form-style w-full"
+            className="w-full h-[50px] rounded-md  placeholder:ml-4  placeholder:absolute"
           />
         </label>
         <div className="flex gap-x-4">
           <label className="relative">
-            <p className="mb-1 leading-[1.375rem] text-black">
+            <p className="mb-1">
               Create Password <sup className="text-pink-200">*</sup>
             </p>
             <input
@@ -140,11 +141,11 @@ function SignupForm() {
               value={password}
               onChange={handleOnChange}
               placeholder="Enter Password"
-              className="form-style w-full !pr-10"
+              className="h-[50px] rounded-md  placeholder:ml-4  placeholder:absolute"
             />
             <span
               onClick={() => setShowPassword((prev) => !prev)}
-              className="absolute right-3 top-[38px] z-[10] cursor-pointer"
+              className="absolute right-2 top-[38px] z-[10] cursor-pointer mt-1"
             >
               {showPassword ? (
                 <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />
@@ -154,7 +155,7 @@ function SignupForm() {
             </span>
           </label>
           <label className="relative">
-            <p className="mb-1 leading-[1.375rem] text-black">
+            <p className="mb-1">
               Confirm Password <sup className="text-pink-200">*</sup>
             </p>
             <input
@@ -164,11 +165,11 @@ function SignupForm() {
               value={confirmPassword}
               onChange={handleOnChange}
               placeholder="Confirm Password"
-              className="form-style w-full !pr-10"
+              className="h-[50px] rounded-md  placeholder:ml-4  placeholder:absolute"
             />
             <span
               onClick={() => setShowConfirmPassword((prev) => !prev)}
-              className="absolute right-3 top-[38px] z-[10] cursor-pointer"
+              className="absolute right-2 top-[38px] z-[10] cursor-pointer mt-1"
             >
               {showConfirmPassword ? (
                 <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />
@@ -182,7 +183,7 @@ function SignupForm() {
           type="submit"
           className="bg-blue-150 py-2 px-4 rounded flex items-center justify-center mb-4 w-full h-[50px]"
         >
-          Next
+          Next  
         </button>
       </form>
     </div>

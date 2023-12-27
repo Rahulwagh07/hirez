@@ -17,23 +17,23 @@ function ForgotPassword() {
   }
 
   return (
-    <div className="grid min-h-[calc(100vh-3.5rem)] section_bg box-shadow place-items-center">
+    <div className="flex items-center justify-center">
       {loading ? (
         <div className="spinner"></div>
       ) : (
-        <div className="max-w-[500px] p-4 lg:p-8">
-          <h1 className="text-[1.875rem] font-semibold leading-[2.375rem] text-black">
+        <div className="section_bg max-w-lg p-12 mt-16 text-black box-shadow">
+          <h1 className=" font-semibold text-lg">
             {!emailSent ? "Reset your password" : "Check email"}
           </h1>
-          <p className="my-4 text-[1.125rem] leading-[1.625rem] text-black">
+          <p className="my-4 text-pure-greys-500">
             {!emailSent
-              ? "Have no fear. We'll email you instructions to reset your password. If you dont have access to your email we can try account recovery"
+              ? "Sure thing! Need a password reset? Cool. Look out for our email with instructions."
               : `We have sent the reset email to ${email}`}
           </p>
           <form onSubmit={handleOnSubmit}>
             {!emailSent && (
               <label className="w-full">
-                <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-black">
+                <p className="mb-1">
                   Email Address <sup className="text-pink-200">*</sup>
                 </p>
                 <input
@@ -49,14 +49,14 @@ function ForgotPassword() {
             )}
             <button
               type="submit"
-              className="mt-6 w-full rounded-[8px] bg-blue-150 py-[12px] px-[12px] font-medium text-black"
+              className="mt-6 w-full rounded-[8px] bg-blue-150 py-[12px] px-[12px] font-medium"
             >
               {!emailSent ? "Sumbit" : "Resend Email"}
             </button>
           </form>
           <div className="mt-6 flex items-center justify-between">
             <Link to="/login">
-              <p className="flex items-center gap-x-2 text-black">
+              <p className="flex items-center gap-x-2">
                 <BiArrowBack /> Back To Login
               </p>
             </Link>

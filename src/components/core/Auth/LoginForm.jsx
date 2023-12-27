@@ -45,7 +45,7 @@ function LoginForm() {
                 value={email}
                 onChange={handleOnChange}
                 placeholder="Enter email address"
-                className="w-[325px] h-[50px] rounded-md mb-4"
+                className="w-[325px] h-[50px] rounded-md mb-4 placeholder:ml-4  placeholder:absolute"
                 />
             </label>
 
@@ -60,11 +60,11 @@ function LoginForm() {
                 value={password}
                 onChange={handleOnChange}
                 placeholder="Enter Password"
-                className="w-[325px] h-[50px] !pr-10 rounded-md mb-4"
+                className="w-[325px] h-[50px] rounded-md mb-4 placeholder:ml-4  placeholder:absolute"
                 />
                 <span
                 onClick={() => setShowPassword((prev) => !prev)}
-                className="absolute right-4 z-[10] cursor-pointer"
+                className="absolute right-4 z-[10] cursor-pointer mt-3"
                 >
                 {showPassword ? (
                     <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />
@@ -73,9 +73,7 @@ function LoginForm() {
                 )}
                 </span>
                 <Link to="/forgot-password">
-                <p className="mt-2 flex items-center justify-center text-sm font-semibold text-black">
-                    Forgot Password
-                </p>
+                    <span className="mt-2 flex items-center justify-center text-sm font-semibold text-black hover:text-blue-150">Forgot Password</span>
                 </Link>
             </label>
 

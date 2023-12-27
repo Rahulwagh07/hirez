@@ -3,6 +3,7 @@ import { MdOutlineMailOutline } from "react-icons/md";
 import LoginTemplate from '../components/core/Auth/LoginTemplate';
 import { useState } from 'react';
 import GoogleSignin from '../components/core/Auth/GoogleSignin';
+import {Link } from "react-router-dom"
 
 function Login() {
     const [showLoginTemplate, setShowLoginTemplate] = useState(false);
@@ -12,11 +13,11 @@ function Login() {
     }
 
   return (
-    <div>
+    <div className='flex items-center justify-center lg:mt-20'>
         {
         !showLoginTemplate && 
-            <div className=' section_bg  box-shadow flex flex-col mx-auto justify-center items-center p-8  h-[300px] w-[528px]'>
-                <h3 className='text-lg font-semibold mb-4 flex flex-start'>Log in to Hire St</h3>
+            <div className=' section_bg  box-shadow flex flex-col justify-center items-center p-16'>
+                <h3 className='text-lg font-semibold mb-4 flex flex-start'>Log in to HireUp</h3>
 
                 {/* Google Login */}
                 <GoogleSignin/>
@@ -29,9 +30,9 @@ function Login() {
 
                 {/* Don't have an account? Sign up text */}
                 <div className='text-center'>
-                    <p>
-                    Don't have an account? <span className='font-semibold'>Sign up</span>
-                    </p>
+                    <Link to="/signup">
+                        Don't have an account? <span className='font-semibold cursor-pointer hover:text-blue-150'>Sign up</span>
+                    </Link>
                 </div>
             </div>
         }
