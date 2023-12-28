@@ -1,4 +1,5 @@
 import { ACCOUNT_TYPE } from "../utils/constants";
+
 export const sidebarLinks = [
   {
     id: 1,
@@ -21,21 +22,21 @@ export const sidebarLinks = [
     icon: "VscVm",
   },
   {
-    id: 5,
+    id: 4,
     name: "Applied Jobs",
     path: "/dashboard/applied-jobs",
     type: ACCOUNT_TYPE.JOBSEEKER,
     icon: "VscMortarBoard",
   },
   {
-    id: 6,
+    id: 5,
     name: "Apply for Jobs",
     path: "/dashboard/searchbar",
     type: ACCOUNT_TYPE.JOBSEEKER,
     icon: "VscHistory",
   },
   {
-    id: 7,
+    id: 6,
     name: "Saved Jobs",
     path: "/dashboard/saved-jobs",
     type: ACCOUNT_TYPE.JOBSEEKER,

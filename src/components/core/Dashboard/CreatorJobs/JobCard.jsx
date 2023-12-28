@@ -13,7 +13,7 @@ import { removeFromSavedJob } from "../../../../slices/saveJobSlice";
 
 const JobCard = ({ job, setJobs, isSearchingJob}) => {
 
-    const { title, description, skillRequired, category, salary, status } = job;
+    const { title, description, skillRequired, category, salary, status, location } = job;
     const { user } = useSelector((state) => state.profile)
     const { token } = useSelector((state) => state.auth);
     const [loading, setLoading] = useState(false);
@@ -60,9 +60,9 @@ const JobCard = ({ job, setJobs, isSearchingJob}) => {
 
     return (
         <div>
-            <div className="bg-white p-4 rounded shadow-md mb-4">
+            <div className="bg-white p-4 rounded shadow-lg mb-4 text-pure-greys-600">
                 <div className="flex items-center gap-2">
-                <h3 className="text-xl font-semibold mb-2">{title}</h3>
+                <h3 className="text-xl font-bold mb-2">{title}</h3>
                 <div>
                 {
                     user?.accountType === ACCOUNT_TYPE.CREATOR && <div>
@@ -103,11 +103,21 @@ const JobCard = ({ job, setJobs, isSearchingJob}) => {
                 </div>
                 </div>
                  
-                <p className="text-gray-600 mb-2">{description}</p>
-                <p className="text-gray-700 mb-2">Skill Required: {skillRequired}</p>
-                <p className="text-gray-700 mb-2">category: {category}</p>
-                <p className="text-gray-700 mb-2">Salary: {salary}</p>
-                <p className="text-gray-700 mb-2">Status: {status}</p>
+                <p className="">{description}</p>
+                <div className="grid lg:grid-cols-2 gap-4 mt-2">
+                    <p>Status:  <span className="font-semibold">{status}</span></p>
+                    <p>category: <span className="font-semibold">{category}</span></p>
+                    <p>Location: <span className="font-semibold">{location}</span></p>
+                    <p>Salary: <span className="font-semibold">{salary}</span></p>
+                    <p>Required Skill: <span className="font-semibold">{skillRequired}</span></p>
+                    {
+                        !isSearchingJob && 
+                            <p>Applicants: <span className="font-semibold ml-2">{totalApplicants}</span></p>
+                    }
+                </div>
+                 
+                 
+              
 
                 {
                     user.accountType === ACCOUNT_TYPE.CREATOR ? (
@@ -118,24 +128,22 @@ const JobCard = ({ job, setJobs, isSearchingJob}) => {
                             className="bg-blue-150 rounded-md xl:text-lg text-sm border-brand  items-center px-7 py-2">Review All Applicants
                         </button>
                     ) : (
-                        !isSearchingJob &&
-                        <div className="flex gap-2">
-                            <button
-                                onClick={() => dispatch(removeFromSavedJob(job._id))}
-                                className="flex items-center gap-x-1 rounded-md border border-richblue-500 bg-blue-150 py-3 px-[12px] text-white"
-                                >
-                                <RiDeleteBin6Line />
-                                <span>Remove</span>
-                            </button>
-                            <p>Applicants: <span className="font-semibold">{totalApplicants}</span></p>
-                            <button
-                                onClick={handleOnClickApply}
-                                className="flex items-center gap-x-1 rounded-md border border-richblue-500 bg-blue-150 py-3 px-[12px] text-white"
-                                >
-                                Apply
-                            </button>
-                            
-                        </div>
+                        !isSearchingJob && 
+                            <div className="flex justify-end gap-8">
+                                <button
+                                    onClick={() => dispatch(removeFromSavedJob(job._id))}
+                                    className="flex items-center gap-x-1 rounded-md  bg-richblack-700 text-richblack-50 py-2 px-3"
+                                    >
+                                    <span>Remove</span>
+                                </button>
+                                
+                                <button
+                                    onClick={handleOnClickApply}
+                                    className="flex items-center gap-x-1 rounded-md text-white-25  bg-blue-150 py-2 px-4"
+                                    >
+                                    Apply
+                                </button>
+                            </div>
                     )
                 }
                  

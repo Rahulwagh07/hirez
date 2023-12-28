@@ -179,7 +179,7 @@ export default function UpdateProfile() {
               />
               {errors.about && (
                 <span className="-mt-1 text-[12px] text-yellow-100">
-                  Please enter your About.
+                  Please write something about you.
                 </span>
               )}
             </div>
