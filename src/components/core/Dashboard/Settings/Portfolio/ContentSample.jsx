@@ -65,13 +65,13 @@ function ContentSample() {
               <div>
               {
             contentSample.map((content) => (
-              <div key={content._id} className='mb-4 p-4 border border-brand rounded'>
+              <div key={content._id} className='mb-4 p-4 border-b border-blue-500 text-pure-greys-500'>
                 <div className='flex gap-4 items-center'>
                   <p className="font-bold">
                     {content.title}
                   </p>
-                  <FiEdit2 onClick={() => handelOnEditClick(content)} className='cursor-pointer' />
-                  <RiDeleteBin6Line onClick={() => handelOnDelete(content._id)} className='cursor-pointer' />
+                  <FiEdit2 onClick={() => handelOnEditClick(content)} className='cursor-pointer hover:text-blue-500' />
+                  <RiDeleteBin6Line onClick={() => handelOnDelete(content._id)} className='cursor-pointer hover:text-red-500' />
                 </div>
                 <p>{content.description}</p>
                 <a href={content.link}  target="_blank" className="text-blue-150"> Click Here To see </a>

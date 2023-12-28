@@ -67,13 +67,13 @@ function Education() {
           {educations.length > 0 ? (
             <div>
               {educations.map((education) => (
-                <div key={education._id} className='mb-4 p-4 border border-brand rounded'>
-                  <div className='flex gap-4 items-center'>
-                    <p className='font-bold'>
+                <div key={education._id} className='mb-4 p-4 border-b border-blue-500 text-pure-greys-500'>
+                  <div className='flex gap-4 items-center'>   
+                    <p className='font-bold'>   
                       {education.fieldOfStudy} | {education.degree}
                     </p>
-                    <FiEdit2 onClick={() => handelOnEditClick(education)} className='cursor-pointer' />
-                    <RiDeleteBin6Line onClick={() => handelOnDelete(education._id)} className='cursor-pointer' />
+                    <FiEdit2 onClick={() => handelOnEditClick(education)} className='cursor-pointer hover:text-blue-500' />
+                    <RiDeleteBin6Line onClick={() => handelOnDelete(education._id)} className='cursor-pointer hover:text-red-500' />
                   </div>
                   <p>{education.institution}</p>
                   <p>

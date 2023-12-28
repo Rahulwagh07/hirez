@@ -65,11 +65,11 @@ function Certification() {
           {certifications.length > 0 ? (
             <div>
               {certifications.map((certification) => (
-                <div key={certification._id} className='mb-4 p-4 border-brand rounded'>
+                <div key={certification._id} className='mb-4 p-4 border-b border-blue-500 text-pure-greys-500'>
                   <div className='flex gap-4 items-center'>
                     <p className='font-bold'>{certification.title}</p>
-                    <FiEdit2 onClick={() => handelOnEditClick(certification)} className='cursor-pointer' />
-                    <RiDeleteBin6Line onClick={() => handelOnDelete(certification._id)} className='cursor-pointer' />
+                    <FiEdit2 onClick={() => handelOnEditClick(certification)} className='cursor-pointer hover:text-blue-500 ' />
+                    <RiDeleteBin6Line onClick={() => handelOnDelete(certification._id)} className='cursor-pointer hover:text-red-500' />
                   </div>
                   <p>{certification.issuingOrganization}</p>
                   <p>

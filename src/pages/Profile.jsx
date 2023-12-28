@@ -9,6 +9,7 @@ import ExperienceProjectCard from '../components/core/ProfilePage/ExperienceProj
 import ResumeCard from '../components/core/ProfilePage/ResumeCard';
 import SocialMediaProfiles from '../components/core/ProfilePage/SocialMediaProfiles';
 import HireSection from '../components/core/ProfilePage/HireSection';
+import { ACCOUNT_TYPE } from '../utils/constants';
 
 function Profile() {
   const { applicantId, jobId } = useParams();
@@ -40,8 +41,9 @@ function Profile() {
           <div className='flex items-center justify-center'>Loading...</div>
         ) : (
           <div className='flex flex-col gap-6'>
-            <HireSection/>
-           
+            {
+              user.accountType === ACCOUNT_TYPE.CREATOR  &&  <HireSection/>
+            }
             <UserProfileCard  user={user}/>
 
             {/* Social Media Profiles */}

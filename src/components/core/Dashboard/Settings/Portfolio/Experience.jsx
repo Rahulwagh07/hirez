@@ -63,11 +63,11 @@ function Experience() {
           {experiences.length > 0 ? (
             <div>
               {experiences.map((experience) => (
-                <div key={experience._id} className='mb-4 p-4 border border-brand rounded'>
+                <div key={experience._id} className='mb-4 p-4 border-b border-blue-500 text-pure-greys-500'>
                   <div className='flex gap-4 items-center'>
                     <p className='font-bold'>{experience.title}</p>
-                    <FiEdit2 onClick={() => handleOnEditClick(experience)} className='cursor-pointer' />
-                    <RiDeleteBin6Line onClick={() => handleOnDelete(experience._id)} className='cursor-pointer' />
+                    <FiEdit2 onClick={() => handleOnEditClick(experience)} className='cursor-pointer hover:text-blue-500' />
+                    <RiDeleteBin6Line onClick={() => handleOnDelete(experience._id)} className='cursor-pointer hover:text-red-500' />
                   </div>
                   <p> <span className='font-semibold'>Creator-</span>{experience.company} </p>
                   <p>{experience.description}</p>

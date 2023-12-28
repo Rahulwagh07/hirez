@@ -62,13 +62,13 @@ function Social() {
           {socialMediaProfiles.length > 0 ? (
             <div>
               {socialMediaProfiles.map((profile) => (
-                <div key={profile._id} className='mb-4 p-4 border border-brand rounded'>
+                <div key={profile._id} className='mb-4 p-4 border-b border-blue-500 text-pure-greys-500'>
                   <div className='flex gap-4 items-center'>
                     <p className="font-bold">
                       {profile.profileName}
                     </p>
-                    <FiEdit2 onClick={() => handelOnEditClick(profile)} className='cursor-pointer' />
-                    <RiDeleteBin6Line onClick={() => handelOnDelete(profile._id)} className='cursor-pointer' />
+                    <FiEdit2 onClick={() => handelOnEditClick(profile)} className='cursor-pointer hover:text-blue-500' />
+                    <RiDeleteBin6Line onClick={() => handelOnDelete(profile._id)} className='cursor-pointer hover:text-red-500' />
                   </div>
                   <a href={profile.url} target="_blank" className="text-blue-150">{profile.url}</a>
                 </div>

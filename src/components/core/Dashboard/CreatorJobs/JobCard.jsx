@@ -110,10 +110,7 @@ const JobCard = ({ job, setJobs, isSearchingJob}) => {
                     <p>Location: <span className="font-semibold">{location}</span></p>
                     <p>Salary: <span className="font-semibold">{salary}</span></p>
                     <p>Required Skill: <span className="font-semibold">{skillRequired}</span></p>
-                    {
-                        !isSearchingJob && 
-                            <p>Applicants: <span className="font-semibold ml-2">{totalApplicants}</span></p>
-                    }
+                    <p>Applicants: <span className="font-semibold ml-2">{totalApplicants}</span></p>
                 </div>
                  
                  

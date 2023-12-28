@@ -10,7 +10,6 @@ function JobDetailsModal({job, setIsModalOpen}) {
   const dispatch = useDispatch()
   const { token } = useSelector((state) => state.auth)
   const { title, description, skillRequired, category, salary, status, location} = job;
-  const totalApplicants = 5;  //to do
   const navigate = useNavigate()
 
   const handleOnClickSave = () => {
@@ -24,16 +23,11 @@ function JobDetailsModal({job, setIsModalOpen}) {
 
   const handleOnClickApply = async () => {
     try {
-      // Send a request to apply for the job
       const result = await applyForJob(job._id, token);
-      // Check if the application was successful
       if (result) {
-        // You can handle success, for example, show a success message or update the UI
-        console.log('Job applied successfully:', result);
         navigate("/dashboard/applied-jobs");
       }
     } catch (error) {
-      // Handle any errors that occurred during the application
       console.error('Error applying for job:', error.message);
     }
     handleCloseModal();
@@ -41,29 +35,25 @@ function JobDetailsModal({job, setIsModalOpen}) {
   
   return (
     <div className="fixed inset-0 z-[1000] !mt-0 grid place-items-center overflow-auto bg-white bg-opacity-10 backdrop-blur-sm">
-      <div className="w-11/12 max-w-[350px] relative rounded-lg border border-richblue-200 section_bg p-6">
+      <div className="relative max-w-[350px] flex flex-col gap-4 text-pure-greys-500 rounded-lg border-brand section_bg p-8">
           <RxCross2 size={24} onClick={handleCloseModal} className='absolute top-4 right-4 cursor-pointer'/>
-          <div className='flex flex-col justify-center items-center gap-4'>
-              <p>{title}</p>
-            <div className='flex'>
-                <p>Experience 0-2 years</p>
-                <p> salary <span>{salary}</span></p>
-            </div>
-            <p>location  <span>{location}</span></p>
-            <div className='flex gap-2'> 
-              <p>Applicants <span>{totalApplicants}</span></p>
-            </div>
-            <div className='flex gap-4'>
+          <p className='font-bold'>{title}</p>
+          <div className='grid grid-cols-2 gap-4'>
+            <p>Category:  <span className='font-semibold'>{category}</span></p>
+            <p>Salary: <span className='font-semibold'>{salary}</span></p>
+            <p>Required Skill: <span className='font-semibold'>{skillRequired}</span></p>
+            <p>Location:  <span className='font-semibold'>{location}</span></p>
+         </div>
+         <div className='flex gap-6 font-semibold'>
               <button onClick={handleOnClickSave}
-              className='rounded-md xl:text-lg text-sm border-brand  items-center px-7 py-2'>
+              className='rounded-md border-brand  items-center px-7 py-2'>
                     Save
               </button>
               <button onClick={handleOnClickApply}
-              className='rounded-md xl:text-lg text-sm border-brand bg-blue-150  items-center px-7 py-2 '>
+              className='rounded-md border-brand bg-blue-150  items-center px-7 py-2 text-white-25'>
                 Apply
               </button>
-            </div>
-         </div>
+          </div>
       </div>
     </div>
   )

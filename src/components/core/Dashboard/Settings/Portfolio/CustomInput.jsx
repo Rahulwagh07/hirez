@@ -2,8 +2,8 @@ import React from 'react';
 
 const CustomInput = ({ id, label, type, placeholder, register, error }) => {
   return (
-    <div className="flex flex-col space-y-2">
-      <label className="text-sm text-black" htmlFor={id}>
+    <div className="flex flex-col space-y-2 text-pure-greys-600">
+      <label className="text-sm" htmlFor={id}>
         {label} <sup className="text-pink-200">*</sup>
       </label>
       {type === 'date' ? (
