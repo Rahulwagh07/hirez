@@ -6,6 +6,7 @@ import { setJob } from '../../../../slices/jobSlice';
 import JobCard from '../CreatorJobs/JobCard';
 import FilterCheckboxGroup  from "./FilterCheckboxGroup "
 import JobDetailsModal from '../JobDetailsModal';
+import { FiSearch } from 'react-icons/fi';
 
 function SearchJobs() {
   const dispatch = useDispatch();
@@ -65,14 +66,23 @@ function SearchJobs() {
     <div className="container mx-auto mt-8 flex flex-col ">
       {loading && <div>Loading.....</div>}
       {/* Search Bar */}
-      <input
-        type="text"
-        placeholder="Search jobs..."
-        value={searchParams.searchTerm}
-        onChange={(e) => setSearchParams({ ...searchParams, searchTerm: e.target.value })}
-        className="border p-2 rounded mr-2"
-      />
-
+       
+      <div className="relative  ">
+        <input
+          type="text"
+          placeholder="search jobs....."
+          value={searchParams.searchTerm}
+          onChange={(e) => setSearchParams({ ...searchParams, searchTerm: e.target.value })}
+          className="bg-white-25 w-full relative h-[60px] rounded-full placeholder:ml-6 placeholder:absolute
+          placeholder:text-lg focus:outline-none  focus:outline-[#2563eb]"
+        />
+        <div className="absolute inset-y-3  text-white-25 font-semibold right-0 gap-2 flex items-center justify-center mr-[30px] bg-[#2563eb] rounded-full p-4">
+          <FiSearch width={32} height={32}/>
+          <p>Search</p>
+        </div>
+      </div>
+      
+  
       {/* Filters */}
        <div className='flex gap-4'>
        <FilterCheckboxGroup
@@ -106,13 +116,19 @@ function SearchJobs() {
 
        </div>
       {/* Display Jobs */}
-      <div className="grid grid-cols-3 gap-4 mt-4">
+      <div className="grid gap-4 mt-4">
         {/* Map through jobs and render JobCard component */}
-        {jobs.map((job) => (
-            <button key={job._id} onClick={() => handleOnClick(job)}>
-                <JobCard job={job} setJobs={setJobs} isSearchingJob={setIsSearchingJob} />
-            </button>
+        {jobs.map((job) => (   
+          <span key={job._id} onClick={() => handleOnClick(job)}
+            className='cursor-pointer'
+          >
+            <JobCard job={job} key={job._id} setJobs={setJobs} isSearchingJob={setIsSearchingJob} 
+            /> 
+            </span>
+            
          ))}
+          
+        
 
         {
             isModalOpen && (

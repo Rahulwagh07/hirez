@@ -1,6 +1,6 @@
 import * as Icons from "react-icons/vsc"
 import { NavLink, matchPath, useLocation } from "react-router-dom"
-
+ 
  
 export default function SidebarLink({ link, iconName }) {
   const Icon = Icons[iconName]
@@ -25,7 +25,6 @@ export default function SidebarLink({ link, iconName }) {
         }`}
       ></span>
       <div className="flex items-center gap-x-2">
-        {/* Icon Goes Here */}
         <Icon className="text-lg" />
         <span>{link.name}</span>
       </div>

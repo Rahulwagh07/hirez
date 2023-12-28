@@ -50,9 +50,7 @@ function JobDetailsModal({job, setIsModalOpen}) {
                 <p> salary <span>{salary}</span></p>
             </div>
             <p>location  <span>{location}</span></p>
-            <div className='flex gap-2'>
-              <p>posted <span>5 Days ago</span></p>  
-              <p>opening <span>1</span> </p>  
+            <div className='flex gap-2'> 
               <p>Applicants <span>{totalApplicants}</span></p>
             </div>
             <div className='flex gap-4'>

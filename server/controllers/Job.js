@@ -12,7 +12,7 @@ exports.getAllAppliedJobs = async (req, res) => {
         const appliedJobs = await Applications.find({ applicant: userID })
             .populate({
                 path: 'job',  
-                select: 'title description salary status',
+                select: 'title description salary status location',
                 populate: {
                     path: 'creator',
                     select: 'firstName lastName email', 
