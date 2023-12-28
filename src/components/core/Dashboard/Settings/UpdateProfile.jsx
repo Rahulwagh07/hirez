@@ -29,17 +29,17 @@ export default function UpdateProfile() {
     }
   }
   return (
-    <div>
+    <div className="">
       <UpdateProfilePicture/>
       <form onSubmit={handleSubmit(submitProfileForm)}>
         {/* Profile Information */}
-        <div className="my-10 flex flex-col gap-y-6 rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-8 px-12">
-          <h2 className="text-lg font-semibold text-richblack-5">
+        <div className="my-10 flex flex-col gap-y-4 section_bg box-shadow rounded-md p-8 px-12">
+          <h2 className="text-lg font-semibold">
             Profile Information
           </h2>
           <div className="flex flex-col gap-5 lg:flex-row">
             <div className="flex flex-col gap-2 lg:w-[48%]">
-              <label htmlFor="firstName" className="lable-style">
+              <label htmlFor="firstName">
                 First Name
               </label>
               <input
@@ -47,7 +47,7 @@ export default function UpdateProfile() {
                 name="firstName"
                 id="firstName"
                 placeholder="Enter first name"
-                className="form-style"
+                className="form-style border border-blue-150"
                 {...register("firstName", { required: true })}
                 defaultValue={user?.firstName}
               />
@@ -58,7 +58,7 @@ export default function UpdateProfile() {
               )}
             </div>
             <div className="flex flex-col gap-2 lg:w-[48%]">
-              <label htmlFor="lastName" className="lable-style">
+              <label htmlFor="lastName">
                 Last Name
               </label>
               <input
@@ -66,7 +66,7 @@ export default function UpdateProfile() {
                 name="lastName"
                 id="lastName"
                 placeholder="Enter first name"
-                className="form-style"
+                className="form-style border border-blue-150"
                 {...register("lastName", { required: true })}
                 defaultValue={user?.lastName}
               />
@@ -80,14 +80,15 @@ export default function UpdateProfile() {
 
           <div className="flex flex-col gap-5 lg:flex-row">
             <div className="flex flex-col gap-2 lg:w-[48%]">
-              <label htmlFor="dateOfBirth" className="lable-style">
+              <label htmlFor="dateOfBirth">
                 Date of Birth
               </label>
               <input
                 type="date"
                 name="dateOfBirth"
                 id="dateOfBirth"
-                className="form-style"
+                className="form-style border border-blue-150"
+                placeholder="select date of birth"
                 {...register("dateOfBirth", {
                   required: {
                     value: true,
@@ -107,14 +108,14 @@ export default function UpdateProfile() {
               )}
             </div>
             <div className="flex flex-col gap-2 lg:w-[48%]">
-              <label htmlFor="gender" className="lable-style">
+              <label htmlFor="gender">
                 Gender
               </label>
               <select
                 type="text"
                 name="gender"
                 id="gender"
-                className="form-style"
+                className="form-style border border-blue-150"
                 {...register("gender", {
                   required: {
                     value: true,}})}
@@ -130,7 +131,7 @@ export default function UpdateProfile() {
               </select>
               {errors.gender && (
                 <span className="-mt-1 text-[12px] text-yellow-100">
-                  Please enter your Date of Birth.
+                  Please select your gender.
                 </span>
               )}
             </div>
@@ -138,7 +139,7 @@ export default function UpdateProfile() {
 
           <div className="flex flex-col gap-5 lg:flex-row">
             <div className="flex flex-col gap-2 lg:w-[48%]">
-              <label htmlFor="contactNumber" className="lable-style">
+              <label htmlFor="contactNumber">
                 Contact Number
               </label>
               <input
@@ -146,7 +147,7 @@ export default function UpdateProfile() {
                 name="contactNumber"
                 id="contactNumber"
                 placeholder="Enter Contact Number"
-                className="form-style"
+                className="form-style border border-blue-150"
                 {...register("contactNumber", {
                   required: {
                     value: true,
@@ -164,7 +165,7 @@ export default function UpdateProfile() {
               )}
             </div>
             <div className="flex flex-col gap-2 lg:w-[48%]">
-              <label htmlFor="about" className="lable-style">
+              <label htmlFor="about">
                 About
               </label>
               <input
@@ -172,7 +173,7 @@ export default function UpdateProfile() {
                 name="about"
                 id="about"
                 placeholder="Enter Bio Details"
-                className="form-style"
+                className="form-style border border-blue-150"
                 {...register("about", { required: true })}
                 defaultValue={user?.additionalDetails?.about}
               />
@@ -183,18 +184,18 @@ export default function UpdateProfile() {
               )}
             </div>
           </div>
-        </div>
 
-        <div className="flex justify-end gap-2">
-          <button
-            onClick={() => {
-              navigate("/dashboard/my-profile")
-            }}
-            className="cursor-pointer rounded-md bg-richblack-700 py-2 px-5 font-semibold text-richblack-50"
-          >
-            Cancel
-          </button>
-          <IconBtn type="submit" text="Save" />
+          <div className="flex justify-end gap-2">
+            <button
+              onClick={() => {
+                navigate("/dashboard/my-profile")
+              }}
+              className="cursor-pointer rounded-md bg-richblack-700 py-2 px-5 font-semibold text-richblack-50"
+            >
+              Cancel
+            </button>
+            <IconBtn type="submit" text="Save" />
+          </div>
         </div>
       </form>
     </div>

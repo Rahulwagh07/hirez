@@ -50,7 +50,7 @@ html, body {
 }
 
 .form-style {
-  @apply rounded-lg bg-white-25 p-3 text-[16px] leading-[24px] text-black shadow-white-50 placeholder:text-richblack-400 focus:outline-none;
+  @apply rounded-lg  p-3 text-[16px] leading-[24px] text-black shadow-white-50 placeholder:text-richblack-400 focus:outline-none;
 }
 @layer utilities {
   .shadow-white-50 {
