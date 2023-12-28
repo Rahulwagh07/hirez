@@ -3,6 +3,7 @@ import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import IconBtn from "../../common/IconBtn"
 import { FaArrowRight } from "react-icons/fa6";
+import { ACCOUNT_TYPE } from "../../../utils/constants";
 
 
 
@@ -16,15 +17,18 @@ export default function MyProfile() {
         <h1 className="text-3xl font-medium">
           My Profile
         </h1>
-        <button
+         {
+          user.accountType === ACCOUNT_TYPE.JOBSEEKER &&
+          <button
             onClick={() => {
               navigate("/dashboard/settings");
             }}
             className="rounded-md border-brand items-center px-7 py-2 flex"
           >
             Portfolio <FaArrowRight className="ml-2"/>
-        </button>
+          </button>
 
+         }
        </div>
       <div className="flex items-center justify-between rounded-md  section_bg box-shadow p-8 px-12">
         <div className="flex items-center gap-x-4">

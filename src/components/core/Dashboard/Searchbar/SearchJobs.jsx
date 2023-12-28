@@ -10,7 +10,6 @@ import { FiSearch } from 'react-icons/fi';
 
 function SearchJobs() {
   const dispatch = useDispatch();
-  const { job, editJob } = useSelector((state) => state.job);
   const { token } = useSelector((state) => state.auth);
   const [searchParams, setSearchParams] = useState({
     searchTerm: '',

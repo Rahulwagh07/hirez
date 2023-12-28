@@ -154,6 +154,9 @@ function App() {
                 path="dashboard/Settings/update-portfolio" 
                 element={<Portfolio />} 
                 />
+              <Route path="dashboard/Settings/update-portfolio/creator-view/:applicantId"
+                     element={<Profile/>} 
+                />
             </>
           )}
 

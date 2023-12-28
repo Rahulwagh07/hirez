@@ -136,6 +136,9 @@ module.exports = {
       bluegrey:{
         50:"#F7F8FC",
       },
+      sky:{
+        500:"#0EA5E9",
+      },
     },
     screens: {
       'sm': {'max': '550px'},

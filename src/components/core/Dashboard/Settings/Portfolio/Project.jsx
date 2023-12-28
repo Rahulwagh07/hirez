@@ -63,13 +63,13 @@ function Project() {
           {projects.length > 0 ? (
             <div>
               {projects.map((project) => (
-                <div key={project._id} className='mb-4 p-4 border border-brand rounded'>
+                <div key={project._id} className='mb-4 p-4 border-b border-blue-500 text-pure-greys-500'>
                   <div className='flex gap-4 items-center'>
                     <p className='font-bold'>
                       {project.title}
                     </p>
-                    <FiEdit2 onClick={() => handelOnEditClick(project)} className='cursor-pointer' />
-                    <RiDeleteBin6Line onClick={() => handelOnDelete(project._id)} className='cursor-pointer' />
+                    <FiEdit2 onClick={() => handelOnEditClick(project)} className='cursor-pointer hover:text-blue-500' />
+                    <RiDeleteBin6Line onClick={() => handelOnDelete(project._id)} className='cursor-pointer hover:text-red-500' />
                   </div>
                   <p>{project.description}</p>
                   <a href={project.link} target='_blank' className='text-blue-200'>link</a> | {" "} 

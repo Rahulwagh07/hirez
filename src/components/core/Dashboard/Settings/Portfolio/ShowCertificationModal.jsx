@@ -65,10 +65,10 @@ export default function ShowCertificationModal({ editCertification, setIsOpen, c
   };
 
   return (
-    <div className='fixed inset-0 z-[1000] !mt-0 grid place-items-center overflow-auto bg-white bg-opacity-10 backdrop-blur-sm'>
+    <div className='fixed inset-0 z-[1000] !mt-0 grid place-items-center overflow-auto bg-white-25 bg-opacity-10 backdrop-blur-sm'>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className='space-y-8 rounded-md w-[500px] mx-auto border-[1px] border-richblack-700 section_bg'
+        className='p-8 border-brand section_bg box-shadow  space-y-8 rounded-md  w-[500px] mx-auto'
       >
         {certificationFields.map((field) => (
           <CustomInput
@@ -82,11 +82,11 @@ export default function ShowCertificationModal({ editCertification, setIsOpen, c
           />
         ))}
 
-        <div className='flex justify-end gap-x-2'>
-          <button onClick={onCancel} className='text-blue-150'>
+        <div className='flex justify-end gap-x-8'>
+          <button onClick={onCancel} className='text-bule-150'>
             Cancel
           </button>
-          <button type='submit' className='bg-blue-150'>
+          <button type='submit' className='bg-blue-150  px-4 py-1 rounded-md'>
             Save
           </button>
         </div>
