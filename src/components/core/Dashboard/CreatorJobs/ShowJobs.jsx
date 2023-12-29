@@ -1,10 +1,9 @@
  
 //TO Show the Job posted By Creator
-import { useNavigate } from "react-router-dom";
 import JobCard from "./JobCard"
   
 export default function ShowJobs({ jobs, setJobs }) {
-    const navigate = useNavigate()
+ 
    
     return (
             <div>

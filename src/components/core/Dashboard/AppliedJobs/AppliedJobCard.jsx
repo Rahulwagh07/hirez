@@ -1,12 +1,10 @@
 import React from 'react';
-import { MdCurrencyRupee } from "react-icons/md";
-
-
+ 
 function AppliedJobCard({ job }) {
   const { title, description, salary, status, creator, location} = job.job || {}; 
   const applicationStatus = job.status;
   const { firstName, lastName } = creator || {};
-  console.log( "job", job)
+  
 
   return (
     <div className="bg-white p-4 rounded-md shadow-md text-pure-greys-800">

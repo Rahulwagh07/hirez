@@ -209,7 +209,6 @@ export const applyForJob = async (jobId, token) => {
   };
 
   export const getAllApplicantsForJob = async (jobId, token) => {
-    const toastId = toast.loading("Loading..");
     let result = null;
     try {
       const response = await apiConnector('GET', `${GET_ALL_APPLICANTS_FOR_JOB_API}?jobId=${jobId}`, null, {
@@ -219,7 +218,6 @@ export const applyForJob = async (jobId, token) => {
     } catch (error) {
       console.error('Get All Applicants API Error:', error);
     }
-    toast.dismiss(toastId);
     return result;
   };
 
