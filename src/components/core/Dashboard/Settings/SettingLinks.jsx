@@ -29,7 +29,7 @@ const SettingLinks = () => {
         return (
           <div
             key={link.id}
-            className="rounded-3xl xl:text-lg text-sm hover:bg-blue-150 hover:shadow-lg  border-brand gap-4 cursor-pointer px-7 lg:py-3 flex items-center justify-center"
+            className="rounded-3xl  hover:bg-blue-150 hover:shadow-lg  border-brand gap-4 cursor-pointer px-7 lg:py-3 flex items-center justify-center"
             onClick={() => handleLinkClick(link.path)}
           >
             <span>{link.name}</span>

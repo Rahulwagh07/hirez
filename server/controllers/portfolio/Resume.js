@@ -12,7 +12,7 @@ exports.updateResume = async (req, res) => {
           process.env.FOLDER_NAME,
       );
       
-      // Save resume in the portfolio
+      // Save resume url in the portfolio
       const updatedPortfolio = await Portfolio.findOneAndUpdate(
           { user: userId },
           {

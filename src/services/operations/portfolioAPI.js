@@ -58,8 +58,6 @@ export const addCertification = async (data, token) => {
   };
 
   export const getAllCertifications = async (token) => {
-    const toastId = toast.loading("Fetching Certifications...");
-  
     try {
       const response = await apiConnector("GET", GET_ALL_CERTIFICATION_API, null, {
         Authorization: `Bearer ${token}`,
@@ -74,8 +72,6 @@ export const addCertification = async (data, token) => {
       console.error("getAllCertification error:", error.message);
       toast.error("Failed to fetch Certification");
       throw error;
-    } finally {
-      toast.dismiss(toastId);
     }
   };
   
@@ -155,8 +151,7 @@ export const addCertification = async (data, token) => {
   };
   
   export const getAllEducations = async (token) => {
-    const toastId = toast.loading("Fetching Education...");
-  
+     
     try {
       const response = await apiConnector("GET", GET_ALL_EDUCATION_API, null, {
         Authorization: `Bearer ${token}`,
@@ -171,9 +166,7 @@ export const addCertification = async (data, token) => {
       console.error("getAllEducations error:", error.message);
       toast.error("Failed to fetch Education");
       throw error;
-    } finally {
-      toast.dismiss(toastId);
-    }
+    }  
   };
   
   export const updateEducation = async (data, token) => {
@@ -250,8 +243,7 @@ export const addCertification = async (data, token) => {
   };
   
   export const getAllExperiences = async (token) => {
-    const toastId = toast.loading("Fetching Experiences...");
-  
+    
     try {
       const response = await apiConnector("GET", GET_ALL_EXPERIENCE_API, null, {
         Authorization: `Bearer ${token}`,
@@ -266,9 +258,7 @@ export const addCertification = async (data, token) => {
       console.error("getAllExperiences error:", error.message);
       toast.error("Failed to fetch Experiences");
       throw error;
-    } finally {
-      toast.dismiss(toastId);
-    }
+    } 
   };
   
   export const updateExperience = async (data, token) => {
@@ -393,7 +383,6 @@ export const addCertification = async (data, token) => {
   };
 
   export const getMedia = async (token) => {
-    const toastId = toast.loading("Getting Media...");
     try{
       const response = await apiConnector("GET", GET_MEDIA_API, null, {
         Authorization: `Bearer ${token}`,
@@ -405,9 +394,7 @@ export const addCertification = async (data, token) => {
       return response?.data?.data;
     } catch(error){
       console.error("addProject error:", error.message);
-    } finally {
-      toast.dismiss(toastId);
-    }
+    } 
   }
 
   export const addSocialMediaProfile = async (data, token) => {
@@ -539,8 +526,7 @@ export const addCertification = async (data, token) => {
   };
 
   export const getAllProjects = async (token) => {
-    const toastId = toast.loading("Fetching Projects...");
-  
+     
     try {
       const response = await apiConnector("GET", GET_ALL_PROJECTS_API, null, {
         Authorization: `Bearer ${token}`,
@@ -555,9 +541,7 @@ export const addCertification = async (data, token) => {
       console.error("getAllProjects error:", error.message);
       toast.error("Failed to fetch projects");
       throw error;
-    } finally {
-      toast.dismiss(toastId);
-    }
+    }  
   };
 
   export const updateProjects = async (projectData, token) => {
