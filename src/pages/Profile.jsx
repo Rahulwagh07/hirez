@@ -44,6 +44,7 @@ function Profile() {
             {
               user.accountType === ACCOUNT_TYPE.CREATOR  &&  <HireSection/>
             }
+            
             <UserProfileCard  user={user}/>
 
             {/* Social Media Profiles */}

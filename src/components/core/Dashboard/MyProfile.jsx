@@ -132,7 +132,7 @@ export default function MyProfile() {
                   : "text-richblack-400"
                 } text-sm`}
                 >
-                {user?.additionalDetails?.contactNumber ?? "Add gender"}
+                {user?.additionalDetails?.contactNumber ?? "Add contact no"}
               </p>
             </div>
             <div>
@@ -144,7 +144,7 @@ export default function MyProfile() {
                   : "text-richblack-400"
                 } text-sm`}
                 >
-                {user?.additionalDetails?.dateOfBirth ?? "Add gender"}
+                {user?.additionalDetails?.dateOfBirth ?? "Add date of birth"}
               </p>
             </div>
           </div>

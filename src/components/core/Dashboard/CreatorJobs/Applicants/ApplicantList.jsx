@@ -17,15 +17,16 @@ const ApplicantList = ({ applicantions }) => {
  
   return (
     
-      <div className='flex flex-col gap-4'>
+      <div className='grid lg:grid-cols-2 gap-14 mt-4'>
         {applicantions.map((applicantion) => (
           <div key={applicantion._id}
-           className='flex flex-col gap-4 section_bg p-5 box-shadow'>
+           className='flex flex-col gap-4 section_bg p-5 shadow-lg items-start'>
             <p>Name: <span>{`${applicantion.applicant.firstName} ${applicantion.applicant.lastName}`} </span></p>  
             <p>Email: <span>{applicantion.applicant.email}</span></p> 
             <p>Status: <span>{applicantion.status}</span></p>  
-            <p>{applicantion._id}</p>
-            <button onClick={() => handleOnClick(applicantion._id, applicantion.applicant._id)} className='bg-blue-150'>
+            <button onClick={() => handleOnClick(applicantion._id, applicantion.applicant._id)}
+              className='bg-blue-150 px-3 py-2 rounded-md'
+            >
                 View profile
             </button>
           </div>

@@ -118,13 +118,15 @@ const JobCard = ({ job, setJobs, isSearchingJob}) => {
 
                 {
                     user.accountType === ACCOUNT_TYPE.CREATOR ? (
-                        <button  
-                            onClick={() => {
-                                navigate(`/dashboard/posted-job/${job._id}`)
-                            }}
-                            className="bg-blue-150 rounded-md xl:text-lg text-sm border-brand  items-center px-7 py-2">Review All Applicants
-                        </button>
-                    ) : (
+                        <div className="flex justify-end mr-32 mt-4">
+                            <button  
+                                onClick={() => {
+                                    navigate(`/dashboard/posted-job/${job._id}`)
+                                }}
+                                className="rounded-md text-sm border-brand px-4 py-2 bg-blue-150 text-black font-semibold">Review All Applicants
+                            </button>
+                        </div>
+                    ) : ( 
                         !isSearchingJob && 
                             <div className="flex justify-end gap-8">
                                 <button
