@@ -42,7 +42,6 @@ export default function JobInfo() {
 
     const isFormUpdated = () => {
         const currentValues = getValues()
-        // console.log("changes after editing form values:", currentValues)
         if (
           currentValues.jobTitle !== job.title ||
           currentValues.jobDescription !== job.description ||
@@ -123,19 +122,19 @@ export default function JobInfo() {
     return (
         <form 
             onSubmit={handleSubmit(onSubmit)}
-            className="space-y-8 rounded-md border-[1px] border-richblack-700 section_bg "
+            className="space-y-6 rounded-md  border-l border-b border-blue-150  p-8  shadow-xl text-sm text-pure-greys-600"
             >
 
             {/* job title */}
             <div className="flex flex-col space-y-2">
-                <label className="text-sm text-black" htmlFor="jobTitle">
+                <label htmlFor="jobTitle">
                 Job Title <sup className="text-pink-200">*</sup>
                 </label>
                 <input
                 id="jobTitle"
                 placeholder="Enter Job Title"
                 {...register("jobTitle", { required: true })}
-                className="form-style w-full"
+                className="form-style w-full border border-sky-500"
                 />
                 {errors.jobTitle && (
                 <span className="ml-2 text-xs tracking-wide text-pink-200">
@@ -145,14 +144,14 @@ export default function JobInfo() {
              </div>
             {/* descritpiton */}
             <div className="flex flex-col space-y-2">
-                <label className="text-sm text-black" htmlFor="jobDescription">
+                <label htmlFor="jobDescription">
                 Job Description <sup className="text-pink-200">*</sup>
                 </label>
                 <textarea
                 id="jobDescription"
                 placeholder="Enter Description"
                 {...register("jobDescription", { required: true })}
-                className="form-style resize-x-none min-h-[130px] w-full"
+                className="form-style resize-x-none min-h-[60px] w-full border border-sky-500"
                 />
                 {errors.jobDescription && (
                 <span className="ml-2 text-xs tracking-wide text-pink-200">
@@ -162,14 +161,14 @@ export default function JobInfo() {
             </div>
             {/* skillRequired */}
             <div className="flex flex-col space-y-2">
-                <label className="text-sm text-black" htmlFor="jobSkillRequired">
+                <label htmlFor="jobSkillRequired">
                 Required Skills <sup className="text-pink-200">*</sup>
                 </label>
-                <textarea
+                <input
                 id="jobSkillRequired"
                 placeholder="Enter The required Skills"
                 {...register("jobSkillRequired", { required: true })}
-                className="form-style resize-x-none min-h-[130px] w-full"
+                className="form-style  w-full border border-sky-500"
                 />
                 {errors.jobSkillRequired && (
                 <span className="ml-2 text-xs tracking-wide text-pink-200">
@@ -179,13 +178,13 @@ export default function JobInfo() {
             </div>
             {/* category */}
             <div className="flex flex-col space-y-2">
-                <label className="text-sm text-black" htmlFor="jobcategory">
+                <label htmlFor="jobcategory">
                     category <sup className="text-pink-200">*</sup>
                 </label>
                 <select
                     id="jobcategory"
                     {...register("jobcategory", { required: true })}
-                    className="form-style w-full"
+                    className="form-style w-full border border-sky-500"
                 >
                     <option value="">Select category</option>
                     <option value="Video Editing">Video Editing</option>
@@ -206,7 +205,7 @@ export default function JobInfo() {
 
             {/* location */}
             <div className="flex flex-col space-y-2">
-                <label className="text-sm text-black" htmlFor="jobLocation">
+                <label htmlFor="jobLocation">
                     Job Location <sup className="text-pink-200">*</sup>
                 </label>
                 <div className="relative">
@@ -216,9 +215,9 @@ export default function JobInfo() {
                         {...register("jobLocation", {
                             required: true,
                         })}
-                        className="form-style w-full !pl-12"
+                        className="form-style w-full !pl-12 border border-sky-500"
                     />
-                    <HiOutlineLocationMarker className="absolute left-3 top-1/2 inline-block -translate-y-1/2 text-2xl text-richblack-400" />
+                    <HiOutlineLocationMarker className="absolute left-3 top-1/2 inline-block -translate-y-1/2 text-2xl text-blue-500" />
                 </div>
                 {errors.jobLocation && (
                     <span className="ml-2 text-xs tracking-wide text-pink-200">
@@ -229,7 +228,7 @@ export default function JobInfo() {
 
             {/* salary */}
             <div className="flex flex-col space-y-2">
-                <label className="text-sm text-black" htmlFor="jobSalary">
+                <label htmlFor="jobSalary">
                     Salary Range <sup className="text-pink-200">*</sup>
                 </label>
                 <div className="relative">
@@ -243,9 +242,9 @@ export default function JobInfo() {
                                 message: "Enter a valid salary range format (e.g., 50000-70000)",
                             },
                         })}
-                        className="form-style w-full !pl-12"
+                        className="form-style w-full !pl-12 border border-sky-500"
                     />
-                    <HiOutlineCurrencyRupee className="absolute left-3 top-1/2 inline-block -translate-y-1/2 text-2xl text-richblack-400" />
+                    <HiOutlineCurrencyRupee className="absolute left-3 top-1/2 inline-block -translate-y-1/2 text-2xl text-blue-500" />
                 </div>
                 {errors.jobSalary && (
                     <span className="ml-2 text-xs tracking-wide text-pink-200">
@@ -256,18 +255,17 @@ export default function JobInfo() {
 
             {/* status */}
             <div className="flex flex-col space-y-2">
-                <label className="text-sm text-black" htmlFor="jobStatus">
+                <label htmlFor="jobStatus">
                     Job Status <sup className="text-pink-200">*</sup>
                 </label>
                 <select
                     id="jobStatus"
                     {...register("jobStatus", { required: true })}
-                    className="form-style w-full"
+                    className="form-style w-full border border-sky-500"
                 >
-                    <option value="">Select Job Status</option>
-                    <option value="open">Open</option>
-                    <option value="closed">Closed</option>
-                    <option value="filled">Filled</option>
+                <option value="open">Open</option>
+                <option value="closed">Closed</option>
+                <option value="filled">Filled</option>
                 </select>
                 {errors.jobStatus && (
                     <span className="ml-2 text-xs tracking-wide text-pink-200">
@@ -284,7 +282,7 @@ export default function JobInfo() {
                         dispatch(setEditJob(false));
                     }}
                     disabled={loading}
-                    className={`flex cursor-pointer items-center gap-x-2 rounded-md bg-richblack-300 py-[8px] px-[20px] font-semibold text-richblack-900`}
+                    className={`flex cursor-pointer items-center gap-x-2 rounded-md shadow-lg border-brand py-[8px] px-[20px] font-semibold text-pure-greys-700`}
                 >
                     Post Job without Saving
                 </button>

@@ -39,22 +39,22 @@ export default function EditJob() {
      
     if(loading) {
         return (
-            <div className="grid flex-1 place-items-center">
+            <div className="grid place-items-center">
                 <div >Loading....</div>
             </div>
         )
     }
 
     return (
-        <div>
-          <h1 className="mb-14 text-3xl font-medium text-black">
+        <div className="flex flex-col gap-3">
+          <h1 className="text-3xl font-medium text-black">
             Edit job
           </h1>
-          <div className="mx-auto max-w-[600px]">
+          <div className="mt-4 max-w-[600px]">
             {job ? (
               <JobInfo/>
             ) : (
-              <p className="mt-14 text-center text-3xl font-semibold text-richblack-100">
+              <p className="mt-14 text-center text-3xl font-semibold text-pure-greys-600">
                 Job not found
               </p>
             )}

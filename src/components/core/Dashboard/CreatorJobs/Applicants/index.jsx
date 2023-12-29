@@ -33,7 +33,7 @@ export default function Applicants() {
         totalApplicants > 0 ?  (
             <ApplicantList applicantions={applicantions} />
         ) : (
-            <p className='section_bg text-lg p-8'>No one Applied for this job till now</p>
+            <p className='shadow-lg text-lg text-pure-greys-500 border-t border-sky-500 p-8'>No one Applied for this job till now</p>
         ) 
       }
        
