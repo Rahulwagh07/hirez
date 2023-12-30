@@ -70,7 +70,6 @@ export const addCertification = async (data, token) => {
       return response.data.data;
     } catch (error) {
       console.error("getAllCertification error:", error.message);
-      toast.error("Failed to fetch Certification");
       throw error;
     }
   };
@@ -164,7 +163,6 @@ export const addCertification = async (data, token) => {
       return response.data.data;
     } catch (error) {
       console.error("getAllEducations error:", error.message);
-      toast.error("Failed to fetch Education");
       throw error;
     }  
   };
@@ -256,7 +254,6 @@ export const addCertification = async (data, token) => {
       return response.data.data;
     } catch (error) {
       console.error("getAllExperiences error:", error.message);
-      toast.error("Failed to fetch Experiences");
       throw error;
     } 
   };
@@ -539,7 +536,6 @@ export const addCertification = async (data, token) => {
       return response.data.data;
     } catch (error) {
       console.error("getAllProjects error:", error.message);
-      toast.error("Failed to fetch projects");
       throw error;
     }  
   };

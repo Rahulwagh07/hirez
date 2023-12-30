@@ -11,6 +11,8 @@ const {
     LOGIN_API,
     RESETPASSTOKEN_API,
     RESETPASSWORD_API,
+    GOOGLE_SIGNUP_API,
+    GOOGLE_LOGIN_API,
   } = endpoints
 
   
@@ -76,6 +78,37 @@ export function sendOtp(email, navigate) {
     }
   }
 
+  export function googleSignUp(accountType, firstName, lastName, email, navigate) {
+    return async (dispatch) => {
+      const toastId = toast.loading('Loading...');
+      dispatch(setLoading(true));
+      try {
+        const response = await apiConnector('POST', GOOGLE_SIGNUP_API, {
+          accountType,
+          firstName,
+          lastName,
+          email,
+        });
+  
+        if (!response.data.success) {
+          console.log("Response", response)
+          throw new Error(response.data.message);
+        }
+  
+        toast.success('Google Signup Successful');
+        navigate('/login');
+      } catch (error) {
+        toast.error('Google Signup Failed');
+        console.error("googleSign up API ERROR", error)
+        navigate('/signup');
+      }
+      dispatch(setLoading(false));
+      toast.dismiss(toastId);
+    };
+  }
+
+
+
   export function login(email, password, navigate) {
     return async (dispatch) => {
       const toastId = toast.loading("Loading...")
@@ -84,6 +117,36 @@ export function sendOtp(email, navigate) {
         const response = await apiConnector("POST", LOGIN_API, {
           email,
           password,
+        })
+  
+        if (!response.data.success) {
+          throw new Error(response.data.message)
+        }
+  
+        toast.success("Login Successful")
+        dispatch(setToken(response.data.token))
+        const userImage = response.data?.user?.image
+          ? response.data.user.image
+          : `https://api.dicebear.com/5.x/initials/svg?seed=${response.data.user.firstName} ${response.data.user.lastName}`
+        dispatch(setUser({ ...response.data.user, image: userImage }))
+        localStorage.setItem("token", JSON.stringify(response.data.token))
+        navigate("/dashboard/my-profile")
+      } catch (error) {
+        console.log("LOGIN API ERROR............", error)
+        toast.error("Login Failed")
+      }
+      dispatch(setLoading(false))
+      toast.dismiss(toastId)
+    }
+  }
+
+  export function googleLogin(email, navigate) {
+    return async (dispatch) => {
+      const toastId = toast.loading("Loading...")
+      dispatch(setLoading(true))
+      try {
+        const response = await apiConnector("POST", GOOGLE_LOGIN_API, {
+          email,
         })
   
         if (!response.data.success) {

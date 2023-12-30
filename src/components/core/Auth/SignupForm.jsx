@@ -97,7 +97,7 @@ function SignupForm() {
               value={firstName}
               onChange={handleOnChange}
               placeholder="Enter first name"
-              className="h-[50px] rounded-md placeholder:ml-4  placeholder:absolute"
+              className="h-[50px] rounded-md  border border-sky-500 placeholder:ml-4  placeholder:absolute"
             />
           </label>
           <label>
@@ -111,7 +111,7 @@ function SignupForm() {
               value={lastName}
               onChange={handleOnChange}
               placeholder="Enter last name"
-              className="h-[50px] rounded-md  placeholder:ml-4  placeholder:absolute"
+              className="h-[50px] rounded-md border border-sky-500  placeholder:ml-4  placeholder:absolute"
             />
           </label>
         </div>
@@ -126,7 +126,7 @@ function SignupForm() {
             value={email}
             onChange={handleOnChange}
             placeholder="Enter email address"
-            className="w-full h-[50px] rounded-md  placeholder:ml-4  placeholder:absolute"
+            className="w-full h-[50px] rounded-md  border border-sky-500 placeholder:ml-4  placeholder:absolute"
           />
         </label>
         <div className="flex gap-x-4">
@@ -141,7 +141,7 @@ function SignupForm() {
               value={password}
               onChange={handleOnChange}
               placeholder="Enter Password"
-              className="h-[50px] rounded-md  placeholder:ml-4  placeholder:absolute"
+              className="h-[50px] rounded-md border border-sky-500  placeholder:ml-4  placeholder:absolute"
             />
             <span
               onClick={() => setShowPassword((prev) => !prev)}
@@ -165,7 +165,7 @@ function SignupForm() {
               value={confirmPassword}
               onChange={handleOnChange}
               placeholder="Confirm Password"
-              className="h-[50px] rounded-md  placeholder:ml-4  placeholder:absolute"
+              className="h-[50px] rounded-md border border-sky-500  placeholder:ml-4  placeholder:absolute"
             />
             <span
               onClick={() => setShowConfirmPassword((prev) => !prev)}
