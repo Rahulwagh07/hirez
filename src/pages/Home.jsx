@@ -2,8 +2,9 @@ import React from 'react'
 import HeroSection from '../components/core/HomePage/HeroSection'
 import FeatureSection from '../components/core/HomePage/FeatureSection'
 import Footer from '../components/common/Footer'
-import ReviewSection from '../components/common/ReviewSection'
 import ScrollButton from '../components/core/HomePage/ScrollButton'
+import About from './About'
+import Contact from './Contact'
 
 function Home() {
   return (
@@ -12,8 +13,9 @@ function Home() {
          <HeroSection/>
          <ScrollButton/>
          <FeatureSection/>
-         <ReviewSection/>
         </div>
+        <About/>
+        <Contact/>
         <Footer/>
      </div>
   )

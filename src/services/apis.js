@@ -85,3 +85,9 @@ export const portfolioEndpoints = {
   DELETE_RESUME_API: BASE_URL + "/portfolio/deleteResume",
   GET_RESUME_API: BASE_URL + "/portfolio/getResume",
 };
+
+
+// CONTACT US ROUTE
+export const contactusEndpoint = {
+  CONTACT_US_API: BASE_URL + "/reach/contact",
+}

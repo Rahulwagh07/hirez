@@ -9,8 +9,6 @@ import { getUserDetails } from "./services/operations/profileAPI"
 
 //Pages
 import Home from "./pages/Home"
-import Contact from "./pages/Contact"
-import About from "./pages/About"
 import Login from "./pages/Login"
 import Signup from "./pages/Signup"
 import VerifyEmail from "./pages/VerifyEmail"
@@ -59,8 +57,6 @@ function App() {
     <Navbar/>
     <Routes>
       <Route path="/" element={<Home/>}/>
-      <Route path="/about" element={<About />} />
-      <Route path="/contact" element={<Contact />} />
 
       {/* Open Route for non logged in user */}
       <Route
