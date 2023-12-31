@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from "../../assets/logo.png"
- 
+import { Link as ScrollLink } from 'react-scroll';
+import { NavbarLinks } from '../../data/navbarLinks';
 
 const Footer = () => {
   return (
@@ -17,15 +18,27 @@ const Footer = () => {
          <div className='flex  justify-between'>
           <div className='flex flex-col gap-2'>
               <h3 className="text-lg font-bold mb-4">Menu</h3>
-              <a href="#">About us</a> 
-              <a href="#">Contact us</a> 
-              <a href="#">About us</a> 
+              {NavbarLinks.map((link, index) => (
+                <p key={index} className='cursor-pointer'>
+                  <ScrollLink
+                    to={link.path}
+                    smooth={true}
+                    duration={1000}
+                    offset={-70}
+                    spy={true}
+                    exact="true"
+                    activeClass="active"
+                  >
+                    {link.title}
+                  </ScrollLink>
+                </p>
+              ))} 
             </div>
             
             <div className='flex flex-col gap-2'>
               <h3 className="text-lg font-bold mb-4">Services</h3>
-                <a href="#">Privacy Policy</a> 
-                <a href="#">Term of use</a>  
+                <a href="#PrivacyPolicy">Privacy Policy</a> 
+                <a href="#TermOfuse">Term of use</a>  
                 
             </div>
          </div>

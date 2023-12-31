@@ -18,7 +18,7 @@ export default function MyProfile() {
           My Profile
         </h1>
          {
-          user.accountType === ACCOUNT_TYPE.JOBSEEKER &&
+          user && user.accountType === ACCOUNT_TYPE.JOBSEEKER &&
           <button
             onClick={() => {
               navigate("/dashboard/settings");

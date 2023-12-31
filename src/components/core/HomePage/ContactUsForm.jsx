@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState} from "react";
 import { useForm } from "react-hook-form";
 import { VscSend } from "react-icons/vsc";
 import { submitContactResponse } from "../../../services/operations/ContactAPI";
@@ -38,6 +38,11 @@ export function ContactUsForm(){
           phoneNo: "",
           subject: "",
         });
+        setIsNameFocused(false)
+        setIsEmailFocused(false)
+        setIsPhoneNoFocused(false)
+        setIsSubjectFocused(false)
+        setIsMessageFocused(false)
       }
     }, [reset, isSubmitSuccessful]);
 
@@ -109,7 +114,7 @@ export function ContactUsForm(){
         type="text"
         name="name"
         id="name"
-        className={`border-b-2 border-sky-500 w-full focus:outline-none ${isNameFocused ? 'border-sky-500' : ''}`}
+        className={`border-b-2 border-sky-500 w-full  focus:outline-none ${isNameFocused ? 'border-sky-500' : ''}`}
         {...register("name", { required: true })}
         onFocus={handleNameFocus}
         onBlur={handleNameBlur}
@@ -131,7 +136,7 @@ export function ContactUsForm(){
 
     <div className="relative">
       <input
-        type="text"
+        type="email"
         name="email"
         id="email"
         className={`border-b-2 border-sky-500 w-full focus:outline-none ${isEmailFocused ? 'border-sky-500' : ''}`}

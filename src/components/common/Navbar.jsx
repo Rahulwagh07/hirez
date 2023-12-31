@@ -5,14 +5,14 @@ import { useSelector } from 'react-redux'
 import ProfileDropdown from '../core/Auth/ProfileDropdown'
 import { Link as ScrollLink } from 'react-scroll';
 import { NavbarLinks } from '../../data/navbarLinks'
+import {useLocation } from "react-router-dom"
 
 function Navbar() {
-    const {token} = useSelector((state) => state.auth)
-    const {user} = useSelector((state)  => state.auth)
 
-     
+  const {token} = useSelector((state) => state.auth)
+  const location = useLocation();
+  const isHomeRoute = location.pathname === '/';
     
-
   return (
     
     <div className='flex items-center justify-center transition-all duration-300 section_bg py-4 box-shadow'>
@@ -21,23 +21,27 @@ function Navbar() {
                 <img src={logo} className='w-12 h-12'/>
                 <h3 className='mt-3 text-blue-150 font-semibold'>HireUp</h3>
             </Link>
-             <div className='flex items-center gap-x-12'>
-             {NavbarLinks.map((link, index) => (
-                <li key={index} className='py-5 leading-5 flex gap-1 items-center hover:text-[#6674CC] transition-all duration-150 cursor-pointer'>
-                  <ScrollLink
-                    to={link.path}
-                    smooth={true}
-                    duration={1000}
-                    offset={-70}
-                    spy={true}
-                    exact="true"
-                    activeClass="active"
-                  >
-                    {link.title}
-                  </ScrollLink>
-                </li>
-              ))}
-             </div>
+              
+              {
+                isHomeRoute  && 
+                <div className='flex items-center gap-x-12'>
+                  {NavbarLinks.map((link, index) => (
+                      <li key={index} className='py-5 leading-5 flex gap-1 items-center hover:text-[#6674CC] transition-all duration-150 cursor-pointer'>
+                        <ScrollLink
+                          to={link.path}
+                          smooth={true}
+                          duration={1000}
+                          offset={-70}
+                          spy={true}
+                          exact="true"
+                          activeClass="active"
+                        >
+                          {link.title}
+                        </ScrollLink>
+                      </li>
+                    ))}
+                  </div>
+              }
             
             {/* LOGIN AND SIGNUP */}
             <div className="flex items-center gap-8">

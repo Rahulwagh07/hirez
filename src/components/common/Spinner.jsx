@@ -1,9 +1,11 @@
 import React from 'react';
-import { SpinnerRoundFilled } from "spinners-react"
+import "./spinner.css"
 
 const Spinner = () => {
   return (
-    <SpinnerRoundFilled size={50} thickness={100} speed={100} color="#36ad47" />
+     <div className='flex items-center justify-center'>
+        <span class="loader"></span>
+     </div>
   );
 };
 
