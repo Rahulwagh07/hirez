@@ -5,7 +5,7 @@ import { Link as ScrollLink } from 'react-scroll';
  
 function ScrollButton() {
   return (
-    <div className="flex items-center justify-center  cursor-pointer hover:text-blue-150 mt-4">
+    <div className="flex items-center justify-center text-blue-150 cursor-pointer mt-4">
       <ScrollLink
         to={"#feature"}  
         smooth={true}

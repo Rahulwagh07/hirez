@@ -12,6 +12,7 @@ const userRoutes = require("./routes/User");
 const profileRoutes = require("./routes/Profile");
 const jobRoutes = require("./routes/Job");
 const portfolioRoutes = require("./routes/Portfolio")
+const contactUsRoute = require("./routes/Contact")
 
 dotenv.config();
 
@@ -45,6 +46,7 @@ app.use("/api/v1/auth", userRoutes);
 app.use("/api/v1/profile", profileRoutes);
 app.use("/api/v1/job", jobRoutes);
 app.use("/api/v1/portfolio", portfolioRoutes);
+app.use("/api/v1/reach", contactUsRoute);
 
 app.get("/", (req, res) => {
   return res.json({

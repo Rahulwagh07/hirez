@@ -2,16 +2,15 @@ import React  from 'react'
 import { Link} from 'react-router-dom'
 import logo from "../../assets/logo.png"
 import { useSelector } from 'react-redux'
-import { ACCOUNT_TYPE } from '../../utils/constants'
 import ProfileDropdown from '../core/Auth/ProfileDropdown'
-import { IoMdNotificationsOutline } from "react-icons/io";
-
+import { Link as ScrollLink } from 'react-scroll';
+import { NavbarLinks } from '../../data/navbarLinks'
 
 function Navbar() {
     const {token} = useSelector((state) => state.auth)
     const {user} = useSelector((state)  => state.auth)
-     
 
+     
     
 
   return (
@@ -20,20 +19,26 @@ function Navbar() {
         <nav className='flex justify-between max-w-maxScreen w-10/12 lg:text-lg'>
             <Link to={"/"} className='flex gap-4 '>
                 <img src={logo} className='w-12 h-12'/>
-                <h3 className='mt-3'>HireUp</h3>
+                <h3 className='mt-3 text-blue-150 font-semibold'>HireUp</h3>
             </Link>
-            <ul className='items-center flex gap-x-4'>
-                <li className='py-5  leading-5 flex gap-1 items-center hover:text-[#6674CC] transition-all duration-150'>
-                    <a href='/about' target='_blank'>About us</a>
+             <div className='flex items-center gap-x-12'>
+             {NavbarLinks.map((link, index) => (
+                <li key={index} className='py-5 leading-5 flex gap-1 items-center hover:text-[#6674CC] transition-all duration-150 cursor-pointer'>
+                  <ScrollLink
+                    to={link.path}
+                    smooth={true}
+                    duration={1000}
+                    offset={-70}
+                    spy={true}
+                    exact="true"
+                    activeClass="active"
+                  >
+                    {link.title}
+                  </ScrollLink>
                 </li>
-                <li className='py-5 leading-5 flex gap-1 items-center hover:text-[#6674CC] transition-all duration-150'>
-                    <a href='/contact' target='_blank'>Contact us</a>
-                </li>
-                <li className='py-5 leading-5 flex gap-1 items-center hover:text-[#6674CC] transition-all duration-150'>
-                    <a href='#feature'>Features</a>
-                </li>
-            </ul>
-        
+              ))}
+             </div>
+            
             {/* LOGIN AND SIGNUP */}
             <div className="flex items-center gap-8">
                     
