@@ -1,5 +1,5 @@
 import React from 'react';
-import FoundingStory from "../assets/man-recording-studio-music-production_1303-20398.avif"
+import aboutSectionImg from "../assets/aboutSectionImg.png"
 import dottedRows from "../assets/aboutSection-dottedrows.png"
 
 const About = () => {
@@ -36,9 +36,10 @@ const About = () => {
 
             <div>
               <img
-                src={FoundingStory}
-                alt=""
-                className="shadow-[0_0_20px_0] shadow-[#FC6767]"
+                src={aboutSectionImg}
+                alt="image related to video Editing in about section"
+                loading='lazy'
+                className=" shadow-[0_0_20px_0] shadow-[#FC6767]"
               />
             </div>
           </div>

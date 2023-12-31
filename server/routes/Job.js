@@ -24,7 +24,7 @@ router.post("/getJobDetails", auth, getJobDetails);
 router.post("/createJob", auth, createJob);
 router.post("/editJob", auth, isCreator, editJob);
 router.get("/getAllApplicantsForJob", auth, getAllApplicantsForJob);
-router.put("/hireJobSeeker", auth,  hireJobSeeker);
+router.put("/hireJobSeeker", auth,  isCreator, hireJobSeeker);
 router.get("/getAllJobsByCreator", auth,  getAllJobsByCreator);
 router.post("/applyForJob", auth, applyForJob);
 router.delete("/deleteJob", deleteJob);
