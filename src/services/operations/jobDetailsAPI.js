@@ -131,8 +131,6 @@ export const getAllJobsByCreator = async (token) => {
 export const getAllJobs = async (searchParams, token) => {
     let result = [];
 
-    const toastId = toast.loading("Loading...");
-
     try {
         const response = await apiConnector("POST", GET_ALL_OPEN_JOBS,
         {
@@ -151,8 +149,6 @@ export const getAllJobs = async (searchParams, token) => {
     } catch (error) {
         toast.error(error.message);
     }
-
-    toast.dismiss(toastId);
     return result;
 };
 
