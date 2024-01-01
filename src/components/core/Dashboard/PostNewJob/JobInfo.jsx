@@ -189,12 +189,11 @@ export default function JobInfo() {
                     <option value="">Select category</option>
                     <option value="Video Editing">Video Editing</option>
                     <option value="Content Creation and Writing">Content Creation and Writing</option>
-                    <option value="Creative Design">Creative Design</option>  
-                    <option value="Marketing and Promotion">Marketing and Promotion</option>
+                    <option value="Script Writing">Script Writing</option>  
+                    <option value="Management and Administation">Management and Administration</option>
                     <option value="SEO and Analytics"> SEO and Analytics</option>  
-                    <option value="Collaborations and Partnerships">Collaborations and Partnerships</option>
-                    <option value="Livestream Production">Livestream Production</option>
-                    {/* Add more options as needed */}
+                    <option value="Thumbnail Design">Thumbnail Design</option>
+                    <option value="Public Relations(PR)">Public Relations</option>
                 </select>
                 {errors.jobcategory && (
                     <span className="ml-2 text-xs tracking-wide text-pink-200">

@@ -4,10 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllJobs } from '../../../../services/operations/jobDetailsAPI';
 import { setJob } from '../../../../slices/jobSlice';
 import JobCard from '../CreatorJobs/JobCard';
-import FilterCheckboxGroup  from "./FilterCheckboxGroup "
 import JobDetailsModal from '../JobDetailsModal';
 import { FiSearch } from 'react-icons/fi';
-
+ 
 function SearchJobs() {
   const dispatch = useDispatch();
   const { token } = useSelector((state) => state.auth);
@@ -20,121 +19,164 @@ function SearchJobs() {
   });
 
   const [jobs, setJobs] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [isSearchingJob, setIsSearchingJob] = useState(false)
+  const [isSearchingJob, setIsSearchingJob] = useState(false);
   const [selectedJob, setSelectedJob] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-   
+  const [searchButtonClicked, setSearchButtonClicked] = useState(false);
+  const [suggestions, setSuggestions] = useState([]);
+  const [showResult, setShowNoResult] = useState(false);
+
+  const fetchData = async (params) => {
+    try {
+      const jobsData = await getAllJobs(params, token);
+
+      const fuse = new Fuse(jobsData, {
+        keys: ['category'],
+      });
+
+      const fuzzyResults = fuse.search(params.searchTerm);
+      const finalResults = fuzzyResults.map((result) => result.item);
+
+      dispatch(setJob(finalResults));
+      setJobs(finalResults);
+      setIsSearchingJob(true);
+      setShowNoResult(finalResults.length === 0);
+    } catch (error) {
+      console.error('Error in fetching jobs', error);
+    }
+  };
+
+  const fetchSuggestions = async (params) => {
+    try {
+      if (params.searchTerm) {
+        const jobsData = await getAllJobs(params, token);
+        const fuse = new Fuse(jobsData, {
+          keys: ['category', 'title'],
+        });
+  
+        const suggestionsSet = new Set();
+  
+        const suggestions = fuse
+          .search(params.searchTerm)
+          .map((result) => result.item.category)
+          .filter((suggestion) => {
+            if (!suggestionsSet.has(suggestion)) {
+              suggestionsSet.add(suggestion);
+              return true;
+            }
+            return false;
+          })
+          .map((category, index) => ({
+            key: `${category}_${index}`,
+            value: category,
+          }));
+  
+        setSuggestions(suggestions);
+      }
+    } catch (error) {
+      console.error('Error in fetching suggestions', error);
+    }
+  };
+  
+
   const handleOnClick = (job) => {
     setSelectedJob(job);
     setIsModalOpen(true);
-  }
-
-  const handleCheckboxChange = (filterName, value) => {
-    setSearchParams({ ...searchParams, [filterName]: value });
   };
-  
-  useEffect(() => {
-    const fetchJobs = async () => {
-      try {
-        setLoading(true);
-        const jobsData = await getAllJobs(searchParams, token);
 
-        // Apply fuzzy searching using Fuse
-        const fuse = new Fuse(jobsData, {
-          keys: ['category'],
-        });
+  const handleInputChange = (e) => {
+    setSearchButtonClicked(false);
+    const inputValue = e.target.value;
+    setSearchParams({ ...searchParams, searchTerm: inputValue });
 
-        const fuzzyResults = fuse.search(searchParams.searchTerm);
-        const finalResults = fuzzyResults.map((result) => result.item);
+    const fuse = new Fuse(jobs, {
+      keys: ['category', 'title'],
+    });
 
-        dispatch(setJob(finalResults));
-        setJobs(finalResults);
-        setIsSearchingJob(true);
-      } catch (error) {
-        console.error('Error in fetching jobs', error);
-      } finally {
-        setLoading(false);
+    const suggestions = fuse.search(inputValue).map((result) => result.item.title);
+    setSuggestions(suggestions);
+  };
+
+  const handleEnterPress = (e) => {
+    if (e.key === 'Enter') {
+      if (suggestions.length > 0) {
+        setSearchParams({ ...searchParams, searchTerm: suggestions[0].value });
+        setSearchButtonClicked(true)
       }
-    };
+    }
+  };
 
-    fetchJobs();
-  }, [searchParams, dispatch, token]);
+  useEffect(() => {
+    if (searchButtonClicked) {
+      fetchData(searchParams);
+    }
+  }, [searchParams, searchButtonClicked]);
+
+  useEffect(() => {
+    fetchSuggestions(searchParams);
+  }, [searchParams.searchTerm, searchParams]);
 
   return (
     <div className="container mx-auto mt-8 flex flex-col ">
-      {loading && <div>Loading.....</div>}
       {/* Search Bar */}
-       
       <div className="relative  ">
         <input
           type="text"
-          placeholder="search jobs....."
+          placeholder="Video Editing/Thumbnail Design/......"
           value={searchParams.searchTerm}
-          onChange={(e) => setSearchParams({ ...searchParams, searchTerm: e.target.value })}
-          className="bg-white-25 w-full relative h-[60px] rounded-full placeholder:ml-6 placeholder:absolute
-          placeholder:text-lg focus:outline-none  focus:outline-[#2563eb]"
+          onChange={handleInputChange}
+          onKeyDown={handleEnterPress}
+          className="w-full relative p-4 h-[60px] rounded-full placeholder:ml-3 placeholder:absolute
+          placeholder:text-lg focus:outline-none border-2 border-sky-500 text-pure-greys-800 font-semibold"
         />
-        <div className="absolute inset-y-3  text-white-25 font-semibold right-0 gap-2 flex items-center justify-center mr-[30px] bg-[#2563eb] rounded-full p-4">
-          <FiSearch width={32} height={32}/>
+        <button
+          onClick={() => setSearchButtonClicked(true)}
+          className="absolute inset-y-3 text-white-25 p-5 font-semibold right-0 gap-2 flex items-center justify-center mr-[30px] bg-[#2563eb] rounded-full">
+          <FiSearch width={32} height={32} />
           <p>Search</p>
-        </div>
-      </div>
-      
-  
-      {/* Filters */}
-       <div className='flex gap-4'>
-       <FilterCheckboxGroup
-        title="Role Filter"
-        options={['Video Editing', 'Content creation and Writing', 'Creative design', 'Marketing and promotion', 'SEO and Analytics', 'Collaborations and Partnerships', 'Livestream Production']}
-        value={searchParams.roleFilter}
-        onChange={(value) => handleCheckboxChange('roleFilter', value)}
-      />
+        </button>
 
-      <FilterCheckboxGroup
-        title="Location Filter"
-        options={['Remote', 'Pune', 'Mumbai', 'Delhi', 'Any']}
-        value={searchParams.locationFilter}
-        onChange={(value) => handleCheckboxChange('locationFilter', value)}
-      />
-
-      <FilterCheckboxGroup
-        title="Salary Filter"
-        options={['5000-50000', '50000-200000']}
-        value={searchParams.salaryFilter}
-        onChange={(value) => handleCheckboxChange('salaryFilter', value)}
-      />
-
-        {/* Use FilterCheckboxGroup for Skills */}
-        <FilterCheckboxGroup
-                title="Skills Filter"
-                options={['Communications', 'Editing']}
-                value={searchParams.skillsFilter}
-                onChange={(value) => handleCheckboxChange('skillsFilter', value)}
-            />
-
-       </div>
-      {/* Display Jobs */}
-      <div className="grid gap-4 mt-4">
-        {/* Map through jobs and render JobCard component */}
-        {jobs.map((job) => (   
-          <span key={job._id} onClick={() => handleOnClick(job)}
-            className='cursor-pointer'
-          >
-            <JobCard job={job} key={job._id} setJobs={setJobs} isSearchingJob={setIsSearchingJob} 
-            /> 
-            </span>
-            
-         ))}
-          
-        
-
-        {
-            isModalOpen && (
-                <JobDetailsModal job={selectedJob} setIsModalOpen={setIsModalOpen}/>
+        {/* Suggestions dropdown */}
+        {searchParams.searchTerm && suggestions.length > 0 && !searchButtonClicked && (
+          <div className="absolute mt-4 z-20 text-pure-greys-800 w-[300px] left-0 border-t border-sky-500  shadow-lg bg-bluegrey-50">
+            <ul>
+            {suggestions.map((suggest, index) => (
+              <li
+                key={index}
+                onClick={() => {
+                  setSearchParams({ ...searchParams, searchTerm: suggest.value });
+                  setSearchButtonClicked(true);
+                }}
+                className="cursor-pointer p-2 hover:text-sky-500"
+              >
+                {suggest.value}
+              </li>
+            ))}
+            </ul>
+          </div>
         )}
-         
       </div>
+
+      {/* Display Jobs */}
+      <div className="grid gap-4 mt-8 z-10">
+        {jobs.map((job) => (
+          <span key={job._id} onClick={() => handleOnClick(job)} className='cursor-pointer border-l border-sky-500'>
+            <JobCard job={job} key={job._id} setJobs={setJobs} isSearchingJob={setIsSearchingJob}/>
+          </span>
+        ))}
+        {isModalOpen && (
+          <JobDetailsModal job={selectedJob} setIsModalOpen={setIsModalOpen} />
+        )}
+      </div>
+
+  
+      {/* No job Found */}
+      {
+        showResult  && 
+        <div className='flex items-center justify-center shadow-lg h-[200px] p-8 border-t border-sky-500 mt-2'>
+          <p className='text-pure-greys-400'>"No results! 🧐 Adjust search term.. Your dream job might be just around the corner. 🚀"</p>
+          </div>
+      }
     </div>
   );
 }
