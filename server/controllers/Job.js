@@ -394,3 +394,29 @@ exports.getApplicationStatus = async (req, res) => {
         res.status(500).json({ success: false, error: 'Server Error' });
     }
 };
+
+
+
+exports.getRecommendedJobs = async (req, res) => {
+    try {
+      const { interestedRole } = req.body;  
+      
+      const recommendedJobs = await Job.find({
+        category: interestedRole,
+        status: 'open',
+      })
+        .sort({ createdAt: -1 })
+        .limit(15);
+  
+      res.status(200).json({
+        success: true,
+        message: 'Recommended jobs fetched successfully',
+        data: recommendedJobs,
+      });
+    } catch (error) {
+      console.error('GET Recommended Jobs error', error);
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  };
+  
+  

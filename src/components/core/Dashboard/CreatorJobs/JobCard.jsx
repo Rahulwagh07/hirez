@@ -9,9 +9,10 @@ import { getAllJobsByCreator } from "../../../../services/operations/jobDetailsA
 import { useNavigate } from "react-router-dom";
 import { ACCOUNT_TYPE } from "../../../../utils/constants";
 import { removeFromSavedJob } from "../../../../slices/saveJobSlice";
+import { addToSavedJob } from "../../../../slices/saveJobSlice";
 
 
-const JobCard = ({ job, setJobs, isSearchingJob}) => {
+const JobCard = ({ job, setJobs, isSearchingJob, onRecommoneded}) => {
 
     const { title, description, skillRequired, category, salary, status, location } = job;
     const { user } = useSelector((state) => state.profile)
@@ -57,6 +58,9 @@ const JobCard = ({ job, setJobs, isSearchingJob}) => {
         setConfirmationModal(null);
         setLoading(false);
     };
+    const handleOnClickSave = () => {
+        dispatch(addToSavedJob(job));
+    }
 
     return (
         <div>
@@ -129,13 +133,21 @@ const JobCard = ({ job, setJobs, isSearchingJob}) => {
                     ) : ( 
                         !isSearchingJob && 
                             <div className="flex justify-end gap-8">
-                                <button
-                                    onClick={() => dispatch(removeFromSavedJob(job._id))}
-                                    className="flex items-center gap-x-1 rounded-md  bg-richblack-700 text-richblack-50 py-2 px-3"
-                                    >
-                                    <span>Remove</span>
-                                </button>
-                                
+                                {
+                                    onRecommoneded ? (
+                                        <button onClick={handleOnClickSave}
+                                            className='rounded-md border-brand  items-center px-7 py-2'>
+                                            Save
+                                            </button>
+                                    ) : (
+                                        <button
+                                            onClick={() => dispatch(removeFromSavedJob(job._id))}
+                                            className="flex items-center gap-x-1 rounded-md  bg-richblack-700 text-richblack-50 py-2 px-3"
+                                            >
+                                            <span>Remove</span>
+                                        </button>
+                                    )
+                                }
                                 <button
                                     onClick={handleOnClickApply}
                                     className="flex items-center gap-x-1 rounded-md text-white-25  bg-blue-150 py-2 px-4"

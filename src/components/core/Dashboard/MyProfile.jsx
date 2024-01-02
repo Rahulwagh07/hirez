@@ -75,6 +75,34 @@ export default function MyProfile() {
           {user?.additionalDetails?.about ?? "Write Something About Yourself"}
         </p>
       </div>
+
+      {
+        user && user.accountType === ACCOUNT_TYPE.JOBSEEKER &&
+        <div className="my-10 flex flex-col gap-y-10 rounded-md section_bg box-shadow p-8  px-12">
+        <div className="flex w-full items-center justify-between">
+          <p className="text-lg font-semibold">Interested Role</p>
+           <IconBtn
+            text="Edit"
+            onclick={() => {
+              navigate("/dashboard/settings/update-profile")
+            }}
+          >
+            <RiEditBoxLine />
+          </IconBtn>
+        </div>
+ 
+        <p
+          className={`${
+            user?.additionalDetails?.about
+            ? "text-black"
+            : "text-richblack-400"
+          } text-sm`}
+        >
+          {user?.additionalDetails?.role ?? "Tell more about you which role you are most Interested, It will help to give relevent job for You"}
+        </p>
+      </div>
+      }
+
       <div className="my-10 flex flex-col gap-y-10 rounded-md section_bg box-shadow p-8 px-12">
         <div className="flex w-full items-center justify-between">
           <p className="text-lg font-semibold">
