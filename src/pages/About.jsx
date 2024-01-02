@@ -6,7 +6,7 @@ const About = () => {
   return (
     <div id="#about" className="mt-5  mb-5 p-20 w-full flex flex-col items-center relative bg-bluegrey-50 shadow-lg">
       <h2 className='font-bold text-3xl'>About us</h2>
-      <img src={dottedRows} className='absolute  bottom-0 right-2'/>
+      <img src={dottedRows} loading='lazy'  className='absolute  bottom-0 right-2'/>
       <section>
         <div className="mx-auto flex w-11/12 max-w-maxContent flex-col lg:mb-16 justify-between gap-10 text-richblack-500">
           <div className="flex flex-col items-center gap-10 lg:flex-row justify-between">
