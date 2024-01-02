@@ -139,6 +139,9 @@ module.exports = {
       sky:{
         500:"#0EA5E9",
       },
+      purple:{
+        100:"#F1E4FF",
+      },
     },
     screens: {
       'sm': {'max': '550px'},

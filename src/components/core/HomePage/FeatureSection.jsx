@@ -1,10 +1,13 @@
 import React from 'react';
 import FeatureCard from './FeatureCard';
 import { cardsData } from '../../../data/CardsData';
+import dottedRows from "../../../assets/aboutSection-dottedrows.png"
 
 function FeatureSection() {
   return (
-    <div className='w-10/12 mt-16 flex flex-col items-center gap-4 scroll' id='#feature'>
+     <div className='w-full flex flex-col items-center justify-center mt-24 p-16 shadow-lg bg-bluegrey-50 relative'>
+     <img src={dottedRows} className='absolute  top-4 left-2'/>
+      <div className='w-10/12   gap-4 flex flex-col items-center' id='#feature'>
       <h2 className='text-blue-150 font-bold text-2xl'>WHY Hire-Up?</h2>
       <p className='text-5xl font-bold'>
         Making Hiring Easier and <br/> more convenient for you.
@@ -22,6 +25,7 @@ function FeatureSection() {
         ))}
       </div>
     </div>
+     </div>
   );
 }
 

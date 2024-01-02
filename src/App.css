@@ -58,3 +58,32 @@ html, body {
   }
 }
  
+
+/* circle Animation css ref:from thecodehelp.in */  
+.circle_animation {
+  animation: spin 55s linear infinite;
+}
+.crotate {
+  animation:spin 55s linear infinite reverse;
+}
+
+.icon_style {
+  position: absolute;
+  inset: 0px;
+  min-width: 50%;
+  max-width: 50%;
+  min-height: 50%;
+  max-height: 50%;
+  margin: auto;
+}
+
+.circle_animation2 {
+  animation: spin 25s linear infinite reverse;
+}
+
+.crotate2 {
+  animation: spin 45s linear infinite;
+}
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
