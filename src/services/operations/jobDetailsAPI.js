@@ -16,6 +16,7 @@ const {
     GET_ALL_OPEN_JOBS,
     CHANGE_APPLICATION_STATUS_API,
     GET_APPLICATION_STATUS_API,
+    GET_RECOMMENDED_JOBS_API,
 } = jobEndPoints
 
 export const addJobDetails = async (data, token) => {
@@ -265,4 +266,29 @@ export const hireJobSeeker =  async (jobId, applicantId, token) => {
     }
     return result;
 }
+
+
+export const getRecommendedJobs = async (interestedRole, token) => {
+    let result;
+    try {
+        const response = await apiConnector(
+            "POST",
+            GET_RECOMMENDED_JOBS_API,
+            {
+                interestedRole,
+            },
+            {
+                Authorization: `Bearer ${token}`,
+            }
+        )
+  
+      if (response?.data?.success) {
+        result = response.data;
+      }
+      
+    } catch (error) {
+      console.error("Get Recommended Jobs API Error", error);
+    }
+    return result;
+  };
   

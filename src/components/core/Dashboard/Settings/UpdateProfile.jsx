@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom"
 import { updateProfile } from "../../../../services/operations/SettingsAPI"
 import IconBtn from "../../../common/IconBtn"
 import UpdateProfilePicture from "./UpdateProfilePicture"
+import { ACCOUNT_TYPE } from "../../../../utils/constants"
 
 const genders = ["Male", "Female", "Non-Binary", "Prefer not to say", "Other"]
 
@@ -21,7 +22,7 @@ export default function UpdateProfile() {
   } = useForm()
 
   const submitProfileForm = async (data) => {
-    // console.log("Form Data - ", data)
+    console.log("Form Data - ", data)
     try {
       dispatch(updateProfile(token, data))
     } catch (error) {
@@ -185,7 +186,37 @@ export default function UpdateProfile() {
             </div>
           </div>
 
-          <div className="flex justify-end gap-2">
+            <div className={user && user.accountType === ACCOUNT_TYPE.CREATOR ? "flex justify-end" : "grid lg:grid-cols-2 "}>
+            {
+            user && user.accountType === ACCOUNT_TYPE.JOBSEEKER &&
+            <div className="flex flex-col">
+              <label htmlFor="role">Interested Role</label>
+              <select
+                name="role"
+                id="role"
+                className="form-style border border-blue-150"
+                {...register("role", { required: true })}
+                defaultValue={user?.additionalDetails?.role}
+              >
+                <option value="">Select Interested Role</option>
+                <option value="Video Editing">Video Editing</option>
+                <option value="Content Creation and Writing">Content Creation and Writing</option>
+                <option value="Script Writing">Script Writing</option>  
+                <option value="Management and Administation">Management and Administration</option>
+                <option value="SEO and Analytics">SEO and Analytics</option>  
+                <option value="Thumbnail Design">Thumbnail Design</option>
+                <option value="Public Relations(PR)">Public Relations</option>
+              </select>
+              {errors.role && (
+                <span className="-mt-1 text-[12px] text-yellow-100">
+                  Please Select Your Interested Role.
+                </span>
+              )}
+            </div>
+           }
+
+
+          <div className="flex justify-end gap-2 mt-8">
             <button
               onClick={() => {
                 navigate("/dashboard/my-profile")
@@ -196,6 +227,7 @@ export default function UpdateProfile() {
             </button>
             <IconBtn type="submit" text="Save" />
           </div>
+            </div>
         </div>
       </form>
     </div>

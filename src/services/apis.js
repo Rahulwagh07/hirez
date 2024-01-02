@@ -31,6 +31,7 @@ export const endpoints = {
     GET_ALL_OPEN_JOBS: BASE_URL + "/job/getAllJobs",
     CHANGE_APPLICATION_STATUS_API: BASE_URL + "/job/changeApplicationStatus",
     GET_APPLICATION_STATUS_API: BASE_URL + "/job/getApplicationStatus",
+    GET_RECOMMENDED_JOBS_API: BASE_URL + "/job/getRecommendedJobs",
   }
 //Setting page endpoints
   export const settingsEndpoints = {

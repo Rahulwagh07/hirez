@@ -18,7 +18,7 @@ const profileSchema = new mongoose.Schema({
 	},
     role:{
         type:String,
-        enum:["Video Editor", "Content Writer", "Social Media Manager"],
+        trim:true,
     },
 });
 

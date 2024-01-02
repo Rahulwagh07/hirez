@@ -15,6 +15,7 @@ const {
     getAllJobs,
     changeApplicationStatus,
     getApplicationStatus,
+    getRecommendedJobs,
 } = require("../controllers/Job")
 
 
@@ -31,6 +32,7 @@ router.delete("/deleteJob", deleteJob);
 router.post("/getAllJobs", auth, getAllJobs);
 router.put("/changeApplicationStatus", auth, isCreator, changeApplicationStatus);
 router.get("/getApplicationStatus", auth, getApplicationStatus);
+router.post("/getRecommendedJobs", auth, getRecommendedJobs);
 
 
 module.exports = router
