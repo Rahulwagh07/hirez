@@ -5,7 +5,7 @@ const cloudinary = require('cloudinary').v2;
 
 exports.updateResume = async (req, res) => {
   try {
-      const resume = req.files.resumeFile;
+      const resume = req.files.resume;
       const userId = req.user.id;
       const result = await uploadImageToCloudinary(
           resume,

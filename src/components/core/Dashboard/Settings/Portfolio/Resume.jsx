@@ -23,16 +23,16 @@ const Resume = () => {
   };
 
   const handleFileChange = async (event) => {
-    const file = event.target.files[0];
-    const formData = new FormData();
-    formData.append('resume', file);
+    const resumeFile = event.target.files[0];
+  
     try {
-      await updateResume(formData, token);  
+      await updateResume(resumeFile, token);  
       fetchResume();
     } catch (error) {
       console.error('Error uploading or updating resume:', error);
     }
   };
+
   const handleDeleteResume = async () => {
     try {
       await deleteResume(token);
@@ -50,7 +50,7 @@ const Resume = () => {
             <p>{resume?.data?.data?.name}</p>
             <div className='flex gap-8'>
             <a
-                href={`${resume?.data?.data?.url}.${resume?.data?.data?.fileExtension}`}
+                href={resume?.data?.data?.url}
                 download
                 target='_blank'
                 rel='noopener noreferrer'

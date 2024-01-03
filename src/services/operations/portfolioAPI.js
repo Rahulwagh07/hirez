@@ -592,8 +592,11 @@ export const addCertification = async (data, token) => {
     const toastId = toast.loading("Updating Resume...");
   
     try {
-      const response = await apiConnector("PUT", UPDATE_RESUME_API, resumeFile, {
-        Authorization: `Bearer ${token}`,
+      const formData = new FormData();
+      formData.append('resume', resumeFile, resumeFile.name);
+  
+      const response = await apiConnector("PUT", UPDATE_RESUME_API, formData, {
+          Authorization: `Bearer ${token}`,
       });
   
       if (!response?.data?.success) {
