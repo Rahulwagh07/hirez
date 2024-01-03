@@ -10,10 +10,8 @@ import CircleAnimation from '../components/core/HomePage/CircleAnimation'
 function Home() {
   return (
      <div className='flex flex-col'>
-        <div className='mx-auto flex max-w-maxContent flex-col items-center justify-between gap-8' >
          <HeroSection/>
          <ScrollButton/>
-        </div>
         <FeatureSection/>
         <CircleAnimation/>
         <About/>

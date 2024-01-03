@@ -5,7 +5,7 @@ import { Link as ScrollLink } from 'react-scroll';
  
 function ScrollButton() {
   return (
-    <div className="flex items-center justify-center text-blue-150 cursor-pointer mt-4">
+    <div className="flex items-center justify-center text-blue-150 cursor-pointer mt-20">
       <ScrollLink
         to={"#feature"}  
         smooth={true}
@@ -16,7 +16,7 @@ function ScrollButton() {
         activeClass="active"
         className="mb-2"
       >
-        <FaAnglesDown/>
+        <FaAnglesDown className='font-bold text-xl'/>
       </ScrollLink>
     </div>
   );
