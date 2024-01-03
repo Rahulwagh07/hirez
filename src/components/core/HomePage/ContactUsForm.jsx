@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { VscSend } from "react-icons/vsc";
 import { submitContactResponse } from "../../../services/operations/ContactAPI";
  
+ 
 export function ContactUsForm(){
     const [loading, setLoading] = useState(false);
     const [isNameFocused, setIsNameFocused] = useState(false);
@@ -233,16 +234,11 @@ export function ContactUsForm(){
             </span>
         )}
     </div>
-
-      
       </div>
-
-       
-
       <button
         disabled={loading}
         type="submit"
-        className={`rounded-md bg-[#60a5fa] mt-8 px-6 py-5 flex sm:mx-auto items-center gap-4 text-center text-[13px] font-bold text-black shadow-[2px_2px_0px_0px_rgba(255,255,255,0.18)] 
+        className={`rounded-md bg-[#60a5fa] mt-8 px-6 py-5 flex sm:mx-auto items-center gap-4 text-center text-[13px] font-semibold text-white-25 text-lg shadow-[2px_2px_0px_0px_rgba(255,255,255,0.18)] 
          ${
            !loading &&
            "transition-all duration-200 hover:scale-95 hover:shadow-none"
