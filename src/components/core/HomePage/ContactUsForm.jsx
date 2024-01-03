@@ -106,10 +106,10 @@ export function ContactUsForm(){
   
   return (
     <form
-      className=" w-[800px] mx-auto mt-16 "
+      className=" lg:w-[800px] md:w-[600px] sm:w-[300px] mx-auto mt-16 "
       onSubmit={handleSubmit(submitContactForm)}
     >
-      <div className="grid grid-cols-2 gap-10 mb-9">
+      <div className="grid grid-cols-2 sm:grid-cols-1 gap-10 mb-9">
       <div className="relative">
       <input
         type="text"
@@ -210,7 +210,7 @@ export function ContactUsForm(){
       )}
     </div>
 
-    <div className="relative col-span-2">
+    <div className="relative lg:col-span-2 md:col-span-2">
         <input
             type="text"
             name="message"
@@ -238,7 +238,7 @@ export function ContactUsForm(){
       <button
         disabled={loading}
         type="submit"
-        className={`rounded-md bg-[#60a5fa] mt-8 px-6 py-5 flex sm:mx-auto items-center gap-4 text-center text-[13px] font-semibold text-white-25 text-lg shadow-[2px_2px_0px_0px_rgba(255,255,255,0.18)] 
+        className={`rounded-md bg-[#60a5fa] mt-8 px-6 py-5 sm:px-4 sm:py-3 flex sm:mx-auto items-center gap-4 text-center text-[13px] font-semibold text-white-25 text-lg shadow-[2px_2px_0px_0px_rgba(255,255,255,0.18)] 
          ${
            !loading &&
            "transition-all duration-200 hover:scale-95 hover:shadow-none"

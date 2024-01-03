@@ -4,13 +4,13 @@ import dottedRows from "../assets/aboutSection-dottedrows.png"
 
 const About = () => {
   return (
-    <div id="#about" className="mt-5  mb-5 p-20 w-full flex flex-col items-center relative bg-bluegrey-50 shadow-lg">
+    <div id="#about" className="mt-5  mb-5 lg:p-20 md:p-12 sm:py-6 w-full flex flex-col items-center relative bg-bluegrey-50 shadow-lg">
       <h2 className='font-bold text-3xl'>About us</h2>
-      <img src={dottedRows} loading='lazy'  className='absolute  bottom-0 right-2'/>
+      <img src={dottedRows} loading='lazy'  className='absolute  bottom-0 right-2 sm:hidden md:hidden'/>
       <section>
         <div className="mx-auto flex w-11/12 max-w-maxContent flex-col lg:mb-16 justify-between gap-10 text-richblack-500">
           <div className="flex flex-col items-center gap-10 lg:flex-row justify-between">
-            <div className="my-24 flex lg:w-[50%] flex-col gap-10">
+            <div className="my-24 sm:my-6 flex lg:w-[50%] flex-col gap-10">
               <h1 className="bg-gradient-to-br from-[#833AB4] via-[#FD1D1D] to-[#FCB045] bg-clip-text text-4xl font-semibold text-transparent lg:w-[70%] ">
                 Our Founding Story
               </h1>
