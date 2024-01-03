@@ -5,12 +5,12 @@ import homepageImg from "../../../assets/homepage2.png"
 function HeroSection() {   
   return (
     <div className="mt-5 w-full flex flex-col items-center">
-      <div className='mx-auto flex w-9/12 max-w-maxContent flex-col lg:mb-16 justify-between gap-10 mt-20'>
-      <div className='grid lg:grid-cols-2 place-items-center gap-10'>
+      <div className='mx-auto flex w-9/12 max-w-maxContent flex-col lg:mb-16 justify-between md:mt-16 lg:mt-20'>
+      <div className='grid lg:grid-cols-2 md:grid-cols-2 gap-10'>
         <div className='flex flex-col gap-10'>
-            <h2 className='text-5xl font-bold text-blue-150'>Find the best 
+            <h2 className='lg:text-5xl md:text-4xl sm:text-3xl font-bold text-blue-150'>Find the best 
             <span className='bg-gradient-to-b from-[#1FA2FF] via-[#12D8FA] to-[#38b6ff] text-transparent bg-clip-text'> Talent </span>for your content creation</h2>
-            <p className='font-semibold text-pure-greys-300 text-xl'>Hire the skilled video editors, scripts writeres, thumbnail designers, and more.
+            <p className='font-semibold text-pure-greys-300 text-xl sm:text-lg'>Hire the skilled video editors, scripts writeres, thumbnail designers, and more.
             Post a job or search for a talented professionals on HireUp</p>
             <div className='flex gap-8'>
                 <CTAButton active={true} linkto={"/signup"}>
@@ -24,7 +24,7 @@ function HeroSection() {
         </div>
 
         {/* right part */}
-        <div className=''>
+        <div className='flex items-center justify-center'>
             <img src={homepageImg} 
                 loading='lazy'
                 alt='hero section'

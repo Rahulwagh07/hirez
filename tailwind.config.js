@@ -144,10 +144,10 @@ module.exports = {
       },
     },
     screens: {
-      'sm': {'max': '550px'},
+      'sm': {'max': '650px'},
       // => @media (min-width: 640px) { ... }
 
-      'md': {'min' : '551px', 'max': '1023px'},
+      'md': {'min' : '651px', 'max': '1023px'},
       // => @media (min-width: 768px) { ... }
 
       'lg': {'min' : '1024px'},
