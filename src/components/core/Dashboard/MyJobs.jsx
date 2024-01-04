@@ -26,8 +26,8 @@ export default function MyJobs() {
 
     return (
         <div>
-            <div className="flex items-center justify-between">
-                <h1 className="text-3xl font-medium text-black">My Jobs</h1>
+            <div className="flex items-center justify-between mb-4">
+                <h1 className="text-3xl sm:text-lg font-medium text-black">Posted Jobs</h1>
 
                 <IconBtn
                     text="Add Jobs"

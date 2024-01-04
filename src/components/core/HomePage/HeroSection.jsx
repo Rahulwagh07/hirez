@@ -13,10 +13,10 @@ function HeroSection() {
             <p className='font-semibold text-pure-greys-300 text-xl sm:text-lg'>Hire the skilled video editors, scripts writeres, thumbnail designers, and more.
             Post a job or search for a talented professionals on HireUp</p>
             <div className='flex gap-8'>
-                <CTAButton active={true} linkto={"/signup"}>
+                <CTAButton active={true} linkto={"/login"}>
                   Get Started
                 </CTAButton>
-                <CTAButton active={false} linkto={"/signup"}>
+                <CTAButton active={false} linkto={"/login"}>
                     Learn more
                 </CTAButton>
             </div>

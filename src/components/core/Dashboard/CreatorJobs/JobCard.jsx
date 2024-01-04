@@ -122,12 +122,12 @@ const JobCard = ({ job, setJobs, isSearchingJob, onRecommoneded}) => {
 
                 {
                     user.accountType === ACCOUNT_TYPE.CREATOR ? (
-                        <div className="flex justify-end mr-32 mt-4">
+                        <div className="flex justify-end mr-32 sm:mr-0 mt-4 sm:items-center sm:justify-center">
                             <button  
                                 onClick={() => {
                                     navigate(`/dashboard/posted-job/${job._id}`)
                                 }}
-                                className="rounded-md text-sm border-brand px-4 py-2 bg-blue-150 text-black font-semibold">Review All Applicants
+                                className="rounded-md text-sm border-brand px-4 py-3 sm:w-full text-white-25  bg-blue-150  font-semibold">Review All Applicants
                             </button>
                         </div>
                     ) : ( 

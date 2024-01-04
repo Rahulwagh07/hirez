@@ -56,7 +56,7 @@ function ContentSample() {
         <div>
           <div className="flex justify-between items-center mb-4">
           <h3 className='font-semibold'>Work Sample</h3>
-            <button onClick={handelOnAddClick} className='text-blue-150'>
+            <button onClick={handelOnAddClick} className='text-blue-150 font-semibold'>
                 Add 
             </button>
           </div>
@@ -66,15 +66,15 @@ function ContentSample() {
               {
             contentSample.map((content) => (
               <div key={content._id} className='mb-4 p-4 border-b border-blue-500 text-pure-greys-500'>
-                <div className='flex gap-4 items-center'>
-                  <p className="font-bold">
+                <div className='flex gap-4 items-center font-bold text-black'>
+                  <p >
                     {content.title}
                   </p>
                   <FiEdit2 onClick={() => handelOnEditClick(content)} className='cursor-pointer hover:text-blue-500' />
                   <RiDeleteBin6Line onClick={() => handelOnDelete(content._id)} className='cursor-pointer hover:text-red-500' />
                 </div>
                 <p>{content.description}</p>
-                <a href={content.link}  target="_blank" className="text-blue-150"> Click Here To see </a>
+                <a href={content.link}  target="_blank" className="text-blue-150">link</a>
                </div>
             ))}
               </div>

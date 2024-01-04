@@ -58,7 +58,7 @@ export default function UpdateProfilePicture() {
   }, [imageFile])
   return (
     <>
-      <div className="flex items-center justify-between rounded-md  section_bg box-shadow p-8 px-12 font-semibold">
+      <div className="flex items-center justify-between rounded-md  section_bg box-shadow  p-8 sm:px-1 px-12 font-semibold">
         <div className="flex items-center gap-x-4">
           <img
             src={previewSource || user?.image}

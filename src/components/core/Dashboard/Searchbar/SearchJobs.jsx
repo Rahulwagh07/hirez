@@ -117,17 +117,17 @@ function SearchJobs() {
   }, [searchParams.searchTerm, searchParams]);
 
   return (
-    <div className="container mx-auto mt-8 flex flex-col ">
+    <div className="container lg:mx-auto mt-8 flex flex-col ">
       {/* Search Bar */}
-      <div className="relative  ">
+      <div className="relative">
         <input
           type="text"
           placeholder="Video Editing/Thumbnail Design/......"
           value={searchParams.searchTerm}
           onChange={handleInputChange}
           onKeyDown={handleEnterPress}
-          className="w-full relative p-4 h-[60px] rounded-full placeholder:ml-3 placeholder:absolute
-          placeholder:text-lg focus:outline-none border-2 border-sky-500 text-pure-greys-800 font-semibold"
+          className="w-full  relative p-4  h-[60px]  rounded-full sm:placeholder:ml-1 placeholder:ml-3 placeholder:absolute
+          placeholder:text-lg sm:placeholder:text-sm focus:outline-none border-2  border-sky-500 text-pure-greys-800 font-semibold"
         />
         <button
           onClick={() => setSearchButtonClicked(true)}

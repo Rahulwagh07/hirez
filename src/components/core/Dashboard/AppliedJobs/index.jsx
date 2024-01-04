@@ -27,9 +27,9 @@ export default function AppliedJobs() {
     }, [token]);
 
     return (
-        <div className="flex flex-col ">
-        <h2 className="text-2xl font-bold mb-2">Your Path to Success</h2>
-        <p className="text-pure-greys-500 mb-4">
+        <div className="flex flex-col">
+        <h2 className="text-2xl font-bold mb-2 sm:hidden">Your Path to Success</h2>
+        <p className="text-pure-greys-500 mb-4 sm:mb-2">
           Congratulations on your journey! Below are the jobs you've applied for. Each application is a step closer to achieving your goals.
         </p>
         <div className="grid mt-5 gap-4">
@@ -41,7 +41,7 @@ export default function AppliedJobs() {
                 <AppliedJobCard key={job._id} job={job} />
               ))
             ) : (
-               <div className='p-20 shadow-lg border-t border-sky-500 flex flex-col gap-4 items-center justify-center'>
+               <div className='p-20 sm:p-8 shadow-lg border-t border-sky-500 flex flex-col gap-4 items-center justify-center'>
                <p className="text-pure-greys-500 font-semibold">
                 No applied jobs yet. Your story is just beginning. Keep exploring and applying!
               </p>
