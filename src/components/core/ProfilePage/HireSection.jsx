@@ -56,7 +56,7 @@ function HireSection() {
                         });
                     }}
                     title=""
-                    className="rounded-md xl:text-lg text-sm border-brand items-center px-7 py-2"
+                    className="rounded-md  border-brand  items-center px-7 py-2"
                     >
                     Extend Offer    
                     </button>

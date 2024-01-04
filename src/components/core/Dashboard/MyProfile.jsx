@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 import IconBtn from "../../common/IconBtn"
 import { FaArrowRight } from "react-icons/fa6";
 import { ACCOUNT_TYPE } from "../../../utils/constants";
+import { FaEdit } from "react-icons/fa";
 
 
 
@@ -13,24 +14,34 @@ export default function MyProfile() {
 
   return (
     <div className="text-black">
-       <div className="flex items-center  justify-between mb-14 mr-8 ml-4">
-        <h1 className="text-3xl font-medium">
-          My Profile
-        </h1>
+       <div className="flex items-center justify-between sm:mb-12 mb-14 mr-8 ml-4">
+         <div className="sm:flex gap-2">
+          <h1 className="text-3xl font-medium sm:text-lg">
+            My Profile   
+          </h1>
+          <button onClick={() => {
+              navigate("/dashboard/settings/update-profile");
+            }}
+            className="hover:text-blue-150 text-sky-500 lg:hidden md:hidden"
+          >
+            <FaEdit/>
+          </button>
+         </div>
+        
          {
           user && user.accountType === ACCOUNT_TYPE.JOBSEEKER &&
           <button
             onClick={() => {
               navigate("/dashboard/settings");
             }}
-            className="rounded-md border-brand items-center px-7 py-2 flex"
+            className="rounded-md border-brand items-center px-7 py-2 flex sm:py-1 sm:px-2"
           >
             Portfolio <FaArrowRight className="ml-2"/>
           </button>
 
          }
        </div>
-      <div className="flex items-center justify-between rounded-md  section_bg box-shadow p-8 px-12">
+      <div className="flex items-center justify-between rounded-md  section_bg box-shadow sm:p-4 sm:px-2 p-8 px-12">
         <div className="flex items-center gap-x-4">
           <img
             src={user?.image}
@@ -49,11 +60,12 @@ export default function MyProfile() {
           onclick={() => {
             navigate("/dashboard/settings/update-profile")
           }}
+          customClasses="sm:hidden"
         >
           <RiEditBoxLine />
         </IconBtn>
       </div>
-      <div className="my-10 flex flex-col gap-y-10 rounded-md section_bg box-shadow p-8  px-12">
+      <div className="my-10 flex flex-col gap-y-10 rounded-md section_bg box-shadow sm:p-4 sm:px-2 p-8  px-12">
         <div className="flex w-full items-center justify-between">
           <p className="text-lg font-semibold">About</p>
           <IconBtn
@@ -61,6 +73,7 @@ export default function MyProfile() {
             onclick={() => {
               navigate("/dashboard/settings/update-profile")
             }}
+            customClasses="sm:hidden"
           >
             <RiEditBoxLine />
           </IconBtn>
@@ -78,7 +91,7 @@ export default function MyProfile() {
 
       {
         user && user.accountType === ACCOUNT_TYPE.JOBSEEKER &&
-        <div className="my-10 flex flex-col gap-y-10 rounded-md section_bg box-shadow p-8  px-12">
+        <div className="my-10 flex flex-col gap-y-10 rounded-md section_bg box-shadow  sm:p-4 sm:px-2 p-8  px-12">
         <div className="flex w-full items-center justify-between">
           <p className="text-lg font-semibold">Interested Role</p>
            <IconBtn
@@ -86,6 +99,7 @@ export default function MyProfile() {
             onclick={() => {
               navigate("/dashboard/settings/update-profile")
             }}
+            customClasses="sm:hidden"
           >
             <RiEditBoxLine />
           </IconBtn>
@@ -103,7 +117,7 @@ export default function MyProfile() {
       </div>
       }
 
-      <div className="my-10 flex flex-col gap-y-10 rounded-md section_bg box-shadow p-8 px-12">
+      <div className="my-10 flex flex-col gap-y-10 rounded-md section_bg box-shadow sm:p-4 sm:px-2 p-8 px-12">
         <div className="flex w-full items-center justify-between">
           <p className="text-lg font-semibold">
             Personal Details
@@ -113,6 +127,7 @@ export default function MyProfile() {
             onclick={() => {
               navigate("/dashboard/settings/update-profile")
             }}
+            customClasses="sm:hidden"
           >
             <RiEditBoxLine />
           </IconBtn>

@@ -39,20 +39,20 @@ function Navbar() {
              {/*Small and Medium screen*/}
               {
                 token === null ? (
-                  <div className="lg:hidden cursor-pointer mr-4 mt-2" onClick={toggleDropdown}>
-                    {showDropdown ? (<RxCross1 size={24} color="#333"/>) : (<IoReorderThree size={32} color="#333"/>)}
+                  <div className="lg:hidden cursor-pointer mr-4 mt-2 text-blue-150" onClick={toggleDropdown}>
+                    {showDropdown ? (<RxCross1 size={24} color='#333'/>) : (<IoReorderThree size={32}/>)}
                   </div>
                 ): (<div className='lg:hidden'><ProfileDropdown/></div>)
               }
 
             {
               showDropdown && (
-                <div  ref={dropdownRef} className='absolute right-0 top-12 shadow-lg py-6 px-12'>
+                <div  ref={dropdownRef} className='absolute section_bg right-0 top-12 shadow-lg py-6 px-12 '>
                 {
                 isHomeRoute  && 
                 <div className='flex flex-col items-center'>
                   {NavbarLinks.map((link, index) => (
-                      <li key={index} className='py-2 leading-5 flex gap-1 items-center hover:text-[#6674CC] transition-all duration-150 cursor-pointer'>
+                      <li key={index} className='py-2 leading-5 flex items-center hover:text-[#6674CC] transition-all duration-150 cursor-pointer'>
                         <ScrollLink
                           to={link.path}
                           smooth={true}
@@ -71,7 +71,7 @@ function Navbar() {
               }
             
             {/* LOGIN AND SIGNUP */}
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col  items-center">
                     
               {token === null && (
                 <Link to="/login">
@@ -82,7 +82,7 @@ function Navbar() {
               )}
               {token === null && (
                 <Link to="/signup">
-                  <button className="hover:text-[#6674CC]" onClick={() => setShowDropdown(false)}>
+                  <button className="hover:text-[#6674CC] py-2" onClick={() => setShowDropdown(false)}>
                     Sign up
                   </button>
                 </Link>

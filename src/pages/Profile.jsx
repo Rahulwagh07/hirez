@@ -63,7 +63,7 @@ function Profile() {
                 
                 {/* Experiences */}
                 <div className='bg-white shadow-lg p-8 flex flex-col gap-2'>
-                  <h3>Experience</h3>
+                  <h3 className='text_gradient text-lg'>Experience</h3>
                   <div className=''>
                     {portfolio.experiences.map((experience) => (
                       <ExperienceProjectCard key={experience._id} {...experience} />
@@ -73,7 +73,7 @@ function Profile() {
 
                 {/* Projects */}
                 <div className='bg-white shadow-lg p-8 flex flex-col gap-2'>
-                  <h3>Projects</h3>
+                  <h3 className='text_gradient text-lg'>Projects</h3>
                   <div className=''>
                     {portfolio.projects.map((project) => (
                       <ExperienceProjectCard key={project._id} {...project} />
@@ -83,7 +83,7 @@ function Profile() {
 
                 {/* Work Samples */}
                 <div className='bg-white shadow-lg p-8 flex flex-col gap-2'>
-                  <h3>Work Samples</h3>
+                  <h3 className='text_gradient text-lg'>Work Samples</h3>
                   <div className=''>
                   {portfolio.contentSamples.map((workSample) => (
                   <ExperienceProjectCard
@@ -98,7 +98,7 @@ function Profile() {
 
                 {/* Education */}
                 <div className='bg-white shadow-lg p-8 flex flex-col gap-2'>
-                  <h3>Education</h3>
+                  <h3 className='text_gradient text-lg'>Education</h3>
                   <div className=''>
                     {portfolio.education.map((education) => (
                     <ExperienceProjectCard
@@ -117,7 +117,7 @@ function Profile() {
 
                 {/* Certifications */}
                 <div className='bg-white shadow-lg p-8 flex flex-col gap-2'>
-                  <h3>Certificates</h3>
+                  <h3 className='text_gradient text-lg'>Certificates</h3>
                   <div className=''>
                     {portfolio.certifications.map((certificate) => (
                       <ExperienceProjectCard 

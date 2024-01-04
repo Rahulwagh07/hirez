@@ -25,7 +25,7 @@ const ApplicantList = ({ applicantions }) => {
             <p>Email: <span>{applicantion.applicant.email}</span></p> 
             <p>Status: <span>{applicantion.status}</span></p>  
             <button onClick={() => handleOnClick(applicantion._id, applicantion.applicant._id)}
-              className='bg-blue-150 px-3 py-2 rounded-md'
+              className='bg-blue-150 px-3 py-2 w-full text-white-25 rounded-md'
             >
                 View profile
             </button>

@@ -58,7 +58,7 @@ function Certification() {
         <div>
           <div className='flex justify-between items-center mb-4'>
             <h3 className='font-semibold'>Certifications</h3>
-            <button onClick={handelOnAddClick} className='text-blue-150'>
+            <button onClick={handelOnAddClick} className='text-blue-150 font-semibold'>
               Add Certification
             </button>
           </div>
@@ -66,14 +66,14 @@ function Certification() {
             <div>
               {certifications.map((certification) => (
                 <div key={certification._id} className='mb-4 p-4 border-b border-blue-500 text-pure-greys-500'>
-                  <div className='flex gap-4 items-center'>
-                    <p className='font-bold'>{certification.title}</p>
+                  <div className='flex gap-4 items-center font-bold text-black'>
+                    <p  >{certification.title}</p>
                     <FiEdit2 onClick={() => handelOnEditClick(certification)} className='cursor-pointer hover:text-blue-500 ' />
                     <RiDeleteBin6Line onClick={() => handelOnDelete(certification._id)} className='cursor-pointer hover:text-red-500' />
                   </div>
                   <p>{certification.issuingOrganization}</p>
                   <p>
-                    <a href={certification.url} target='_blank' className='text-blue-200'>Click here to See Details </a>
+                    <a href={certification.url} target='_blank' className='text-blue-200'>link</a>
                      | issueDate: {formatDateString(certification.issueDate)} 
                    
                   </p>

@@ -60,7 +60,7 @@ function Education() {
         <div>
           <div className='flex justify-between items-center mb-4'>
             <h3 className='font-semibold'>Education</h3>
-            <button onClick={handelOnAddClick} className='text-blue-150'>
+            <button onClick={handelOnAddClick} className='text-blue-150 font-semibold'>
               Add Education
             </button>
           </div>
@@ -68,8 +68,8 @@ function Education() {
             <div>
               {educations.map((education) => (
                 <div key={education._id} className='mb-4 p-4 border-b border-blue-500 text-pure-greys-500'>
-                  <div className='flex gap-4 items-center'>   
-                    <p className='font-bold'>   
+                  <div className='flex gap-4 items-center font-bold text-black'>   
+                    <p>   
                       {education.fieldOfStudy} | {education.degree}
                     </p>
                     <FiEdit2 onClick={() => handelOnEditClick(education)} className='cursor-pointer hover:text-blue-500' />

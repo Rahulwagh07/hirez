@@ -63,7 +63,7 @@ export default function ShowContentSampleModal({editContentSample, setIsOpen, co
     <div className='fixed inset-0 z-[1000] !mt-0 grid place-items-center overflow-auto bg-white bg-opacity-10 backdrop-blur-sm'>
       <form 
         onSubmit={handleSubmit(onSubmit)}
-        className='p-8 border-brand section_bg box-shadow space-y-8 rounded-md w-[500px] mx-auto'
+        className='p-8 sm:p-4 sm:py-8 sm:w-[300px] border-brand section_bg box-shadow space-y-8 rounded-md w-[500px] mx-auto'
         >
         {
           contentSampleFields.map((field) => (
@@ -83,7 +83,7 @@ export default function ShowContentSampleModal({editContentSample, setIsOpen, co
           <button onClick={onCancel} className='text-bule-150'>
             Cancel
           </button>
-          <button type='submit' className='bg-blue-150  px-4 py-1 rounded-md'>
+          <button type='submit' className='bg-blue-150  px-6 py-2 rounded-md'>
             Save
           </button>
         </div>

@@ -55,7 +55,7 @@ function Social() {
         <div>
           <div className="flex justify-between items-center mb-4">
             <h3 className='font-semibold'>Social Media Profiles</h3>
-            <button onClick={handelOnAddClick} className='text-blue-150'>
+            <button onClick={handelOnAddClick} className='text-blue-150 font-semibold'>
               Add
             </button>
           </div>
@@ -63,8 +63,8 @@ function Social() {
             <div>
               {socialMediaProfiles.map((profile) => (
                 <div key={profile._id} className='mb-4 p-4 border-b border-blue-500 text-pure-greys-500'>
-                  <div className='flex gap-4 items-center'>
-                    <p className="font-bold">
+                  <div className='flex gap-4 items-center font-bold text-black'>
+                    <p  >
                       {profile.profileName}
                     </p>
                     <FiEdit2 onClick={() => handelOnEditClick(profile)} className='cursor-pointer hover:text-blue-500' />

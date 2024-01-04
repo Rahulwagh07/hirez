@@ -273,7 +273,16 @@ export default function JobInfo() {
                 )}
             </div>
 
-            <div className="flex justify-end gap-x-2">
+            <div className="flex justify-end gap-x-2 sm:flex-col sm:gap-4">
+                <IconBtn
+                onClick={() => navigate("/dashboard/posted-job")}
+                disabled={loading}
+                text={!editJob ? "Post Job" : "Save Changes"}
+                customClasses={"py-5 text-white-25 flex items-center justify-center"}
+                >
+                <MdNavigateNext />
+                </IconBtn>
+
                 {editJob && (
                 <button
                    onClick={() => {
@@ -281,18 +290,11 @@ export default function JobInfo() {
                         dispatch(setEditJob(false));
                     }}
                     disabled={loading}
-                    className={`flex cursor-pointer items-center gap-x-2 rounded-md shadow-lg border-brand py-[8px] px-[20px] font-semibold text-pure-greys-700`}
+                    className={`flex cursor-pointer sm:py-5 items-center justify-center gap-x-2 rounded-md shadow-lg border-brand py-[8px] px-[20px] font-semibold text-pure-greys-700`}
                 >
                     Post Job without Saving
                 </button>
                 )}
-                <IconBtn
-                onClick={() => navigate("/dashboard/posted-job")}
-                disabled={loading}
-                text={!editJob ? "Post Job" : "Save Changes"}
-                >
-                <MdNavigateNext />
-                </IconBtn>
             </div>
 
 

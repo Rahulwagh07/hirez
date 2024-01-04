@@ -11,7 +11,7 @@ const CustomInput = ({ id, label, type, placeholder, register, error }) => {
           id={id}
           type={type}
           {...register(id, { required: true })}
-          className="form-style w-full"
+          className="form-style w-full sm:w-[260px] border-sky-500 border"
         />
       ) : (
         <input
@@ -19,7 +19,7 @@ const CustomInput = ({ id, label, type, placeholder, register, error }) => {
           type={type}
           placeholder={placeholder}
           {...register(id, { required: true })}
-          className="form-style w-full"
+          className="form-style w-full sm:w-[260px] border-sky-500 border"
         />
       )}
       {error && (

@@ -8,8 +8,8 @@ export default function ShowJobs({ jobs, setJobs }) {
     return (
             <div>
                 {jobs?.length === 0 ? (
-                    <div className="section_bg flex items-center justify-center">
-                        <h3>No Jobs Found</h3>
+                    <div className="shadow-lg p-10 mt-10  border-sky-500 border-t flex items-center justify-center">
+                        <h3 className="text-pure-greys-600 font-semibold">No Jobs Found</h3>
                     </div>
                 ) : (
                     jobs.map((job) => (

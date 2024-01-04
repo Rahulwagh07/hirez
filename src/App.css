@@ -59,6 +59,10 @@ html, body {
 }
  
 
+.text_gradient{
+  @apply bg-gradient-to-br from-[#833AB4] via-[#FD1D1D] to-[#FCB045] bg-clip-text  font-semibold text-transparent;
+}
+
 /* circle Animation css ref:from thecodehelp.in */  
 .circle_animation {
   animation: spin 55s linear infinite;

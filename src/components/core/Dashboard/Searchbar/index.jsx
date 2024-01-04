@@ -15,8 +15,8 @@ export default function Searchbar() {
             {
                 !showSearchJobs && <div className="flex flex-col items-center justify-center">
                 <button onClick={handleSearchClick} 
-                    className="section_bg box-shadow rounded-full  flex items-center justify-between lg:w-[500px] h-[60px]
-                    transition-all duration-300 ease-in-out transform hover:scale-125 border border-sky-500 hover:border-2 hover:border-sky-500"
+                    className="section_bg box-shadow rounded-full  flex items-center justify-between lg:w-[500px] md:w-[300px] h-[60px] sm:w-full
+                    transition-all duration-300 ease-in-out transform lg:hover:scale-125 md:hover:scale-125 border border-sky-500 hover:border-2 hover:border-sky-500"
                     >
                     <p className="text-pure-greys-600  ml-[40px]">Search jobs</p>
                     <div className="bg-[#2563eb] rounded-full mr-[30px] p-3">
