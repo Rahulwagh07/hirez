@@ -289,7 +289,6 @@ exports.deleteJob = async (req, res) => {
         }
 
         //To do find more from where have to delete
-
         await Job.findByIdAndDelete(jobId)
 
         return res.status(200).json({ success: true, message: "Job Deleted Successfullly", });
