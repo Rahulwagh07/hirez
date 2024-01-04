@@ -85,7 +85,7 @@ function SignupForm() {
         <Tab tabData={tabData} field={accountType} setField={setAccountType}/>
 
         <form onSubmit={handleOnSubmit} className="flex w-full flex-col items-center justify-center gap-4 lg:w-[380px]">
-        <div className="flex items-center justify-center gap-4">
+        <div className="flex sm:flex-col items-center justify-center gap-4">
           <label>
             <p className="mb-1">
               First Name <sup className="text-pink-200">*</sup>
@@ -97,7 +97,7 @@ function SignupForm() {
               value={firstName}
               onChange={handleOnChange}
               placeholder="Enter first name"
-              className="h-[50px] rounded-md  border border-sky-500 placeholder:ml-4  placeholder:absolute"
+              className="h-[50px] sm:h-[42px] sm:w-[260px] rounded-md border border-sky-500 placeholder:ml-4  placeholder:absolute"
             />
           </label>
           <label>
@@ -111,11 +111,11 @@ function SignupForm() {
               value={lastName}
               onChange={handleOnChange}
               placeholder="Enter last name"
-              className="h-[50px] rounded-md border border-sky-500  placeholder:ml-4  placeholder:absolute"
+              className="h-[50px] sm:h-[42px]  sm:w-[260px] rounded-md border border-sky-500  placeholder:ml-4  placeholder:absolute"
             />
           </label>
         </div>
-        <label className="w-full mr-4 ml-4">
+        <label className="w-full mr-4 ml-4 sm:mr-0">
           <p className="mb-1">
             Email Address <sup className="text-pink-200">*</sup>
           </p>
@@ -126,10 +126,10 @@ function SignupForm() {
             value={email}
             onChange={handleOnChange}
             placeholder="Enter email address"
-            className="w-full h-[50px] rounded-md  border border-sky-500 placeholder:ml-4  placeholder:absolute"
+            className="w-full sm:h-[42px] sm:items-center sm:w-[260px] h-[50px] rounded-md  border border-sky-500 placeholder:ml-4  placeholder:absolute"
           />
         </label>
-        <div className="flex gap-x-4">
+        <di v className="flex gap-x-4 sm:flex-col sm:gap-2">
           <label className="relative">
             <p className="mb-1">
               Create Password <sup className="text-pink-200">*</sup>
@@ -141,7 +141,7 @@ function SignupForm() {
               value={password}
               onChange={handleOnChange}
               placeholder="Enter Password"
-              className="h-[50px] rounded-md border border-sky-500  placeholder:ml-4  placeholder:absolute"
+              className="h-[50px] sm:h-[42px] sm:w-[260px] rounded-md border border-sky-500  placeholder:ml-4  placeholder:absolute"
             />
             <span
               onClick={() => setShowPassword((prev) => !prev)}
@@ -165,7 +165,7 @@ function SignupForm() {
               value={confirmPassword}
               onChange={handleOnChange}
               placeholder="Confirm Password"
-              className="h-[50px] rounded-md border border-sky-500  placeholder:ml-4  placeholder:absolute"
+              className="h-[50px] sm:h-[42px] sm:w-[260px] rounded-md border border-sky-500  placeholder:ml-4  placeholder:absolute"
             />
             <span
               onClick={() => setShowConfirmPassword((prev) => !prev)}
@@ -178,10 +178,10 @@ function SignupForm() {
               )}
             </span>
           </label>
-        </div>
+        </di>
         <button
           type="submit"
-          className="bg-blue-150 py-2 px-4 rounded flex items-center justify-center mb-4 w-full h-[50px]"
+          className="bg-blue-150 sm:w-[260px] py-2 px-4 rounded flex items-center justify-center mb-4 w-full h-[50px]"
         >
           Next  
         </button>
