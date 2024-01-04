@@ -50,11 +50,7 @@ const JobCard = ({ job, setJobs, isSearchingJob, onRecommoneded}) => {
     const handleJobDelete = async (jobId) => {
         setLoading(true);
         await deleteJob({ jobId: jobId }, token);
-        const result = await getAllJobsByCreator(token);
-
-        if (result) {
-            setJobs(result);
-        }
+        setJobs((prevJobs) => prevJobs.filter((job) => job._id !== jobId));
         setConfirmationModal(null);
         setLoading(false);
     };
