@@ -21,7 +21,7 @@ function ForgotPassword() {
       {loading ? (
         <div className="spinner"></div>
       ) : (
-        <div className="section_bg max-w-lg p-12 mt-16 text-black box-shadow">
+        <div className="max-w-lg sm:w-[420px] p-12 mt-16 text-black box-shadow border-t border-sky-500">
           <h1 className=" font-semibold text-lg">
             {!emailSent ? "Reset your password" : "Check email"}
           </h1>
@@ -43,7 +43,7 @@ function ForgotPassword() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter email address"
-                  className="form-style w-full"
+                  className="w-full  h-[50px] border border-sky-500 rounded-md mb-4 placeholder:ml-4  placeholder:absolute"
                 />
               </label>
             )}

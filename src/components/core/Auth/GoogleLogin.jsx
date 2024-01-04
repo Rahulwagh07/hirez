@@ -56,7 +56,7 @@ function GoogleLogin() {
   }, [userInfo]);
 
   return (
-    <div className='flex items-center justify-center shadow-lg h-[150px] w-[300px]'>
+    <div className='flex items-center justify-center shadow-lg h-[150px] sm:w-[260px] w-[300px]'>
         <div id='signInDiv'></div>
     </div>
   );

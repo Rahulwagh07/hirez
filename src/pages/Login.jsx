@@ -31,7 +31,7 @@ function Login() {
                 {/* Google Login */}
                 <button
                     onClick={handleGoogleLogin}
-                    className='bg-black text-richblack-25 py-2 px-4 rounded flex items-center justify-center mb-4 lg:w-[325px] h-[50px]'
+                    className='bg-black text-richblack-25 py-2 px-4 rounded flex items-center justify-center mb-4 sm:w-[260px] w-[325px] h-[50px]'
                     >
                     <FcGoogle className='mr-4' />
                     <p className='font-semibold'>Continue with Google</p>
@@ -39,7 +39,7 @@ function Login() {
                 
 
                 {/* Email Login */}
-                <button onClick={handelOnEmailLogin}  className='bg-blue-150 text-white py-2 px-4 rounded flex items-center justify-center mb-4 w-[325px] h-[50px]'>
+                <button onClick={handelOnEmailLogin}  className='bg-blue-150 text-white py-2 px-4 rounded flex items-center justify-center mb-4 sm:w-[260px] w-[325px] h-[50px]'>
                     <MdOutlineMailOutline className='mr-3' />
                     <p className='font-semibold'>Continue with Email</p>
                 </button>
