@@ -81,8 +81,8 @@ function GoogleSignup() {
   };
 
   return (
-    <div className='flex items-center justify-center h-screen'>
-      <div className='flex flex-col gap-4 shadow-lg p-10'>
+    <div className='flex items-center justify-center mt-20'>
+      <div className='flex flex-col gap-4 shadow-lg p-10 dark:bg-slate-800 w-[320px]'>
         <p>Continue as</p>
         <Tab tabData={tabData} field={accountType} setField={setAccountType} />
         <div id='signInDiv'></div>

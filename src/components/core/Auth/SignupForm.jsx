@@ -97,7 +97,7 @@ function SignupForm() {
               value={firstName}
               onChange={handleOnChange}
               placeholder="Enter first name"
-              className="h-[50px] sm:h-[42px] sm:w-[260px] rounded-md border border-sky-500 placeholder:ml-4  placeholder:absolute"
+              className="h-[50px] sm:h-[42px] sm:w-[260px] rounded-md border border-sky-500 dark:bg-slate-700 focus:outline-none pl-2"
             />
           </label>
           <label>
@@ -111,7 +111,7 @@ function SignupForm() {
               value={lastName}
               onChange={handleOnChange}
               placeholder="Enter last name"
-              className="h-[50px] sm:h-[42px]  sm:w-[260px] rounded-md border border-sky-500  placeholder:ml-4  placeholder:absolute"
+              className="h-[50px] sm:h-[42px]  sm:w-[260px] rounded-md border border-sky-500 dark:bg-slate-700 focus:outline-none pl-2"
             />
           </label>
         </div>
@@ -126,10 +126,10 @@ function SignupForm() {
             value={email}
             onChange={handleOnChange}
             placeholder="Enter email address"
-            className="w-full sm:h-[42px] sm:items-center sm:w-[260px] h-[50px] rounded-md  border border-sky-500 placeholder:ml-4  placeholder:absolute"
+            className="w-full sm:h-[42px] sm:items-center sm:w-[260px] h-[50px] rounded-md  border border-sky-500 focus:outline-none dark:bg-slate-700 pl-2"
           />
         </label>
-        <di v className="flex gap-x-4 sm:flex-col sm:gap-2">
+        <div className="flex gap-x-4 sm:flex-col sm:gap-2">
           <label className="relative">
             <p className="mb-1">
               Create Password <sup className="text-pink-200">*</sup>
@@ -141,7 +141,7 @@ function SignupForm() {
               value={password}
               onChange={handleOnChange}
               placeholder="Enter Password"
-              className="h-[50px] sm:h-[42px] sm:w-[260px] rounded-md border border-sky-500  placeholder:ml-4  placeholder:absolute"
+              className="h-[50px] sm:h-[42px] sm:w-[260px] rounded-md border border-sky-500  dark:bg-slate-700 focus:outline-none pl-2"
             />
             <span
               onClick={() => setShowPassword((prev) => !prev)}
@@ -165,7 +165,7 @@ function SignupForm() {
               value={confirmPassword}
               onChange={handleOnChange}
               placeholder="Confirm Password"
-              className="h-[50px] sm:h-[42px] sm:w-[260px] rounded-md border border-sky-500  placeholder:ml-4  placeholder:absolute"
+              className="h-[50px] sm:h-[42px] sm:w-[260px] rounded-md border border-sky-500  dark:bg-slate-700 focus:outline-none pl-2"
             />
             <span
               onClick={() => setShowConfirmPassword((prev) => !prev)}
@@ -178,7 +178,7 @@ function SignupForm() {
               )}
             </span>
           </label>
-        </di>
+        </div>
         <button
           type="submit"
           className="bg-blue-150 sm:w-[260px] py-2 px-4 rounded flex items-center justify-center mb-4 w-full h-[50px]"

@@ -122,7 +122,7 @@ export default function JobInfo() {
     return (
         <form 
             onSubmit={handleSubmit(onSubmit)}
-            className="space-y-6 rounded-md  border-l border-b border-blue-150  p-8  shadow-xl text-sm text-pure-greys-600"
+            className="space-y-6 rounded-md  border-l border-b border-blue-150  p-8  shadow-xl text-sm dark:text-slate-400 text-pure-greys-600"
             >
 
             {/* job title */}
@@ -187,13 +187,13 @@ export default function JobInfo() {
                     className="form-style w-full border border-sky-500"
                 >
                     <option value="">Select category</option>
-                    <option value="Video Editing">Video Editing</option>
-                    <option value="Content Creation and Writing">Content Creation and Writing</option>
-                    <option value="Script Writing">Script Writing</option>  
-                    <option value="Management and Administation">Management and Administration</option>
-                    <option value="SEO and Analytics"> SEO and Analytics</option>  
-                    <option value="Thumbnail Design">Thumbnail Design</option>
-                    <option value="Public Relations(PR)">Public Relations</option>
+                    <option value="Video Editing" className="dark:bg-slate-700" >Video Editing</option>
+                    <option value="Content Creation and Writing" className="dark:bg-slate-700">Content Creation and Writing</option>
+                    <option value="Script Writing" className="dark:bg-slate-700" >Script Writing</option>  
+                    <option value="Management and Administation" className="dark:bg-slate-700" >Management and Administration</option>
+                    <option value="SEO and Analytics" className="dark:bg-slate-700" > SEO and Analytics</option>  
+                    <option value="Thumbnail Design" className="dark:bg-slate-700" >Thumbnail Design</option>
+                    <option value="Public Relations(PR)" className="dark:bg-slate-700" >Public Relations</option>
                 </select>
                 {errors.jobcategory && (
                     <span className="ml-2 text-xs tracking-wide text-pink-200">
@@ -262,9 +262,9 @@ export default function JobInfo() {
                     {...register("jobStatus", { required: true })}
                     className="form-style w-full border border-sky-500"
                 >
-                <option value="open">Open</option>
-                <option value="closed">Closed</option>
-                <option value="filled">Filled</option>
+                <option value="open" className="dark:bg-slate-700" >Open</option>
+                <option value="closed" className="dark:bg-slate-700" >Closed</option>
+                <option value="filled" className="dark:bg-slate-700" >Filled</option>
                 </select>
                 {errors.jobStatus && (
                     <span className="ml-2 text-xs tracking-wide text-pink-200">
@@ -290,7 +290,7 @@ export default function JobInfo() {
                         dispatch(setEditJob(false));
                     }}
                     disabled={loading}
-                    className={`flex cursor-pointer sm:py-5 items-center justify-center gap-x-2 rounded-md shadow-lg border-brand py-[8px] px-[20px] font-semibold text-pure-greys-700`}
+                    className={`flex cursor-pointer sm:py-5 items-center justify-center gap-x-2 dark:text-white-25 rounded-md shadow-lg border-brand py-[8px] px-[20px] font-semibold text-pure-greys-700`}
                 >
                     Post Job without Saving
                 </button>

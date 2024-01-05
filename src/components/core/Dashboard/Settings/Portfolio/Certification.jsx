@@ -30,18 +30,18 @@ function Certification() {
     fetchCertifications();
   }, [token]);
 
-  const handelOnAddClick = () => {
+  const handleOnAddClick = () => {
     setEditCertification(false);
     setIsOpen(true);
   };
 
-  const handelOnEditClick = (certification) => {
+  const handleOnEditClick = (certification) => {
     setEditCertification(true);
     setSelectedCertification(certification);
     setIsOpen(true);
   };
 
-  const handelOnDelete = async (certificationId) => {
+  const handleOnDelete = async (certificationId) => {
     try {
       await deleteCertification(certificationId, token);
       setCertifications((prevCertifications) =>
@@ -53,23 +53,23 @@ function Certification() {
   };
 
   return (
-    <div className='section_bg box-shadow p-6 rounded-md'>
+    <div className='section_bg box-shadow p-6 rounded-md border border-sky-400'>
       {!isOpen && (
         <div>
           <div className='flex justify-between items-center mb-4'>
             <h3 className='font-semibold'>Certifications</h3>
-            <button onClick={handelOnAddClick} className='text-blue-150 font-semibold'>
+            <button onClick={handleOnAddClick} className='text-blue-150 font-semibold'>
               Add Certification
             </button>
           </div>
           {certifications.length > 0 ? (
             <div>
               {certifications.map((certification) => (
-                <div key={certification._id} className='mb-4 p-4 border-b border-blue-500 text-pure-greys-500'>
+                <div key={certification._id} className='mb-4 p-4 border-b border-slate-50 text-pure-greys-500'>
                   <div className='flex gap-4 items-center font-bold text-black'>
                     <p  >{certification.title}</p>
-                    <FiEdit2 onClick={() => handelOnEditClick(certification)} className='cursor-pointer hover:text-blue-500 ' />
-                    <RiDeleteBin6Line onClick={() => handelOnDelete(certification._id)} className='cursor-pointer hover:text-red-500' />
+                    <FiEdit2 onClick={() => handleOnEditClick(certification)} className='cursor-pointer hover:text-blue-500 ' />
+                    <RiDeleteBin6Line onClick={() => handleOnDelete(certification._id)} className='cursor-pointer hover:text-red-500' />
                   </div>
                   <p>{certification.issuingOrganization}</p>
                   <p>

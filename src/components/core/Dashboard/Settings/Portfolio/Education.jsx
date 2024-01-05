@@ -32,18 +32,18 @@ function Education() {
 
    
 
-  const handelOnAddClick = () => {
+  const handleOnAddClick = () => {
     setEditEducation(false);
     setIsOpen(true);
   }
 
-  const handelOnEditClick = (education) => {
+  const handleOnEditClick = (education) => {
     setEditEducation(true)
     setSelectedEducation(education);
     setIsOpen(true);
   }
 
-  const handelOnDelete = async (educationId) => {
+  const handleOnDelete = async (educationId) => {
     try {
       await deleteEducation(educationId, token);
       setEducation((prevEducations) =>
@@ -55,25 +55,25 @@ function Education() {
   };
 
   return (
-    <div className='section_bg box-shadow p-6 rounded-md'>
+    <div className='section_bg box-shadow p-6 rounded-md border border-sky-400'>
       {!isOpen && (
         <div>
           <div className='flex justify-between items-center mb-4'>
             <h3 className='font-semibold'>Education</h3>
-            <button onClick={handelOnAddClick} className='text-blue-150 font-semibold'>
+            <button onClick={handleOnAddClick} className='text-blue-150 font-semibold'>
               Add Education
             </button>
           </div>
           {educations.length > 0 ? (
             <div>
               {educations.map((education) => (
-                <div key={education._id} className='mb-4 p-4 border-b border-blue-500 text-pure-greys-500'>
+                <div key={education._id} className='mb-4 p-4 border-b border-slate-50 text-pure-greys-500'>
                   <div className='flex gap-4 items-center font-bold text-black'>   
                     <p>   
                       {education.fieldOfStudy} | {education.degree}
                     </p>
-                    <FiEdit2 onClick={() => handelOnEditClick(education)} className='cursor-pointer hover:text-blue-500' />
-                    <RiDeleteBin6Line onClick={() => handelOnDelete(education._id)} className='cursor-pointer hover:text-red-500' />
+                    <FiEdit2 onClick={() => handleOnEditClick(education)} className='cursor-pointer hover:text-blue-500' />
+                    <RiDeleteBin6Line onClick={() => handleOnDelete(education._id)} className='cursor-pointer hover:text-red-500' />
                   </div>
                   <p>{education.institution}</p>
                   <p>

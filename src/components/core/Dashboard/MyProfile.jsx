@@ -13,8 +13,8 @@ export default function MyProfile() {
   const navigate = useNavigate()
 
   return (
-    <div className="text-black">
-       <div className="flex items-center justify-between sm:mb-12 mb-14 mr-8 ml-4">
+    <div className="text-black dark:text-slate-400">
+       <div className="flex items-center justify-between sm:mb-12 mb-14 mr-8 ml-4 ">
          <div className="sm:flex gap-2">
           <h1 className="text-3xl font-medium sm:text-lg">
             My Profile   
@@ -41,7 +41,7 @@ export default function MyProfile() {
 
          }
        </div>
-      <div className="flex items-center justify-between rounded-md  section_bg box-shadow sm:p-4 sm:px-2 p-8 px-12">
+      <div className="flex items-center justify-between border border-sky-400 rounded-md section_bg box-shadow sm:p-4 sm:px-2 p-8 px-12">
         <div className="flex items-center gap-x-4">
           <img
             src={user?.image}
@@ -65,7 +65,7 @@ export default function MyProfile() {
           <RiEditBoxLine />
         </IconBtn>
       </div>
-      <div className="my-10 flex flex-col gap-y-10 rounded-md section_bg box-shadow sm:p-4 sm:px-2 p-8  px-12">
+      <div className="my-10 flex flex-col gap-y-10 border border-sky-400 rounded-md section_bg box-shadow sm:p-4 sm:px-2 p-8  px-12">
         <div className="flex w-full items-center justify-between">
           <p className="text-lg font-semibold">About</p>
           <IconBtn
@@ -91,7 +91,7 @@ export default function MyProfile() {
 
       {
         user && user.accountType === ACCOUNT_TYPE.JOBSEEKER &&
-        <div className="my-10 flex flex-col gap-y-10 rounded-md section_bg box-shadow  sm:p-4 sm:px-2 p-8  px-12">
+        <div className="my-10 flex flex-col border border-sky-400 gap-y-10 rounded-md section_bg box-shadow  sm:p-4 sm:px-2 p-8  px-12">
         <div className="flex w-full items-center justify-between">
           <p className="text-lg font-semibold">Interested Role</p>
            <IconBtn
@@ -117,7 +117,7 @@ export default function MyProfile() {
       </div>
       }
 
-      <div className="my-10 flex flex-col gap-y-10 rounded-md section_bg box-shadow sm:p-4 sm:px-2 p-8 px-12">
+      <div className="my-10 flex flex-col gap-y-10 rounded-md  section_bg box-shadow sm:p-4 sm:px-2 p-8 px-12 border border-sky-400">
         <div className="flex w-full items-center justify-between">
           <p className="text-lg font-semibold">
             Personal Details
@@ -183,7 +183,7 @@ export default function MyProfile() {
               <p
                 className={`${
                   user?.additionalDetails?.dateOfBirth
-                  ? "text-black"
+                  ? "text-black dark:text-slate-400"
                   : "text-richblack-400"
                 } text-sm`}
                 >

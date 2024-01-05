@@ -71,7 +71,7 @@ exports.contactUsEmail = (
     
     <body>
         <div class="container">
-            <div class="message">Contact Form Response from HireUp </div>
+            <div class="message">Contact Form Response from HireZ </div>
             <div class="body">
                 <p>Hey ${name} 👋</p>
                 <p>I'm Rahul Thank you for contacting us. we have received your message.

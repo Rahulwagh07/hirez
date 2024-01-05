@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  darkMode: 'class',
   theme: {
     fontFamily: {
       inter: ["Inter", "sans-serif"],
@@ -137,10 +138,20 @@ module.exports = {
         50:"#F7F8FC",
       },
       sky:{
+        400:"#38BDF8",
         500:"#0EA5E9",
       },
       purple:{
         100:"#F1E4FF",
+      },
+      slate: {
+        50:"#f8fafc0f",
+        100:"#64748B",
+        300:"#CBD5E1",
+        400:"#94A3B8",
+        700:"#334155",
+        800:"#1E293B",
+        900:"#0F172A",
       },
     },
     screens: {

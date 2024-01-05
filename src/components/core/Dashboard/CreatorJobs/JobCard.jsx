@@ -60,9 +60,9 @@ const JobCard = ({ job, setJobs, isSearchingJob, onRecommoneded}) => {
 
     return (
         <div>
-            <div className="bg-white p-4 rounded shadow-lg mb-4 text-pure-greys-600">
+            <div className="dark:bg-slate-700 dark:text-slate-400 p-4 rounded shadow-lg mb-4 text-pure-greys-600">
                 <div className="flex items-center gap-2">
-                <h3 className="text-xl font-bold mb-2">{title}</h3>
+                <h3 className="text-xl font-bold mb-2 text-sky-400">{title}</h3>
                 <div>
                 {
                     user?.accountType === ACCOUNT_TYPE.CREATOR && <div>

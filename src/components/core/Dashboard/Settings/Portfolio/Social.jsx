@@ -27,18 +27,18 @@ function Social() {
     fetchSocialMediaProfiles();
   }, [token]);
 
-  const handelOnAddClick = () => {
+  const handleOnAddClick = () => {
     setEditSocialMediaProfile(false);
     setIsOpen(true);
   }
 
-  const handelOnEditClick = (profile) => {
+  const handleOnEditClick = (profile) => {
     setEditSocialMediaProfile(true);
     setSelectedSocialMediaProfile(profile);
     setIsOpen(true);
   }
 
-  const handelOnDelete = async (profileId) => {
+  const handleOnDelete = async (profileId) => {
     try{
       await deleteSocialMediaProfile(profileId, token);
       setSocialMediaProfiles((prevProfiles) => 
@@ -50,25 +50,25 @@ function Social() {
   };
 
   return (
-    <div className="section_bg box-shadow p-6 rounded-md">
+    <div className="section_bg box-shadow p-6 rounded-md border border-sky-400">
       {!isOpen && (
         <div>
           <div className="flex justify-between items-center mb-4">
             <h3 className='font-semibold'>Social Media Profiles</h3>
-            <button onClick={handelOnAddClick} className='text-blue-150 font-semibold'>
+            <button onClick={handleOnAddClick} className='text-blue-150 font-semibold'>
               Add
             </button>
           </div>
           {socialMediaProfiles.length > 0 ? (
             <div>
               {socialMediaProfiles.map((profile) => (
-                <div key={profile._id} className='mb-4 p-4 border-b border-blue-500 text-pure-greys-500'>
+                <div key={profile._id} className='mb-4 p-4 border-b border-slate-50 text-pure-greys-500'>
                   <div className='flex gap-4 items-center font-bold text-black'>
                     <p  >
                       {profile.profileName}
                     </p>
-                    <FiEdit2 onClick={() => handelOnEditClick(profile)} className='cursor-pointer hover:text-blue-500' />
-                    <RiDeleteBin6Line onClick={() => handelOnDelete(profile._id)} className='cursor-pointer hover:text-red-500' />
+                    <FiEdit2 onClick={() => handleOnEditClick(profile)} className='cursor-pointer hover:text-blue-500' />
+                    <RiDeleteBin6Line onClick={() => handleOnDelete(profile._id)} className='cursor-pointer hover:text-red-500' />
                   </div>
                   <a href={profile.url} target="_blank" className="text-blue-150">{profile.url}</a>
                 </div>

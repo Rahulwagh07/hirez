@@ -6,7 +6,7 @@ import { FiPhoneOutgoing } from "react-icons/fi";
 
 const UserProfileCard = ({ user }) => {
   return (
-    <div className=" flex sm:flex-col items-center gap-20 sm:gap-2 bg-white shadow-lg p-8 rounded-md text-center">
+    <div className=" flex sm:flex-col items-center gap-20 sm:gap-2 shadow-lg p-8 border border-sky-400 rounded-md text-center">
        
       <div className='sm:flex  items-center gap-6'> 
       <img src={user.image} loading='lazy' alt="User Profile" className="w-24 h-24 mx-auto mb-4 rounded-full border-4 border-blue-150" />

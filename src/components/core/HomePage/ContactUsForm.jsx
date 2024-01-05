@@ -115,7 +115,7 @@ export function ContactUsForm(){
         type="text"
         name="name"
         id="name"
-        className={`border-b-2 border-sky-500 w-full  focus:outline-none ${isNameFocused ? 'border-sky-500' : ''}`}
+        className={`border-b-2 border-sky-500 w-full  bg-transparent focus:outline-none ${isNameFocused ? 'border-sky-500' : ''}`}
         {...register("name", { required: true })}
         onFocus={handleNameFocus}
         onBlur={handleNameBlur}
@@ -140,14 +140,14 @@ export function ContactUsForm(){
         type="email"
         name="email"
         id="email"
-        className={`border-b-2 border-sky-500 w-full focus:outline-none ${isEmailFocused ? 'border-sky-500' : ''}`}
+        className={`border-b-2 border-sky-500 w-full bg-transparent focus:outline-none ${isEmailFocused ? 'border-sky-500' : ''}`}
         {...register("email", { required: true })}
         onFocus={handleEmailFocus}
         onBlur={handleEmailBlur}
       />
       <label
         htmlFor="email"
-        className={`absolute top-0 left-0 transition-transform duration-300 ${
+        className={`absolute top-0 left-0  transition-transform duration-300 ${
             isEmailFocused ? 'text-sky-500 -translate-y-6' : 'text-pure-greys-300'
         }`}
       >
@@ -165,7 +165,7 @@ export function ContactUsForm(){
         type="text"
         name="phoneNo"
         id="phoneNo"
-        className={`border-b-2 border-sky-500 w-full appearance-none focus:outline-none ${isPhoneNoFocused ? 'border-sky-500' : ''}`}
+        className={`border-b-2 border-sky-500 w-full bg-transparent appearance-none focus:outline-none ${isPhoneNoFocused ? 'border-sky-500' : ''}`}
         {...register("phoneNo", { required: true })}
         onFocus={handlePhoneNoFocus}
         onBlur={handlePhoneNoBlur}
@@ -190,7 +190,7 @@ export function ContactUsForm(){
         type="text"
         name="subject"
         id="subject"
-        className={`border-b-2 border-sky-500 w-full focus:outline-none ${isSubjectFocused ? 'border-sky-500' : ''}`}
+        className={`border-b-2 border-sky-500 w-full bg-transparent focus:outline-none ${isSubjectFocused ? 'border-sky-500' : ''}`}
         {...register("subject", { required: true })}
         onFocus={handleSubjectFocus}
         onBlur={handleSubjectBlur}
@@ -215,7 +215,7 @@ export function ContactUsForm(){
             type="text"
             name="message"
             id="message"
-            className={`border-b-2 border-sky-500 w-full focus:outline-none ${isMessageFocused ? 'border-sky-500' : ''}`}
+            className={`border-b-2 border-sky-500 w-full bg-transparent focus:outline-none ${isMessageFocused ? 'border-sky-500' : ''}`}
             {...register("message", { required: true })}
             onFocus={handleMessageFocus}
             onBlur={handleMessageBlur}

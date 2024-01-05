@@ -10,7 +10,8 @@ import { IoReorderThree } from 'react-icons/io5';
 import { RxCross1 } from "react-icons/rx";
 import { useRef } from 'react';
 import  useOnClickOutside  from "../../hooks/useOnClickOutside"
-
+import Theme from "./Theme"
+import newLogo from "../../assets/newLogo2.png"
 function Navbar() {
 
   const {token} = useSelector((state) => state.auth)
@@ -29,11 +30,11 @@ function Navbar() {
     
   return (
     
-    <div className='flex items-center justify-center transition-all duration-300 section_bg py-4 box-shadow'>
+    <div className='flex items-center justify-center dark:bg-slate-900 transition-all duration-300 section_bg py-4 box-shadow'>
         <nav className='flex justify-between max-w-maxScreen w-10/12 text-lg relative'>
-            <Link to={"/"} className='flex gap-4 '>
-                <img src={logo} className='w-12 h-12'/>
-                <h3 className='mt-3 text-blue-150 font-semibold'>HireUp</h3>
+            <Link to={"/"} className='flex gap-4 items-center justify-center'>
+                <img src={newLogo} className='h-28 w-28 absolute top-[-20px] left-[-30px]'/>
+                <h3 className='text-sky-400 font-semibold ml-16'>HireZ</h3>
             </Link>
 
              {/*Small and Medium screen*/}
@@ -47,7 +48,7 @@ function Navbar() {
 
             {
               showDropdown && (
-                <div  ref={dropdownRef} className='absolute section_bg right-0 top-12 shadow-lg py-6 px-12 '>
+                <div  ref={dropdownRef} className='absolute dark:bg-slate-800 section_bg right-0 top-12 shadow-lg py-6 px-12 '>
                 {
                 isHomeRoute  && 
                 <div className='flex flex-col items-center'>
@@ -87,6 +88,7 @@ function Navbar() {
                   </button>
                 </Link>
               )}
+              <Theme/>
             </div>
 
           </div>
@@ -116,7 +118,6 @@ function Navbar() {
             
             {/* LOGIN AND SIGNUP */}
             <div className="flex items-center gap-8 sm:hidden md:hidden">
-                    
               {token === null && (
                 <Link to="/login">
                   <button className="rounded-md  border-brand items-center px-7 py-2">
@@ -132,6 +133,7 @@ function Navbar() {
                 </Link>
               )}
               {token !== null && <ProfileDropdown />}
+              <Theme/> 
             </div>
 
              

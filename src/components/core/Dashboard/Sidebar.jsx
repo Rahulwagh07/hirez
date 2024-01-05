@@ -43,15 +43,16 @@ export default function Sidebar() {
   }
 
   return (
-    <div className="relative sm:border-b border-sky-500">
+    <div className="relative sm:border-b border-sky-500 dark:border-r dark:border-slate-50">
 
-      <div className="lg:hidden md:hidden cursor-pointer ml-4  mt-4" onClick={toggleDropdown}>
-          {showDropdown ? (<RxCross1 size={24} color="#333"/>) : (<IoReorderThree size={32} color="#333"/>)}
+      {/* Small Screen */}
+      <div className="lg:hidden md:hidden cursor-pointer p-2" onClick={toggleDropdown}>
+          {showDropdown ? (<RxCross1 size={24} color="#333" className="dark:text-sky-500"/>) : (<IoReorderThree size={32} color="#333"/>)}
         </div>
 
         {
           showDropdown && 
-          <div className="flex flex-col lg:hidden md:hidden">
+          <div className="flex flex-col lg:hidden md:hidden dark:bg-slate-800 p-2">
           <div className="flex flex-col">
           {sidebarLinks.map((link) => {
             if (link.type && user?.accountType !== link.type) return null
@@ -94,7 +95,7 @@ export default function Sidebar() {
             )
           })}
         </div>
-        <div className="mx-auto mt-6 mb-6 h-[1px] w-10/12 bg-white-25" />
+        <div className="mx-auto mt-6 mb-6 h-[1px] w-10/12 bg-sky-400" />
         <div className="flex flex-col">
           <SidebarLink
             link={{ name: "Settings", path: "/dashboard/settings" }}
@@ -114,8 +115,8 @@ export default function Sidebar() {
             className="px-8 py-2 text-sm font-medium text-black"
           >
             <div className="flex items-center gap-x-2">
-              <VscSignOut className="text-lg" />
-              <span>Logout</span>
+              <VscSignOut className="text-lg dark:text-sky-400" />
+              <span className="dark:text-slate-400">Logout</span>
             </div>
           </button>
         </div>

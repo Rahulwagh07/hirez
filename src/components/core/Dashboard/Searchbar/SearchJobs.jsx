@@ -127,7 +127,7 @@ function SearchJobs() {
           onChange={handleInputChange}
           onKeyDown={handleEnterPress}
           className="w-full  relative p-4  h-[60px]  rounded-full sm:placeholder:ml-1 placeholder:ml-3 placeholder:absolute
-          placeholder:text-lg sm:placeholder:text-sm focus:outline-none border-2  border-sky-500 text-pure-greys-800 font-semibold"
+          placeholder:text-lg dark:text-slate-400 dark:bg-slate-900 sm:placeholder:text-sm focus:outline-none border-2  border-sky-500 text-pure-greys-800 font-semibold"
         />
         <button
           onClick={() => setSearchButtonClicked(true)}
@@ -138,7 +138,7 @@ function SearchJobs() {
 
         {/* Suggestions dropdown */}
         {searchParams.searchTerm && suggestions.length > 0 && !searchButtonClicked && (
-          <div className="absolute mt-4 z-20 text-pure-greys-800 w-[300px] left-0 border-t border-sky-500  shadow-lg bg-bluegrey-50">
+          <div className="absolute mt-4 z-20 text-pure-greys-800 dark:text-slate-400 dark:bg-slate-700  w-[300px] left-0 border-t border-sky-500  shadow-lg bg-bluegrey-50">
             <ul>
             {suggestions.map((suggest, index) => (
               <li
@@ -173,7 +173,7 @@ function SearchJobs() {
       {/* No job Found */}
       {
         showResult  && 
-        <div className='flex items-center justify-center shadow-lg h-[200px] p-8 border-t border-sky-500 mt-2'>
+        <div className='flex items-center justify-center dark:bg-slate-700 shadow-lg h-[200px] p-8 border-t border-sky-500 mt-2'>
           <p className='text-pure-greys-400'>"No results! 🧐 Adjust search term.. Your dream job might be just around the corner. 🚀"</p>
           </div>
       }

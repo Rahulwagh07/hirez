@@ -34,8 +34,8 @@ function JobDetailsModal({job, setIsModalOpen}) {
   };
   
   return (
-    <div className="fixed inset-0 z-[1000] !mt-0 grid place-items-center overflow-auto bg-opacity-10 backdrop-blur-sm">
-      <div className="relative max-w-[350px] flex flex-col gap-4 text-pure-greys-500 rounded-lg border border-sky-500 section_bg p-8">
+    <div className="custom_container">
+      <div className="relative max-w-[350px] flex flex-col gap-4 text-pure-greys-500 dark:text-slate-400 rounded-lg border border-sky-500 section_bg p-8">
           <RxCross2 size={24} onClick={handleCloseModal} className='absolute top-4 right-4 cursor-pointer'/>
           <p className='font-bold'>{title}</p>
           <div className='grid grid-cols-2 gap-4'>
