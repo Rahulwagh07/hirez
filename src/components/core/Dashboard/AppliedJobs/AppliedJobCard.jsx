@@ -7,9 +7,9 @@ function AppliedJobCard({ job }) {
   
 
   return (
-    <div className="bg-white p-4 rounded-md shadow-md text-pure-greys-800">
-      <h3 className="text-xl font-bold mb-2">{title}</h3>
-      <p className="text-pure-greys-600 mb-2">{description}</p>
+    <div className="bg-white p-4 rounded-md  shadow-lg dark:bg-slate-700 text-pure-greys-800 dark:text-slate-400">
+      <h3 className="text-xl font-bold mb-2 text-sky-400">{title}</h3>
+      <p className="text-pure-greys-600 dark:text-slate-400 mb-2">{description}</p>
 
       <div className="grid lg:grid-cols-2 gap-4 mt-2">
         <p>Application status: <span className="font-semibold">{applicationStatus}</span></p>

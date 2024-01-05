@@ -51,7 +51,7 @@ function Experience() {
   };
 
   return (
-    <div className='section_bg box-shadow p-6 rounded-md'>
+    <div className='section_bg box-shadow p-6 rounded-md border border-sky-400'>
       {!isOpen && (
         <div>
           <div className='flex justify-between items-center mb-4'>
@@ -63,7 +63,7 @@ function Experience() {
           {experiences.length > 0 ? (
             <div>
               {experiences.map((experience) => (
-                <div key={experience._id} className='mb-4 p-4 border-b border-blue-500 text-pure-greys-500'>
+                <div key={experience._id} className='mb-4 p-4 border-b border-slate-50 text-pure-greys-500'>
                   <div className='flex gap-4 items-center font-bold text-black'>
                     <p>{experience.title}</p>
                     <FiEdit2 onClick={() => handleOnEditClick(experience)} className='cursor-pointer hover:text-blue-500' />

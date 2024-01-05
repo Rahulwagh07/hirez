@@ -55,14 +55,14 @@ function Profile() {
                 <UserProfileCard  user={user}/>
 
                 {/* Social Media Profiles */}
-                <div className='bg-white shadow-lg p-8'>
+                <div className='shadow-lg p-8 border border-sky-400'>
                   {portfolio.socialMediaProfiles && (
                     <SocialMediaProfiles profiles={portfolio.socialMediaProfiles} />
                   )}
                 </div>
                 
                 {/* Experiences */}
-                <div className='bg-white shadow-lg p-8 flex flex-col gap-2'>
+                <div className='shadow-lg p-8 flex flex-col gap-2 border border-sky-400'>
                   <h3 className='text_gradient text-lg'>Experience</h3>
                   <div className=''>
                     {portfolio.experiences.map((experience) => (
@@ -72,7 +72,7 @@ function Profile() {
                 </div>
 
                 {/* Projects */}
-                <div className='bg-white shadow-lg p-8 flex flex-col gap-2'>
+                <div className='shadow-lg p-8 flex flex-col gap-2 border border-sky-400'>
                   <h3 className='text_gradient text-lg'>Projects</h3>
                   <div className=''>
                     {portfolio.projects.map((project) => (
@@ -82,7 +82,7 @@ function Profile() {
                 </div>
 
                 {/* Work Samples */}
-                <div className='bg-white shadow-lg p-8 flex flex-col gap-2'>
+                <div className='shadow-lg p-8 flex flex-col gap-2 border border-sky-400'>
                   <h3 className='text_gradient text-lg'>Work Samples</h3>
                   <div className=''>
                   {portfolio.contentSamples.map((workSample) => (
@@ -97,7 +97,7 @@ function Profile() {
                 </div>
 
                 {/* Education */}
-                <div className='bg-white shadow-lg p-8 flex flex-col gap-2'>
+                <div className='shadow-lg p-8 flex flex-col gap-2 border border-sky-400'>
                   <h3 className='text_gradient text-lg'>Education</h3>
                   <div className=''>
                     {portfolio.education.map((education) => (
@@ -116,7 +116,7 @@ function Profile() {
                 </div>
 
                 {/* Certifications */}
-                <div className='bg-white shadow-lg p-8 flex flex-col gap-2'>
+                <div className='shadow-lg p-8 flex flex-col gap-2 border border-sky-400'>
                   <h3 className='text_gradient text-lg'>Certificates</h3>
                   <div className=''>
                     {portfolio.certifications.map((certificate) => (
@@ -132,7 +132,7 @@ function Profile() {
                 </div>
 
               {/* ResumeSection */}
-                <div className='bg-white shadow-lg p-8'>
+                <div className='shadow-lg p-8 border border-sky-400'>
                   {portfolio.resume && (
                     <ResumeCard
                       name={portfolio.resume.name}
@@ -147,7 +147,7 @@ function Profile() {
 
         </div>
         ) : (
-          <div className="shadow-lg p-12">
+          <div className="shadow-lg p-12 dark:bg-slate-700">
             <p className="font-bold">Hey there!</p>
             <span className="">User hasn't  updated their portfolio yet.</span>
           </div>

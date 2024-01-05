@@ -1,17 +1,17 @@
 import React from 'react';
-import logo from "../../assets/logo.png"
+import logo from "../../assets/newLogo2.png"
 import { Link as ScrollLink } from 'react-scroll';
 import { NavbarLinks } from '../../data/navbarLinks';
 
 const Footer = () => {
   return (
-    <footer className="bg-indigo-500 text-white py-20 mt-20 text-white-25 font-semibold">
+    <footer className="bg-indigo-500 dark:bg-slate-800 dark:border-t border-slate-50 text-white py-20 mt-20 text-white-25 dark:text-slate-400 font-semibold">
       <div className="container mx-auto grid sm:grid-cols-1 lg:grid-cols-3 gap-12">
         {/* Column 1 */}
-        <div className='flex flex-col lg:items-start gap-3 items-center'>
-            <img src={logo} loading='lazy' alt='Hireup logo' className='h-16 w-20 rounded-full'/>
-            <h3 className="text-xl font-bold uppercase">HireUp</h3>
-          <p className='text-base max-w-[300px]'>Making Hiring easy for content creators.</p>
+        <div className='flex flex-col lg:items-start gap-2 items-center relative'>
+            <img src={logo} loading='lazy' alt='HireZ logo' className='h-28 w-28'/>
+            <h3 className="text-xl font-bold uppercase absolute top-20 lg:left-6">HireZ</h3>
+          <p className='text-base max-w-[300px]'>Make Hiring easy for content creators.</p>
         </div>
 
           {/* Column 2 */}
@@ -46,13 +46,13 @@ const Footer = () => {
         {/* Column 3 */}
         <div className='flex flex-col gap-2 sm:items-center md:items-center'>
           <h3 className="text-lg font-bold mb-4">Contact Us</h3>
-          <p>Email: support@hireup.com</p>
+          <p>Email: support@HireZ.com</p>
         </div>
       </div>
 
       {/* Copyright Section */}
       <div className="text-center mt-16">
-        <p> Copyright &copy; 2023 HireUp. All Rights Reserved.</p>
+        <p> Copyright &copy; 2023 HireZ. All Rights Reserved.</p>
       </div>
     </footer>
   );

@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom"
 
 import useOnClickOutside from "../../../hooks/useOnClickOutside"
 import { logout } from "../../../services/operations/authAPI"
+import Theme from "../../common/Theme"
 
 export default function ProfileDropdown() {
   const { user } = useSelector((state) => state.profile)
@@ -31,7 +32,7 @@ export default function ProfileDropdown() {
       {open && (
         <div
           onClick={(e) => e.stopPropagation()}
-          className="absolute top-[118%] right-0 z-[1000] overflow-hidden rounded-md shadow-lg text-pure-greys-600"
+          className="absolute top-[118%] right-0 z-[1000] overflow-hidden section_bg rounded-md shadow-lg dark:bg-slate-800 dark:text-slate-400 text-pure-greys-600"
           ref={ref}
         >
           <Link to="/dashboard/my-profile" onClick={() => setOpen(false)}>
@@ -50,6 +51,7 @@ export default function ProfileDropdown() {
             <VscSignOut className="text-lg text-sky-500" />
             Logout
           </div>
+          <div className="lg:hidden"><Theme/></div>
         </div>
       )}
     </button>

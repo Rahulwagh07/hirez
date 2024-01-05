@@ -10,7 +10,7 @@ function Login() {
     const [showLoginTemplate, setShowLoginTemplate] = useState(false);
     const [showGoogleLogin, setShowGoogleLogin] = useState(false)
  
-    const handelOnEmailLogin = () => {
+    const handleOnEmailLogin = () => {
         setShowLoginTemplate(true);
     }
     const handleGoogleLogin = () => {
@@ -25,8 +25,8 @@ function Login() {
                 <>
                 {
         !showLoginTemplate && 
-            <div className=' shadow-lg flex flex-col justify-center items-center p-16'>
-                <h3 className='text-lg font-semibold mb-4 flex flex-start'>Log in to HireUp</h3>
+            <div className=' shadow-lg  dark:bg-slate-800 flex flex-col justify-center items-center p-16'>
+                <h3 className='text-lg font-semibold mb-4 flex flex-start'>Log in to HireZ</h3>
 
                 {/* Google Login */}
                 <button
@@ -39,7 +39,7 @@ function Login() {
                 
 
                 {/* Email Login */}
-                <button onClick={handelOnEmailLogin}  className='bg-blue-150 text-white py-2 px-4 rounded flex items-center justify-center mb-4 sm:w-[260px] w-[325px] h-[50px]'>
+                <button onClick={handleOnEmailLogin}  className='bg-blue-150 text-white-25 py-2 px-4 rounded flex items-center justify-center mb-4 sm:w-[260px] w-[325px] h-[50px]'>
                     <MdOutlineMailOutline className='mr-3' />
                     <p className='font-semibold'>Continue with Email</p>
                 </button>

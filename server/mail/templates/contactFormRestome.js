@@ -71,9 +71,9 @@ exports.contactUsEmailtoMe = (
     
     <body>
         <div class="container">
-            <div class="message">Recieved Message from Hireup</div>
+            <div class="message">Recieved Message from HireZ</div>
             <div class="body">
-                <p>Recieved contact info from ${name} through HireUp website</p>
+                <p>Recieved contact info from ${name} through HireZ website</p>
                 </p>
                 <p>Here are the details of the response</p>
                 <p>Name: ${name} </p>

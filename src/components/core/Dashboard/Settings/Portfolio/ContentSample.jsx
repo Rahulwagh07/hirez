@@ -50,7 +50,7 @@ function ContentSample() {
   };
 
   return (
-    <div className="section_bg box-shadow p-6 rounded-md">
+    <div className="section_bg box-shadow p-6 rounded-md border border-sky-400">
     {
       !isOpen && (
         <div>
@@ -65,7 +65,7 @@ function ContentSample() {
               <div>
               {
             contentSample.map((content) => (
-              <div key={content._id} className='mb-4 p-4 border-b border-blue-500 text-pure-greys-500'>
+              <div key={content._id} className='mb-4 p-4 border-b border-slate-50 text-pure-greys-500'>
                 <div className='flex gap-4 items-center font-bold text-black'>
                   <p >
                     {content.title}

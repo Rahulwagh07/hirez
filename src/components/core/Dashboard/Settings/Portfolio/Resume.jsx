@@ -44,7 +44,7 @@ const Resume = () => {
   
 
   return (
-    <div className='section_bg box-shadow p-8 text-pure-greys-500'>
+    <div className='section_bg box-shadow p-8 text-pure-greys-500 border border-sky-400'>
       {resume ? (
         <div className='flex justify-between'>
             <p className='font-semibold text-black'>{resume?.data?.data?.name}</p>
