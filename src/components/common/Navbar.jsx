@@ -1,6 +1,5 @@
 import React, { useState }  from 'react'
 import { Link} from 'react-router-dom'
-import logo from "../../assets/logo.png"
 import { useSelector } from 'react-redux'
 import ProfileDropdown from '../core/Auth/ProfileDropdown'
 import { Link as ScrollLink } from 'react-scroll';
@@ -33,7 +32,7 @@ function Navbar() {
     <div className='flex items-center justify-center dark:bg-slate-900 transition-all duration-300 section_bg py-4 box-shadow'>
         <nav className='flex justify-between max-w-maxScreen w-10/12 text-lg relative'>
             <Link to={"/"} className='flex gap-4 items-center justify-center'>
-                <img src={newLogo} className='h-28 w-28 absolute top-[-20px] left-[-30px]'/>
+                <img src={newLogo} alt='logo' className={`${token === null ? 'top-[-20px]' : 'top-[-30px]'} h-28 w-28 absolute left-[-30px]`}/>
                 <h3 className='text-sky-400 font-semibold ml-16'>HireZ</h3>
             </Link>
 

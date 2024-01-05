@@ -21,7 +21,6 @@ export default function EditJob() {
           setLoading(true);
           const result = await getFullJobDetails(jobId, token);
           if (result?.jobDetails) {
-            console.log("INSIDE IF");
             dispatch(setEditJob(true));
             dispatch(setJob(result?.jobDetails));
           }
@@ -33,6 +32,7 @@ export default function EditJob() {
       };
     
       fetchData();  
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     
     

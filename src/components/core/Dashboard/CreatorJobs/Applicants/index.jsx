@@ -15,7 +15,6 @@ export default function Applicants() {
     const fetchApplicants = async () => {
       try {
         const data = await getAllApplicantsForJob(jobId, token);
-        console.log('API Response:', data);
         setApplicantions(data.data);
         setTotalApplicants(data.data.length);
       } catch (error) {
@@ -24,6 +23,7 @@ export default function Applicants() {
     };
 
     fetchApplicants();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [jobId]);
 
   return (

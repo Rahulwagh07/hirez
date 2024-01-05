@@ -5,7 +5,6 @@ import ConfirmationModal from "../../../common/ConfirmationModal";
 import { applyForJob, deleteJob, getAllApplicantsForJob } from "../../../../services/operations/jobDetailsAPI";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllJobsByCreator } from "../../../../services/operations/jobDetailsAPI"
 import { useNavigate } from "react-router-dom";
 import { ACCOUNT_TYPE } from "../../../../utils/constants";
 import { removeFromSavedJob } from "../../../../slices/saveJobSlice";

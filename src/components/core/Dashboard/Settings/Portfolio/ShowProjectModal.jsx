@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { addProject, updateProjects } from '../../../../../services/operations/portfolioAPI';
 import { useSelector } from 'react-redux';
@@ -15,12 +15,9 @@ export default function ShowProjectModal({ editProject, setIsOpen, project, proj
   } = useForm();
 
   const { token } = useSelector((state) => state.auth);
-  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    console.log('projectFields:', projectFields);
-  
+  useEffect(() => {  
     if (editProject) {
       projectFields.forEach((field) => {
         if (field.type === 'date') {
@@ -45,9 +42,7 @@ export default function ShowProjectModal({ editProject, setIsOpen, project, proj
 
     if (editProject) {
       formData.append('projectId', project._id);
-    }
-
-    setLoading(true);
+    } 
 
     try {
       const result = editProject
@@ -60,9 +55,7 @@ export default function ShowProjectModal({ editProject, setIsOpen, project, proj
       }
     } catch (error) {
       console.error('Error submitting project:', error);
-    }
-
-    setLoading(false);
+    } 
   };
 
   return (

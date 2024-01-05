@@ -53,7 +53,7 @@ function Login() {
             </div>
         }
         {
-            showLoginTemplate && <LoginTemplate/>
+            showLoginTemplate && <LoginTemplate setShowLoginTemplate={setShowLoginTemplate}/>
         }
                 </>
             ) : <GoogleLogin/>

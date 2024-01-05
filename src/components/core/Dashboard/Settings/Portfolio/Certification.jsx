@@ -28,7 +28,8 @@ function Certification() {
       }
     };
     fetchCertifications();
-  }, [token]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleOnAddClick = () => {
     setEditCertification(false);
@@ -65,7 +66,7 @@ function Certification() {
           {certifications.length > 0 ? (
             <div>
               {certifications.map((certification) => (
-                <div key={certification._id} className='mb-4 p-4 border-b border-slate-50 text-pure-greys-500'>
+                <div key={certification._id} className='mb-4 p-4 border-b border-slate-50 text-pure-greys-500 dark:text-slate-400'>
                   <div className='flex gap-4 items-center font-bold text-black'>
                     <p  >{certification.title}</p>
                     <FiEdit2 onClick={() => handleOnEditClick(certification)} className='cursor-pointer hover:text-blue-500 ' />
@@ -73,7 +74,7 @@ function Certification() {
                   </div>
                   <p>{certification.issuingOrganization}</p>
                   <p>
-                    <a href={certification.url} target='_blank' className='text-blue-200'>link</a>
+                    <a href={certification.url} target='_blank' rel="noreferrer" className='text-blue-200'>link</a>
                      | issueDate: {formatDateString(certification.issueDate)} 
                    
                   </p>

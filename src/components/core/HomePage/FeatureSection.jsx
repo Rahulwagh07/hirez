@@ -6,7 +6,7 @@ import dottedRows from "../../../assets/aboutSection-dottedrows.png"
 function FeatureSection() {
   return (
      <div className='w-full flex flex-col items-center justify-center mt-24 p-16 sm:py-12 sm:px-4 shadow-lg bg-bluegrey-50 dark:bg-slate-900 dark:border-t dark:border-slate-50 relative'>
-     <img src={dottedRows} className='absolute top-4 left-2 sm:hidden md:hidden'/>
+     <img src={dottedRows} alt='' loading='lazy' className='absolute top-4 left-2 sm:hidden md:hidden'/>
       <div className='lg:w-10/12 gap-4 flex flex-col items-center' id='#feature'>
       <h2 className='text-blue-150 font-bold text-2xl'>WHY Hire-Up?</h2>
       <p className='text-5xl sm:text-lg font-bold'>

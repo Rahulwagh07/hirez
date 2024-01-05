@@ -9,7 +9,7 @@ function JobDetailsModal({job, setIsModalOpen}) {
 
   const dispatch = useDispatch()
   const { token } = useSelector((state) => state.auth)
-  const { title, description, skillRequired, category, salary, status, location} = job;
+  const { title, skillRequired, category, salary, location} = job;
   const navigate = useNavigate()
 
   const handleOnClickSave = () => {

@@ -25,7 +25,8 @@ function Social() {
       }
     };
     fetchSocialMediaProfiles();
-  }, [token]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleOnAddClick = () => {
     setEditSocialMediaProfile(false);
@@ -62,7 +63,7 @@ function Social() {
           {socialMediaProfiles.length > 0 ? (
             <div>
               {socialMediaProfiles.map((profile) => (
-                <div key={profile._id} className='mb-4 p-4 border-b border-slate-50 text-pure-greys-500'>
+                <div key={profile._id} className='mb-4 p-4 border-b border-slate-50 text-pure-greys-500 dark:text-slate-400'>
                   <div className='flex gap-4 items-center font-bold text-black'>
                     <p  >
                       {profile.profileName}
@@ -70,7 +71,7 @@ function Social() {
                     <FiEdit2 onClick={() => handleOnEditClick(profile)} className='cursor-pointer hover:text-blue-500' />
                     <RiDeleteBin6Line onClick={() => handleOnDelete(profile._id)} className='cursor-pointer hover:text-red-500' />
                   </div>
-                  <a href={profile.url} target="_blank" className="text-blue-150">{profile.url}</a>
+                  <a href={profile.url} target="_blank" rel="noreferrer" className="text-sky-400">{profile.url}</a>
                 </div>
               ))}
             </div>

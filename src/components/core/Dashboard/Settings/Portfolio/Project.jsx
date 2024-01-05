@@ -26,7 +26,8 @@ function Project() {
       }
     };
     fetchProjects();
-  }, [token]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleOnAddClick = () => {
     setEditProject(false);
@@ -63,7 +64,7 @@ function Project() {
           {projects.length > 0 ? (
             <div>
               {projects.map((project) => (
-                <div key={project._id} className='mb-4 p-4 border-b border-slate-50 text-pure-greys-500'>
+                <div key={project._id} className='mb-4 p-4 border-b border-slate-50 text-pure-greys-500 dark:text-slate-400'>
                   <div className='flex gap-4 items-center font-bold text-black'>
                     <p >
                       {project.title}
@@ -72,7 +73,7 @@ function Project() {
                     <RiDeleteBin6Line onClick={() => handleOnDelete(project._id)} className='cursor-pointer hover:text-red-500' />
                   </div>
                   <p>{project.description}</p>
-                  <a href={project.link} target='_blank' className='text-blue-200'>link</a> | {" "} 
+                  <a href={project.link} target='_blank' rel="noreferrer" className='text-sky-400'>link</a> | {" "} 
                   { formatDateString(project.startDate)} to {formatDateString(project.endDate)}
               
                 </div>

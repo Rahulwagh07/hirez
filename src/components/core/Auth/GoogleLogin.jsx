@@ -34,6 +34,7 @@ function GoogleLogin() {
 
   useEffect(() => {
     handleGoogleLogin();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleLogin = () => {
@@ -53,6 +54,7 @@ function GoogleLogin() {
     if (userInfo.email_verified) {
       handleLogin();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userInfo]);
 
   return (

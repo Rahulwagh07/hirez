@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { addSocialMediaProfile, updateSocialMediaProfile } from "../../../../../services/operations/portfolioAPI";
 import CustomInput from "./CustomInput";
 import { useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 
 export default function ShowSocialModal({ editSocialMediaProfile, setIsOpen, profile, socialMediaProfilesFields }) {
   const {
@@ -13,7 +13,6 @@ export default function ShowSocialModal({ editSocialMediaProfile, setIsOpen, pro
     formState: { errors },
   } = useForm();
   const { token } = useSelector((state) => state.auth);
-  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -37,9 +36,6 @@ export default function ShowSocialModal({ editSocialMediaProfile, setIsOpen, pro
     if(editSocialMediaProfile) {
       formData.append('profileId', profile._id);
     }
-
-    setLoading(true);
-
     try {
       const result = editSocialMediaProfile
         ? await updateSocialMediaProfile(formData, token)
@@ -52,8 +48,7 @@ export default function ShowSocialModal({ editSocialMediaProfile, setIsOpen, pro
     } catch (error) {
       console.error('Error in submitting Social Media Profile', error);
     }
-
-    setLoading(false);
+ 
   };
 
   return (

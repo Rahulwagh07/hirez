@@ -1,5 +1,5 @@
 // ShowEducationModal.js
-import React, { useState, useEffect } from 'react';
+import React, {useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { addEducation, updateEducation } from '../../../../../services/operations/portfolioAPI';
 import { useSelector } from 'react-redux';
@@ -16,7 +16,6 @@ export default function ShowEducationModal({ editEducation, setIsOpen, education
   } = useForm();
 
   const { token } = useSelector((state) => state.auth);
-  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
  
 
@@ -45,9 +44,7 @@ export default function ShowEducationModal({ editEducation, setIsOpen, education
 
     if (editEducation) {
       formData.append('educationId', education._id);
-    }
-
-    setLoading(true);
+    } 
 
     try {
       const result = editEducation
@@ -60,9 +57,7 @@ export default function ShowEducationModal({ editEducation, setIsOpen, education
       }
     } catch (error) {
       console.error('Error submitting education:', error);
-    }
-
-    setLoading(false);
+    } 
   };
 
   return (

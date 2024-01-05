@@ -6,7 +6,6 @@ import { HiOutlineCurrencyRupee, HiOutlineLocationMarker } from "react-icons/hi"
 import { addJobDetails, editJobDetails } from "../../../../services/operations/jobDetailsAPI"
 import IconBtn from "../../../common/IconBtn"
 import { MdNavigateNext } from "react-icons/md"
-import { JOB_STATUS } from "../../../../utils/constants"
 import { useForm } from "react-hook-form"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
@@ -38,6 +37,7 @@ export default function JobInfo() {
             setValue("jobSalary", job.salary)
             setValue("jobStatus", job.status)
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
      }, [])
 
     const isFormUpdated = () => {
@@ -61,7 +61,6 @@ export default function JobInfo() {
             if(isFormUpdated()){
                 const currentValues = getValues()
                 const formData = new FormData()
-                console.log("Data", data)
                 formData.append("jobId", job._id)
                 if(currentValues.jobTitle !== job.jobTitle){
                     formData.append("title", data.jobTitle)

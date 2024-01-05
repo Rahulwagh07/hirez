@@ -30,7 +30,7 @@ function HeroSection() {
                 src={img} 
                 loading='lazy'
                 alt='hero section'
-                className=''
+                className='object-cover'
                 />
           </div>
         </div>

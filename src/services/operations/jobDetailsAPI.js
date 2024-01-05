@@ -155,7 +155,7 @@ export const getAllJobs = async (searchParams, token) => {
 
 
 export const applyForJob = async (jobId, token) => {
-    let result = null;
+    
     try {
       const response = await apiConnector(
         'POST',
@@ -169,8 +169,7 @@ export const applyForJob = async (jobId, token) => {
       if (!response?.data?.success) {
         throw new Error("Could Not Apply the Job successfully");
       }
-  
-      result = response?.data?.data;
+
       toast.success('Applied for Job successfully');
     } catch (error) {
         if (error.response.data.isApplied) {
@@ -220,7 +219,7 @@ export const applyForJob = async (jobId, token) => {
 
   export const changeApplicationStatus = async (applicationId, token) => {
     try {
-        const response = await apiConnector(
+        await apiConnector(
             'PUT',
             CHANGE_APPLICATION_STATUS_API,
             { applicationId },

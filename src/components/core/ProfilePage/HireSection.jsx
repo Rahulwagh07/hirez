@@ -36,6 +36,7 @@ function HireSection() {
     
       useEffect(() => {
         fetchApplicationStatus();  
+        // eslint-disable-next-line react-hooks/exhaustive-deps
       }, []);  
     
      

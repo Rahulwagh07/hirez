@@ -10,12 +10,12 @@ const Resume = () => {
 
   useEffect(() => {
     fetchResume();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchResume = async () => {
     try {
       const response = await getResume(token);
-      console.log("resume response", response)
       setResume(response);  
     } catch (error) {
       console.error('Error fetching resume:', error);
@@ -44,9 +44,9 @@ const Resume = () => {
   
 
   return (
-    <div className='section_bg box-shadow p-8 text-pure-greys-500 border border-sky-400'>
+    <div className='section_bg box-shadow p-8 rounded-md text-pure-greys-500 border border-sky-400 dark:text-slate-400'>
       {resume ? (
-        <div className='flex justify-between'>
+        <div className='flex justify-between '>
             <p className='font-semibold text-black'>{resume?.data?.data?.name}</p>
             <div className='flex gap-8'>
             <a
@@ -64,9 +64,19 @@ const Resume = () => {
         </div>
 
       ) : (
-        <div className='flex flex-col gap-4'>
+        <div className='flex flex-col gap-4 items-center justify-center  '>
           <p className=''>No resume uploaded. Upload your resume:</p>
-          <input type="file" accept=".pdf, .doc, .docx" onChange={handleFileChange} />
+          <label for="fileInput" class="rounded-md py-2 px-6 bg-blue-150 text-white-25 cursor-pointer">
+            Upload
+            <input
+              type="file"
+              id="fileInput"
+              accept=".pdf, .doc, .docx"
+              onChange={handleFileChange}
+              className="hidden"
+            />
+          </label>
+          <p>Supported formats: pdf, doc, docx</p>
         </div>
       )}
     </div>

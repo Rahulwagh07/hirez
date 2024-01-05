@@ -8,7 +8,7 @@ const {
 
 export const submitContactResponse = async(data) => {
     try {
-        const res = await apiConnector(
+      await apiConnector(
           "POST",
           CONTACT_US_API,
           data

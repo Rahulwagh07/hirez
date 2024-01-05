@@ -4,7 +4,7 @@ import { addContentSample, updateContentSample } from "../../../../../services/o
  
 import CustomInput from "./CustomInput";
 import { useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 
 export default function ShowContentSampleModal({editContentSample, setIsOpen, content, contentSampleFields}) {
@@ -15,7 +15,6 @@ export default function ShowContentSampleModal({editContentSample, setIsOpen, co
     formState: { errors },
   } = useForm();
   const { token } = useSelector((state) => state.auth);
-  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -41,8 +40,6 @@ export default function ShowContentSampleModal({editContentSample, setIsOpen, co
       formData.append('contentSampleId', content._id);
     }
 
-    setLoading(true);
-
     try{
       const result = editContentSample 
         ? await updateContentSample(formData, token) 
@@ -55,8 +52,7 @@ export default function ShowContentSampleModal({editContentSample, setIsOpen, co
     } catch(error) {
       console.error('Error in submitting ContentSample', error);
     }
-
-    setLoading(false);
+ 
   };
 
   return (
