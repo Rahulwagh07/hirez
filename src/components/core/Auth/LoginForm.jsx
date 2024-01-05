@@ -79,7 +79,7 @@ function LoginForm() {
 
             <button
                 type="submit"
-                className="mt-6 bg-blue-150 rounded-[8px] py-[8px] px-[12px] font-medium text-white w-full"
+                className="mt-6 bg-blue-150 rounded-[8px] py-[8px] px-[12px] font-medium text-white-25 w-full"
             >
                 Next
             </button>

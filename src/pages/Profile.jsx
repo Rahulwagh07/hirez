@@ -13,7 +13,7 @@ import { ACCOUNT_TYPE } from '../utils/constants';
 import Spinner from '../components/common/Spinner';
 
 function Profile() {
-  const { applicantId, jobId } = useParams();
+  const { applicantId} = useParams();
   const { token } = useSelector((state) => state.auth);
   const [user, setuser] = useState(null);
   const [portfolio, setPortfolio] = useState(null);
@@ -21,9 +21,10 @@ function Profile() {
   const { user: reduxUser } = useSelector((state) => state.profile);
   const [isResponse, setIsResponse] = useState(true);
 
-  useEffect(() => {
+   useEffect(() => {
     fetchApplicantDetail();
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); 
 
   const fetchApplicantDetail = async () => {
      

@@ -21,7 +21,8 @@ export default function MyJobs() {
                 setJobs(result)
             }
         }
-        fetchJobs()
+        fetchJobs();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (

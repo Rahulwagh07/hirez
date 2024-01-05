@@ -91,7 +91,6 @@ export function sendOtp(email, navigate) {
         });
   
         if (!response.data.success) {
-          console.log("Response", response)
           throw new Error(response.data.message);
         }
   
@@ -132,7 +131,6 @@ export function sendOtp(email, navigate) {
         localStorage.setItem("token", JSON.stringify(response.data.token))
         navigate("/dashboard/my-profile")
       } catch (error) {
-        console.log("LOGIN API ERROR............", error)
         toast.error("Login Failed")
       }
       dispatch(setLoading(false))
@@ -162,7 +160,6 @@ export function sendOtp(email, navigate) {
         localStorage.setItem("token", JSON.stringify(response.data.token))
         navigate("/dashboard/my-profile")
       } catch (error) {
-        console.log("LOGIN API ERROR............", error)
         toast.error("Login Failed")
       }
       dispatch(setLoading(false))
@@ -187,7 +184,6 @@ export function getPasswordResetToken(email, setEmailSent) {
         toast.success("Reset Email Sent")
         setEmailSent(true)
       } catch (error) {
-        console.log("RESETPASSTOKEN ERROR............", error)
         toast.error("Failed To Send Reset Email")
       }
       toast.dismiss(toastId)
@@ -213,7 +209,6 @@ export function getPasswordResetToken(email, setEmailSent) {
         toast.success("Password Reset Successfully")
         navigate("/login")
       } catch (error) {
-        console.log("RESETPASSWORD ERROR............", error)
         toast.error("Failed To Reset Password")
       }
       toast.dismiss(toastId)

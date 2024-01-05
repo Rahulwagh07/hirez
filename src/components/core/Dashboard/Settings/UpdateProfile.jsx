@@ -22,7 +22,6 @@ export default function UpdateProfile() {
   } = useForm()
 
   const submitProfileForm = async (data) => {
-    console.log("Form Data - ", data)
     try {
       dispatch(updateProfile(token, data))
     } catch (error) {
@@ -124,7 +123,7 @@ export default function UpdateProfile() {
               >
                 {genders.map((ele, i) => {
                   return (
-                    <option key={i} value={ele}>
+                    <option key={i} value={ele} className="dark:bg-slate-800">
                       {ele}
                     </option>
                   )
@@ -194,18 +193,18 @@ export default function UpdateProfile() {
               <select
                 name="role"
                 id="role"
-                className="form-style border border-blue-150"
+                className="form-style border border-blue-150 lg:w-[340px]"
                 {...register("role", { required: true })}
                 defaultValue={user?.additionalDetails?.role}
               >
-                <option value="">Select Interested Role</option>
-                <option value="Video Editing">Video Editing</option>
-                <option value="Content Creation and Writing">Content Creation and Writing</option>
-                <option value="Script Writing">Script Writing</option>  
-                <option value="Management and Administation">Management and Administration</option>
-                <option value="SEO and Analytics">SEO and Analytics</option>  
-                <option value="Thumbnail Design">Thumbnail Design</option>
-                <option value="Public Relations(PR)">Public Relations</option>
+                <option value="" className="dark:bg-slate-800">Select Interested Role</option>
+                <option value="Video Editing" className="dark:bg-slate-800">Video Editing</option>
+                <option value="Content Creation and Writing" className="dark:bg-slate-800">Content Creation and Writing</option>
+                <option value="Script Writing" className="dark:bg-slate-800">Script Writing</option>  
+                <option value="Management and Administation" className="dark:bg-slate-800">Management and Administration</option>
+                <option value="SEO and Analytics" className="dark:bg-slate-800">SEO and Analytics</option>  
+                <option value="Thumbnail Design" className="dark:bg-slate-800">Thumbnail Design</option>
+                <option value="Public Relations(PR)" className="dark:bg-slate-800">Public Relations</option>
               </select>
               {errors.role && (
                 <span className="-mt-1 text-[12px] text-yellow-100">

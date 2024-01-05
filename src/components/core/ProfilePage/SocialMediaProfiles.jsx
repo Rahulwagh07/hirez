@@ -26,6 +26,7 @@ const SocialMediaProfiles = ({ profiles }) => {
           key={profile._id}
           href={profile.url}
           target="_blank"
+          rel="noreferrer"
           className="flex items-center"
         >
           {getIcon(profile.profileName)}

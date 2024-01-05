@@ -1,5 +1,5 @@
 // ShowCertificationModal.js
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { addCertification, updateCertification } from '../../../../../services/operations/portfolioAPI'; // Update API calls
 import { useSelector } from 'react-redux';
@@ -17,7 +17,6 @@ export default function ShowCertificationModal({ editCertification, setIsOpen, c
   } = useForm();
 
   const { token } = useSelector((state) => state.auth);
-  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -46,8 +45,6 @@ export default function ShowCertificationModal({ editCertification, setIsOpen, c
       formData.append('certificationId', certification._id);
     }
 
-    setLoading(true);
-
     try {
       const result = editCertification
         ? await updateCertification(formData, token)
@@ -60,8 +57,7 @@ export default function ShowCertificationModal({ editCertification, setIsOpen, c
     } catch (error) {
       console.error('Error submitting certification:', error);
     }
-
-    setLoading(false);
+ 
   };
 
   return (

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {  useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { addExperience, updateExperience } from '../../../../../services/operations/portfolioAPI';
 import { useSelector } from 'react-redux';
@@ -15,7 +15,6 @@ export default function ShowExperienceModal({ editExperience, setIsOpen, experie
   } = useForm();
 
   const { token } = useSelector((state) => state.auth);
-  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -43,8 +42,7 @@ export default function ShowExperienceModal({ editExperience, setIsOpen, experie
     if (editExperience) {
       formData.append('experienceId', experience._id);
     }
-
-    setLoading(true);
+ 
 
     try {
       const result = editExperience
@@ -57,9 +55,7 @@ export default function ShowExperienceModal({ editExperience, setIsOpen, experie
       }
     } catch (error) {
       console.error('Error submitting experience:', error);
-    }
-
-    setLoading(false);
+    } 
   };
 
   return (

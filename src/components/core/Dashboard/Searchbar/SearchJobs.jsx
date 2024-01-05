@@ -110,10 +110,12 @@ function SearchJobs() {
     if (searchButtonClicked) {
       fetchData(searchParams);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams, searchButtonClicked]);
 
   useEffect(() => {
     fetchSuggestions(searchParams);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams.searchTerm, searchParams]);
 
   return (

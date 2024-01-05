@@ -26,7 +26,8 @@ function Experience() {
       }
     };
     fetchExperience();
-  }, [token]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleOnAddClick = () => {
     setEditExperience(false);
@@ -63,7 +64,7 @@ function Experience() {
           {experiences.length > 0 ? (
             <div>
               {experiences.map((experience) => (
-                <div key={experience._id} className='mb-4 p-4 border-b border-slate-50 text-pure-greys-500'>
+                <div key={experience._id} className='mb-4 p-4 border-b border-slate-50 text-pure-greys-500 dark:text-slate-400'>
                   <div className='flex gap-4 items-center font-bold text-black'>
                     <p>{experience.title}</p>
                     <FiEdit2 onClick={() => handleOnEditClick(experience)} className='cursor-pointer hover:text-blue-500' />

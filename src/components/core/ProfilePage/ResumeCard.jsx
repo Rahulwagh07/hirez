@@ -9,7 +9,8 @@ const ResumeCard = ({ name, url }) => {
         className="flex gap-2 items-center"
         href={url}  
         download
-        target='_blank'  
+        target='_blank' 
+        rel="noreferrer" 
       >
         <p>Download Resume</p>
         <GoDownload className="text-blue-150 text-lg" />

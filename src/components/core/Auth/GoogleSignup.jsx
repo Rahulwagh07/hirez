@@ -49,12 +49,14 @@ function GoogleSignup() {
 
   useEffect(() => {
     handleGoogleSignIn();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     if (userInfo.email_verified) {
       handleSignUp();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userInfo]);
 
   const handleSignUp = () => {

@@ -126,7 +126,7 @@ function SignupForm() {
             value={email}
             onChange={handleOnChange}
             placeholder="Enter email address"
-            className="w-full sm:h-[42px] sm:items-center sm:w-[260px] h-[50px] rounded-md  border border-sky-500 focus:outline-none dark:bg-slate-700 pl-2"
+            className="lg:w-[400px] md:w-full  sm:h-[42px] sm:items-center lg:ml-[-10px]  sm:w-[260px] h-[50px] rounded-md  border border-sky-500 focus:outline-none dark:bg-slate-700 pl-2"
           />
         </label>
         <div className="flex gap-x-4 sm:flex-col sm:gap-2">
@@ -181,7 +181,7 @@ function SignupForm() {
         </div>
         <button
           type="submit"
-          className="bg-blue-150 sm:w-[260px] py-2 px-4 rounded flex items-center justify-center mb-4 w-full h-[50px]"
+          className="bg-blue-150 sm:w-[260px] py-2 px-4 text-white-25 rounded flex items-center justify-center mb-4 w-full h-[50px]"
         >
           Next  
         </button>

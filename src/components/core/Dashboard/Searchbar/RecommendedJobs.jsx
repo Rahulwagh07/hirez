@@ -25,6 +25,7 @@ function RecommendedJobs() {
   
   useEffect(() => {
     fetchRecommendedJobs();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
 

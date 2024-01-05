@@ -142,22 +142,13 @@ exports.deleteAccount = async (req, res) => {
     await Profile.findByIdAndDelete({
       _id: new mongoose.Types.ObjectId(user.additionalDetails),
     })
-    for (const courseId of user.courses) {
-      await Course.findByIdAndUpdate(
-        courseId,
-        { $pull: { studentsEnroled: id } },
-        { new: true }
-      )
-    }
     // Now Delete User
     await User.findByIdAndDelete({ _id: id })
     res.status(200).json({
       success: true,
       message: "User deleted successfully",
     })
-    await CourseProgress.deleteMany({ userId: id })
   } catch (error) {
-    console.log(error)
     res
       .status(500)
       .json({ success: false, message: "User Cannot be deleted successfully" })
@@ -171,7 +162,6 @@ exports.getApplicantProfile = async (req, res) => {
     const portfolio = await Portfolio.findOne({ user: applicantId });
 
     if (!portfolio) {
-      console.log('Portfolio not found for applicantId:', applicantId);
       return res.status(404).json({ error: 'Portfolio not found' });
     }
 
