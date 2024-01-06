@@ -1,0 +1,55 @@
+
+body {
+    overflow: hidden;     /*TO hide the scroll during animation*/
+  }
+  
+  .preloader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+  }
+  .light_gradient{
+    background: radial-gradient(
+      circle,
+      #7877E6 50px,
+      #BCCCDC 60%,
+      #F7F8FC 100%
+    );
+  }
+  
+  .dark_gradient{
+    background: radial-gradient(
+      circle,
+      #1E293B 50px,
+      #0F172A 60%,
+      #0F172A 100%
+    );
+  }
+  
+  #logo {
+    width: 100px;  
+    height: auto;
+    opacity: 0; 
+    animation: logoAnimation 1s ease-out forwards;  
+  }
+  
+  
+  @keyframes logoAnimation {
+    0% {
+      transform: scale(2);
+      opacity: 0.2;
+      
+    }
+    50% {
+      transform: scale(4);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(8);
+      opacity: 1;
+    }
+  }
+  
+ 

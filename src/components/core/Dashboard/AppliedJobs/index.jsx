@@ -51,7 +51,7 @@ export default function AppliedJobs() {
                 }}
                 className="rounded-md border-brand bg-blue-150 items-center text-white-25 px-7 py-2 flex"
               >
-                Select <FaArrowRight className="ml-2"/>
+                Explore <FaArrowRight className="ml-2"/>
               </button>
                </div>
             )

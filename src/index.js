@@ -20,7 +20,11 @@ root.render(
     <Provider store = {store}>
     <BrowserRouter>
         <App />
-        <Toaster/>
+        <Toaster 
+          toastOptions={{
+            className: 'dark:bg-slate-900 dark:text-slate-400 dark:font-semibold dark:border border-sky-500',
+          }}
+        />
       </BrowserRouter>
   </Provider>
 

@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import "./App.css"
 import { useDispatch, useSelector } from "react-redux"
 import { Route, Routes, useNavigate } from "react-router-dom"
@@ -37,6 +37,7 @@ import UpdateProfile from "./components/core/Dashboard/Settings/UpdateProfile"
 import Portfolio from "./components/core/Dashboard/Settings/Portfolio"
 import DeleteAccount from "./components/core/Dashboard/Settings/DeleteAccount"
 import ChangePassword from "./components/core/Dashboard/Settings/ChangePassword"
+import Preloader from "./components/common/Preloader"
 
 function App() {
   const dispatch = useDispatch()
@@ -51,9 +52,22 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
-    <div className="flex min-h-screen w-screen flex-col dark:bg-slate-900 dark:text-slate-400">
+     <>
+      {
+        loading ? <Preloader/> : (
+          <div className="flex min-h-screen w-screen flex-col dark:bg-slate-900 dark:text-slate-400">
+    
     <Navbar/>
     <Routes>
       <Route path="/" element={<Home/>}/>
@@ -161,6 +175,9 @@ function App() {
         <Route path="*" element={<NotFoundPage/>} />
     </Routes>
 </div>
+        )
+      }
+     </>
   );
 }
 

@@ -13,7 +13,6 @@ const {
 
 export function getUserDetails(token, navigate) {
     return async (dispatch) => {
-      const toastId = toast.loading("Loading...")
       dispatch(setLoading(true))
       try {
         const response = await apiConnector("GET", GET_USER_DETAILS_API, null, {
@@ -28,9 +27,7 @@ export function getUserDetails(token, navigate) {
         dispatch(setUser({ ...response.data.data, image: userImage }))
       } catch (error) {
         dispatch(logout(navigate))
-        toast.error("Could Not Get User Details")
       }
-      toast.dismiss(toastId)
       dispatch(setLoading(false))
     }
   }
@@ -50,7 +47,6 @@ export function getUserDetails(token, navigate) {
       return response.data.data;
     } catch (error) {
       console.error("get Applicant details error:", error.message);
-      toast.error("Failed to get Applicant details");
       throw error;
     } finally {
       toast.dismiss(toastId);

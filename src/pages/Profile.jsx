@@ -10,8 +10,7 @@ import ResumeCard from '../components/core/ProfilePage/ResumeCard';
 import SocialMediaProfiles from '../components/core/ProfilePage/SocialMediaProfiles';
 import HireSection from '../components/core/ProfilePage/HireSection';
 import { ACCOUNT_TYPE } from '../utils/constants';
-import Spinner from '../components/common/Spinner';
-
+ 
 function Profile() {
   const { applicantId} = useParams();
   const { token } = useSelector((state) => state.auth);
@@ -46,7 +45,7 @@ function Profile() {
           <div>
           {
             user === null || portfolio === null ? (
-                <Spinner/> 
+                 <div></div>
             ) : (
               <div className='flex flex-col gap-6'>
                 {

@@ -7,10 +7,10 @@ import { sidebarLinks } from "../../../data/dashboard-links"
 import { logout } from "../../../services/operations/authAPI"
 import ConfirmationModal from "../../common/ConfirmationModal"
 import SidebarLink from "./SidebarLink"
-import { IoReorderThree } from 'react-icons/io5'
 import { RxCross1 } from "react-icons/rx"
 import { useRef } from 'react';
 import  useOnClickOutside  from "../../../hooks/useOnClickOutside"
+import { MdOutlineLegendToggle } from "react-icons/md";
 
 export default function Sidebar() {
   const { user, loading: profileLoading } = useSelector(
@@ -47,7 +47,7 @@ export default function Sidebar() {
 
       {/* Small Screen */}
       <div className="lg:hidden md:hidden cursor-pointer p-2" onClick={toggleDropdown}>
-          {showDropdown ? (<RxCross1 size={24} color="#333" className="dark:text-sky-500"/>) : (<IoReorderThree size={32} color="#333"/>)}
+          {showDropdown ? (<RxCross1 size={24}  className="text-sky-500"/>) : (<MdOutlineLegendToggle size={32} className="text-sky-500"/>)}
         </div>
 
         {
