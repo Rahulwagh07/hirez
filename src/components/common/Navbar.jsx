@@ -30,26 +30,31 @@ function Navbar() {
   return (
     
     <div className='flex items-center justify-center dark:bg-slate-900 transition-all duration-300 section_bg py-4 box-shadow'>
-        <nav className='flex justify-between max-w-maxScreen w-10/12 text-lg relative'>
+        <nav className='flex justify-between max-w-maxScreen w-10/12 text-lg relative h-[50px] sm:h-[40px]'>
             <Link to={"/"} className='flex gap-4 items-center justify-center'>
-                <img src={newLogo} alt='logo' className={`${token === null ? 'top-[-20px]' : 'top-[-30px]'} h-28 w-28 absolute left-[-30px]`}/>
+                <img src={newLogo} alt='logo' className="h-28 w-28 absolute left-[-30px] sm:top-[-25px] top-[-20px]"/>
                 <h3 className='text-sky-400 font-semibold ml-16'>HireZ</h3>
             </Link>
 
              {/*Small and Medium screen*/}
-              {
-                token === null ? (
-                  <div className="lg:hidden cursor-pointer mr-4 mt-2 text-blue-150" onClick={toggleDropdown}>
-                    {showDropdown ? (<RxCross1 size={24} color='#333'/>) : (<IoReorderThree size={32}/>)}
-                  </div>
-                ): (<div className='lg:hidden'><ProfileDropdown/></div>)
-              }
-
+            
+                <div className='flex lg:hidden gap-4 items-center justify-center mt-2'>
+                  {
+                    token === null ? (
+                    <div className="cursor-pointer  text-blue-150" onClick={toggleDropdown}>
+                      {showDropdown ? (<RxCross1 size={24} color='#333'/>) : (<IoReorderThree size={32}/>)}
+                    </div>
+                    ): (<ProfileDropdown/>) 
+                  }
+                    <Theme/>
+                </div>
+        
+               
             {
               showDropdown && (
-                <div  ref={dropdownRef} className='absolute dark:bg-slate-800 section_bg right-0 top-12 shadow-lg py-6 px-12 '>
+                <div  ref={dropdownRef} className='absolute rounded-lg dark:bg-slate-800 section_bg right-0 top-12 shadow-lg py-6 px-12 '>
                 {
-                isHomeRoute  && 
+                (isHomeRoute || token === null) && 
                 <div className='flex flex-col items-center'>
                   {NavbarLinks.map((link, index) => (
                       <li key={index} className='py-2 leading-5 flex items-center hover:text-[#6674CC] transition-all duration-150 cursor-pointer'>
@@ -87,7 +92,6 @@ function Navbar() {
                   </button>
                 </Link>
               )}
-              <Theme/>
             </div>
 
           </div>
@@ -96,7 +100,7 @@ function Navbar() {
                  {/* Large Screen */}
               {
                 isHomeRoute  && 
-                <div className='flex items-center gap-x-12 md:gap-x-6 sm:hidden md:hidden'>
+                <div className='flex items-center   gap-12 sm:hidden md:hidden'>
                   {NavbarLinks.map((link, index) => (
                       <li key={index} className='py-5 leading-5 flex gap-1 items-center hover:text-[#6674CC] transition-all duration-150 cursor-pointer'>
                         <ScrollLink

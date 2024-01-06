@@ -6,7 +6,6 @@ import { Link, useNavigate } from "react-router-dom"
 
 import useOnClickOutside from "../../../hooks/useOnClickOutside"
 import { logout } from "../../../services/operations/authAPI"
-import Theme from "../../common/Theme"
 
 export default function ProfileDropdown() {
   const { user } = useSelector((state) => state.profile)
@@ -51,7 +50,6 @@ export default function ProfileDropdown() {
             <VscSignOut className="text-lg text-sky-500" />
             Logout
           </div>
-          <div className="lg:hidden"><Theme/></div>
         </div>
       )}
     </button>
