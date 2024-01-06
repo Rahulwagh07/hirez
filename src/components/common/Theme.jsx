@@ -5,11 +5,6 @@ import { useSelector } from 'react-redux';
 import { setTheme } from '../../slices/themeSlice';
 
 function Theme() {
-  // const initialTheme = localStorage.getItem('theme') || 'light';
-  // const [theme, setThemes] = useState(initialTheme);
-  
-  // const { theme: reduxTheme} = useSelector((state) => state.theme)
-  // Function to toggle the theme
   const {theme} = useSelector((state) => state.theme)
   const [currentTheme, setCurrentTheme] = useState(theme)
 

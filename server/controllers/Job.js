@@ -198,12 +198,6 @@ exports.hireJobSeeker = async (req, res) => {
             return res.status(404).json({ success: false, error: 'Application not found' });
         }
 
-        // Notify the job seeker about the hire  
-        // const jobSeeker = await User.findById(applicantId);
-        // if (jobSeeker) {
-        //      //to do -> send mail
-        // }
-
         res.status(200).json({ success: true, data: updatedApplication });
     } catch (error) {
         console.error(error);

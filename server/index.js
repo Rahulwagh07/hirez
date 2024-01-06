@@ -34,7 +34,7 @@ app.use(
 app.use(
   fileUpload({
     useTempFiles: true,
-    tempFileDir:__dirname + "/tmp/", 
+    tempFileDir:"/tmp",
   })
 );
 

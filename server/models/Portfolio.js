@@ -31,7 +31,6 @@ const portfolioSchema = new mongoose.Schema({
       endDate: Date,
     },
   ],
-  skills: [String],
   projects: [
     {
       title: {
@@ -90,7 +89,6 @@ const portfolioSchema = new mongoose.Schema({
     },
   },
 
-  contentCreationTools: [String],
 });
 
 module.exports = mongoose.model("Portfolio", portfolioSchema);
