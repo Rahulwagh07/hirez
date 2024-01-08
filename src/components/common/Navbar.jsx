@@ -41,9 +41,9 @@ function Navbar() {
                 <div className='flex lg:hidden gap-4 items-center justify-center mt-2'>
                   {
                     token === null ? (
-                    <div className="cursor-pointer  text-blue-150" onClick={toggleDropdown}>
-                      {showDropdown ? (<RxCross1 size={24} color='#333'/>) : (<IoReorderThree size={32}/>)}
-                    </div>
+                      <div className="cursor-pointer  text-blue-150" onClick={toggleDropdown}>
+                        <IoReorderThree size={32} className={`${showDropdown ? "hidden" : "flex"}`}/>
+                      </div>
                     ): (<ProfileDropdown/>) 
                   }
                     <Theme/>
@@ -53,6 +53,10 @@ function Navbar() {
             {
               showDropdown && (
                 <div  ref={dropdownRef} className='absolute rounded-lg dark:bg-slate-800 section_bg right-0 top-12 shadow-lg py-6 px-12 '>
+                <div className="absolute top-[-37px] right-[45px]">
+                  <RxCross1 size={24} color='#333' onClick={() => setShowDropdown(false)}/>
+                </div>
+
                 {
                 (isHomeRoute || token === null) && 
                 <div className='flex flex-col items-center'>

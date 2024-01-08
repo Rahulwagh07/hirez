@@ -42,16 +42,16 @@ function CircleAnimation() {
             {/* Inner Circle */}
         <div className='circle_animation2 relative grid h-60 w-60 place-content-center rounded-full bg-blue-150 sm:h-72 sm:w-72 p-12'>
             <div className='h-32 w-32 rounded-full bg-[#fff] sm:h-40 sm:w-40'>
-                <div className='crotate2 absolute h-16 w-16 top-[34px] left-[110px]'>
+                <div className='crotate2 absolute h-16 w-16 top-[34px] left-[110px] sm:top-[34px] sm:left-[90px]'>
                     <MdOutlineFacebook className='icon_style bg-purple-100 rounded-full'/></div>
 
-                <div className='crotate2 absolute h-16 w-16 top-[140px] left-[60px]'>
+                <div className='crotate2 absolute h-16 w-16 top-[140px] left-[60px] sm:top-[130px] sm:left-[38px]'>
                     <FaLinkedin className='icon_style text-blue-500 rounded-md'/></div>
 
-                <div className='crotate2  absolute h-16 w-16 top-[120px] left-[141px]'>
+                <div className='crotate2  absolute h-16 w-16 top-[120px] left-[141px] sm:top-[180px] sm:left-[135px]'>
                     <FaYoutube className='icon_style text-red-500'/></div>
 
-                <div className='crotate absolute h-16 w-16 top-[54px] left-[34px]'>
+                <div className='crotate absolute h-16 w-16 top-[54px] left-[34px] sm:top-[90px] sm:left-[185px]'>
                     <GrInstagram className='icon_style text-red-500'/></div>
             </div>
         </div>
