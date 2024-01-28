@@ -1,6 +1,8 @@
 import React from 'react';
 import { FaAnglesDown } from "react-icons/fa6";
 import { Link as ScrollLink } from 'react-scroll';
+import { LiaScrollSolid } from "react-icons/lia";
+import { IoIosArrowRoundDown } from "react-icons/io";
 
  
 function ScrollButton() {
@@ -16,7 +18,9 @@ function ScrollButton() {
         activeClass="active"
         className="mb-2"
       >
-        <FaAnglesDown className='font-bold text-xl'/>
+        <LiaScrollSolid size={24} className='text-blue-150 font-semibold'/>  
+        <span className='text-pure-greys-400 font-semibold text-sm'>Scroll Down</span>
+        <IoIosArrowRoundDown className='text-blue-150 text-xl font-semibold ml-0'/>
       </ScrollLink>
     </div>
   );
