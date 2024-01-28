@@ -16,9 +16,8 @@ function ScrollButton() {
         spy={true}
         exact="true"
         activeClass="active"
-        className="mb-2"
+        className="flex"
       >
-        <LiaScrollSolid size={24} className='text-blue-150 font-semibold'/>  
         <span className='text-pure-greys-400 font-semibold text-sm'>Scroll Down</span>
         <IoIosArrowRoundDown className='text-blue-150 text-xl font-semibold ml-0'/>
       </ScrollLink>
