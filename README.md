@@ -2,19 +2,20 @@
     <h1>HireZ: An Hiring Platform</h1>
     <p> HireZ is a fully functional web application that enables users to post and find jobs, review profiles of jobseekers. The application is built using the MERN stack, which includes ReactJS, NodeJS, MongoDB, and ExpressJS. HireZ aims to provide a streamlined platform for connecting job seekers with employers.</p>
     <h2>
-        <a href="https://rahulwagh.vercel.app">See live</a>
+        <a href="https://hirez.vercel.app">https://hirez.vercel.app</a>
     </h2>
 
 <div align="center">
-  <a href="https://rahulwagh.vercel.app">
+  <a href="https://hirez.vercel.app">
     <img alt="webcapture" src="/src/assets/webcapture.png" />
   </a>
 </div>
 </div>
 
 
-Project Description
-In the following sections, we will cover the technical details of the project, including:
+## Project Details:
+
+In the following sections, we will cover basic technical details of the project:
  
 
 ### Frontend
@@ -30,6 +31,7 @@ The front  is built using ReactJS, a popular JavaScript library for building use
 ## Frameworks, Libraries, and Tools Used for frontend:
  
 - ⚡️ReactJS
+- ⚡️Redux Toolkit
 - ⚡️Axios for HTTP requests
 - ⚡️React Router for client-side routing
 
@@ -68,35 +70,36 @@ To set up the HireZ project locally, follow these steps:
 
 Clone the Repository:
 
-git clone https://github.com/Rahulwagh07/HireZ.git
+`git clone https://github.com/Rahulwagh07/HireZ.git`
 
 Navigate to the Project Directory:
 
-npm install
+`npm install`
 
 Install Dependencies for the Server:
 
-cd server
-npm install
+`cd server`
+
+`npm install`
 
 
- 
+## Setting Up Environment Variables:
 
-Create .env Files: (see .env.example file )
+Refer to `.env.example` for the required variables
 
-Create a .env file in the server directory for server-related configurations.
-Create a .env file in the main project  directory for client-related configurations.
+Create a `.env` file in the server directory for server-related configurations.
 
-## Set Up MongoDB:
+Create a `.env` file in the main project directory for client-related configurations.
 
-Ensure you have MongoDB installed and running.
- 
-## start 
-npm run dev
+### Start the Application
+
+To start the application, run the following command in the project directory:
+
+`npm run dev`
 
 Open your Browser:
-Navigate to http://localhost:3000 to view the application.
 
- 
+Navigate to http://localhost:3000 to view the application is running.
 
-In summary, HireZ is designed to provide an intuitive and efficient platform for Top talent in content creation  and content creators to connect, facilitating the hiring process.
+
+ In short HireZ is cool place where really talented folks who can help  content creators  can meet up with the creators who need their skills. It's all about making it easy for them to find each other and work together smoothly.
