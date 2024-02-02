@@ -1,6 +1,6 @@
 <div align="center">
     <h1>HireZ: An Hiring Platform</h1>
-    <p> HireZ is a fully functional web application that enables users to post and find jobs, review profiles of jobseekers. The application is built using the MERN stack, which includes ReactJS, NodeJS, MongoDB, and ExpressJS. HireZ aims to provide a streamlined platform for connecting job seekers with employers.</p>
+    <p> HireZ is a fully functional web application that enables users to post and find jobs, review portfolio of jobseekers and much more... The application is built using the MERN stack, which includes ReactJS, NodeJS, MongoDB, and ExpressJS. HireZ aims to provide a streamlined platform for connecting job seekers with employers.</p>
     <h2>
         <a href="https://hirez.vercel.app">https://hirez.vercel.app</a>
     </h2>
@@ -13,7 +13,7 @@
 </div>
 
 
-## Project Details:
+## Project Detail:
 
 In the following sections, we will cover basic technical details of the project:
  
