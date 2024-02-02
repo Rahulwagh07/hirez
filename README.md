@@ -56,27 +56,27 @@ The back end  is built using NodeJS and ExpressJS, providing scalable and robust
 - ⚡️Mongoose for MongoDB object modeling
 
 ### Database
-The MongoDb database is used, a NoSQL database that offers flexibility and scalability for data storage.
+-  The MongoDb database is used, a NoSQL database that offers flexibility and scalability for data storage.
 
 ### System Architecture
-The project consists of three main components: the front end, the back end, and the database. It follows a client-server architecture, with the front end serving as the client and the back end and database serving as the server.
+- The project consists of three main components: the front end, the back end, and the database. It follows a client-server architecture, with the front end serving as the client and the back end and database serving as the server.
 
 ### API Design
-The HireZ platform's API follows the REST architectural style and is implemented using Node.js and Express.js. It uses JSON for data exchange and adheres to standard HTTP request methods such as GET, POST, PUT, and DELETE.
+- The HireZ platform's API follows the REST architectural style and is implemented using Node.js and Express.js. It uses JSON for data exchange and adheres to standard HTTP request methods such as GET, POST, PUT, and DELETE.
 
 
 ### Setting Up the Project
-To set up the HireZ project locally, follow these steps:
+- To set up the HireZ project locally, follow these steps:
 
-Clone the Repository:
+- Clone the Repository:
 
 `git clone https://github.com/Rahulwagh07/HireZ.git`
 
-Navigate to the Project Directory:
+- Navigate to the Project Directory:
 
 `npm install`
 
-Install Dependencies for the Server:
+- Install Dependencies for the Server:
 
 `cd server`
 
