@@ -85,19 +85,19 @@ Install Dependencies for the Server:
 
 ## Setting Up Environment Variables:
 
-Refer to `.env.example` for the required variables
+- Refer to `.env.example` for the required variables
 
-Create a `.env` file in the server directory for server-related configurations.
+- Create a `.env` file in the server directory for server-related configurations.
 
-Create a `.env` file in the main project directory for client-related configurations.
+- Create a `.env` file in the main project directory for client-related configurations.
 
 ### Start the Application
 
-To start the application, run the following command in the project directory:
+- To start the application, run the following command in the project directory:
 
 `npm run dev`
 
-Open your Browser:
+- Open your Browser:
 
 Navigate to http://localhost:3000 to view the application is running.
 
