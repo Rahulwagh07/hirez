@@ -53,7 +53,7 @@ function VerifyEmail() {
           <div className="spinner"></div>
         </div>
       ) : (
-        <div className="max-w-[500px] sm:px-12  p-16 shadow-lg dark:bg-slate-800 sm:border-t border-sky-500">
+        <div className="max-w-[500px] rounded-lg sm:px-12  p-16 shadow-lg dark:bg-slate-800 sm:border-t border-sky-500">
           <h1 className="text-black font-semibold text-[1.875rem] leading-[2.375rem]">
             Verify Email
           </h1>

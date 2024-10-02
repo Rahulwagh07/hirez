@@ -11,7 +11,7 @@ function HeroSection() {
         <div className='flex flex-col gap-10'>
             <h2 className='lg:text-5xl md:text-4xl sm:text-3xl font-bold text-blue-150'>Find the best 
             <span className='bg-gradient-to-b from-[#1FA2FF] via-[#12D8FA] to-[#38b6ff] text-transparent bg-clip-text'> Talent </span>for your content creation</h2>
-            <p className=' text-pure-greys-300 dark:text-slate-400 text-xl sm:text-lg'>Hire the skilled video editors, scripts writeres, thumbnail designers, and more.
+            <p className=' text-pure-greys-300 dark:text-slate-500 text-xl sm:text-lg'>Hire the skilled video editors, scripts writeres, thumbnail designers, and more.
             Post a job or search for a talented professionals on HireZ</p>
             <div className='flex gap-8'>
                 <CTAButton active={true} linkto={"/login"}>

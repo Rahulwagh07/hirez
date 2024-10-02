@@ -5,12 +5,11 @@ const jwt = require("jsonwebtoken");
 const otpGenerator = require("otp-generator");
 const mailSender = require("../utils/mailSender");
 const { passwordUpdated } = require("../mail/templates/passwordUpdate");
+const { otpTemplate } = require("../mail/templates/emailVerificationTemplate")
 const Profile = require("../models/Profile");
 require("dotenv").config();
 
- 
- 
- 
+
 exports.signup = async (req, res) => {
 	try {
 		// Destructure fields from the request body
@@ -281,8 +280,7 @@ exports.sendotp = async (req, res) => {
 		// Check if user is already present
 		// Find user with provided email
 		const checkUserPresent = await User.findOne({ email });
-		// to be used in case of signup
-
+	
 		// If user found with provided email
 		if (checkUserPresent) {
 			// Return 401 Unauthorized status code with error message
@@ -305,6 +303,22 @@ exports.sendotp = async (req, res) => {
 		}
 		const otpPayload = { email, otp };
 		const otpBody = await OTP.create(otpPayload);
+
+    // Send verification email
+	  try {
+      const emailResponse = await mailSender(
+        email,
+        "OTP for verification",
+        otpTemplate(otp)
+      )
+      } catch (error) {
+      console.error("Error sending email otp verification email:", error)
+      return res.status(500).json({
+        success: false,
+        message: "Error occurred while sending otp verification email",
+        error: error.message,
+      })
+      }
 		res.status(200).json({
 			success: true,
 			message: `OTP Sent Successfully`,

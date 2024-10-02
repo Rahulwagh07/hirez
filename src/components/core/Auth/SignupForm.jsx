@@ -81,10 +81,10 @@ function SignupForm() {
     ]
 
   return (
-    <div className='lg:w-[500px] flex flex-col items-center justify-center text-black'>
+    <div className='flex flex-col items-center justify-center text-black'>
         <Tab tabData={tabData} field={accountType} setField={setAccountType}/>
 
-        <form onSubmit={handleOnSubmit} className="flex w-full flex-col items-center justify-center gap-4 lg:w-[380px]">
+        <form onSubmit={handleOnSubmit} className="flex w-full flex-col items-center justify-center gap-4  ">
         <div className="flex sm:flex-col items-center justify-center gap-4">
           <label>
             <p className="mb-1">
@@ -126,7 +126,7 @@ function SignupForm() {
             value={email}
             onChange={handleOnChange}
             placeholder="Enter email address"
-            className="lg:w-[400px] md:w-full  sm:h-[42px] sm:items-center lg:ml-[-10px]  sm:w-[260px] h-[50px] rounded-md  border border-sky-500 focus:outline-none dark:bg-slate-700 pl-2"
+            className=" w-full md:w-full  sm:h-[42px] sm:items-center sm:w-[260px] h-[50px] rounded-md  border border-sky-500 focus:outline-none dark:bg-slate-700 pl-2"
           />
         </label>
         <div className="flex gap-x-4 sm:flex-col sm:gap-2">

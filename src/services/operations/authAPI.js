@@ -18,7 +18,7 @@ const {
   
 export function sendOtp(email, navigate) {
     return async (dispatch) => {
-      const toastId = toast.loading("Loading...")
+      const toastId = toast.loading("Sending OTP")
       dispatch(setLoading(true))
       try {
         const response = await apiConnector("POST", SENDOTP_API, {
@@ -51,7 +51,6 @@ export function sendOtp(email, navigate) {
     navigate
   ) {
     return async (dispatch) => {
-      const toastId = toast.loading("Loading...")
       dispatch(setLoading(true))
       try {
         const response = await apiConnector("POST", SIGNUP_API, {
@@ -74,13 +73,11 @@ export function sendOtp(email, navigate) {
         navigate("/signup")
       }
       dispatch(setLoading(false))
-      toast.dismiss(toastId)
     }
   }
 
   export function googleSignUp(accountType, firstName, lastName, email, navigate) {
     return async (dispatch) => {
-      const toastId = toast.loading('Loading...');
       dispatch(setLoading(true));
       try {
         const response = await apiConnector('POST', GOOGLE_SIGNUP_API, {
@@ -102,7 +99,6 @@ export function sendOtp(email, navigate) {
         navigate('/signup');
       }
       dispatch(setLoading(false));
-      toast.dismiss(toastId);
     };
   }
 
@@ -110,7 +106,6 @@ export function sendOtp(email, navigate) {
 
   export function login(email, password, navigate) {
     return async (dispatch) => {
-      const toastId = toast.loading("Loading...")
       dispatch(setLoading(true))
       try {
         const response = await apiConnector("POST", LOGIN_API, {
@@ -134,13 +129,11 @@ export function sendOtp(email, navigate) {
         toast.error("Login Failed")
       }
       dispatch(setLoading(false))
-      toast.dismiss(toastId)
     }
   }
 
   export function googleLogin(email, navigate) {
     return async (dispatch) => {
-      const toastId = toast.loading("Loading...")
       dispatch(setLoading(true))
       try {
         const response = await apiConnector("POST", GOOGLE_LOGIN_API, {
@@ -163,7 +156,6 @@ export function sendOtp(email, navigate) {
         toast.error("Login Failed")
       }
       dispatch(setLoading(false))
-      toast.dismiss(toastId)
     }
   }
 

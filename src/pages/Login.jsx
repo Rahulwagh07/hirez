@@ -25,7 +25,7 @@ function Login() {
                 <>
                 {
         !showLoginTemplate && 
-            <div className=' shadow-lg  dark:bg-slate-800 flex flex-col justify-center items-center p-16'>
+            <div className=' shadow-lg  dark:bg-slate-800 rounded-lg flex flex-col justify-center items-center p-16'>
                 <h3 className='text-lg font-semibold mb-4 flex flex-start'>Log in to HireZ</h3>
 
                 {/* Google Login */}
@@ -46,8 +46,9 @@ function Login() {
 
                 {/* Don't have an account? Sign up text */}
                 <div className='text-center'>
+                    Don't have an account?
                     <Link to="/signup">
-                        Don't have an account? <span className='font-semibold cursor-pointer hover:text-blue-150'>Sign up</span>
+                      <span className=' ml-1 font-semibold cursor-pointer dark:text-blue-150 hover:text-blue-150'>Sign up</span>
                     </Link>
                 </div>
             </div>

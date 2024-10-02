@@ -32,7 +32,7 @@ const icons = {
          {Icon && <Icon/>}
        </div>
        <h3 className="text-lg font-bold mb-2">{title}</h3>
-       <p className="text-pure-greys-500 text-base font-semibold text-opacity-80">{description}</p>
+       <p className="text-pure-greys-500  dark:text-slate-500 text-base font-semibold text-opacity-80">{description}</p>
      </div>
    );
  };

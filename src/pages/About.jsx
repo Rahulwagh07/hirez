@@ -14,7 +14,7 @@ const About = () => {
               <h1 className="bg-gradient-to-br from-[#833AB4] via-[#FD1D1D] to-[#FCB045] bg-clip-text text-4xl font-semibold text-transparent lg:w-[70%] ">
                 Our Founding Story
               </h1>
-              <p className="text-base font-medium text-richblack-300 dark:text-slate-400 lg:w-[95%]">
+              <p className="text-base font-medium text-richblack-300 dark:text-slate-500 lg:w-[95%]">
               HireZ was born out of a common struggle: finding the perfect team 
               of video editors, scriptwriters, and thumbnail designers. Just imagine a group
               YouTubers, tech enthusiasts, and creative minds discussing the hassle of scouting 
@@ -25,7 +25,7 @@ const About = () => {
               designers and more.  
 
                </p>
-              <p className="text-base font-medium text-richblack-300 dark:text-slate-400 lg:w-[95%]">
+              <p className="text-base font-medium text-richblack-300 dark:text-slate-500 lg:w-[95%]">
                 Think of it like a tailored matchmaking service for your YouTube projects. 
                 Our mission is to be the go-to hub where creators find the precise talents they need, 
                 ensuring every video is a masterpiece. It's like having a dedicated team for your YouTube channel, 

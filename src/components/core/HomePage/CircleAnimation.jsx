@@ -14,7 +14,7 @@ function CircleAnimation() {
     <div className='flex flex-col  justify-center gap-6'>
         <h2 className='font-bold text-2xl text-blue-150'>Job Opportunity</h2>
         <h3 className='text-5xl sm:text-3xl font-bold'>Unlock your potential</h3>
-        <p className='font-semibold text-pure-greys-400 text-xl'>Get Offers from Top Content Creators <br/>Across Different Platforms</p>
+        <p className='font-semibold text-pure-greys-400 dark:text-slate-500 text-xl'>Get Offers from Top Content Creators <br/>Across Different Platforms</p>
     </div>
     {/* main div */}
     <div className='relative flex items-center justify-center'>
